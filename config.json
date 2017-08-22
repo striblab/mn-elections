@@ -1,0 +1,45 @@
+{
+  "about this file": "This document defines configuration for this project that is not content or copy.",
+  "projectIdentifier": "mn-elections",
+
+
+  "social": {
+    "image": "assets/images/strib/strib-logo-name-social-card.png"
+  },
+  "styles": {
+    "globals": [
+      "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    ]
+  },
+  "js": {
+    "globals": [
+      "https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.2/pym.v1.min.js",
+      "https://cdn.polyfill.io/v2/polyfill.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"
+    ]
+  },
+
+  "content": {
+
+  },
+  "publish": {
+
+    "default": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects-staging/all/mn-elections/",
+      "url": "http://static.startribune.com/news/projects-staging/all/mn-elections/index.html"
+    },
+    "testing": {
+      "bucket": "stribtest-bucket",
+      "path": "news/projects/mn-elections/",
+      "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/mn-elections/index.html"
+    },
+
+    "production": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects/all/mn-elections/",
+      "url": "http://static.startribune.com/news/projects/all/mn-elections/index.html"
+    }
+  }
+}

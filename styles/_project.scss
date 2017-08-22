@@ -1,0 +1,50 @@
+/**
+ * Project specific styling.
+ */
+
+header.project-header {
+  padding: 1em 1em 0;
+  margin-bottom: 1em;
+}
+
+main {
+  padding: 1em 1em 0;
+  margin-bottom: 1em;
+}
+
+footer {
+  font-size: 0.85em;
+  padding: 3rem 1rem 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dashboard {
+  .updated {
+    font-size: 0.85em;
+    color: #676767;
+  }
+}
+
+.contest {
+  margin-bottom: 2em;
+
+  h3 {
+    margin-bottom: 0.25em;
+  }
+
+  .reporting {
+    font-size: 0.85em;
+    color: #676767;
+    margin: 0 0 0.25rem;
+  }
+
+  table {
+    thead th:nth-child(1) {
+      width: 5%;
+    }
+    thead th:nth-child(2) {
+      width: 33.333%;
+    }
+  }
+}

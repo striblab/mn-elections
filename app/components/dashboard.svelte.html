@@ -1,0 +1,42 @@
+
+<div class="dashboard">
+  {{#if !dataLoaded}}
+    <strong>Loading...</strong>
+  {{else}}
+    <p class="updated">Last updated {{ updatedMoment.fromNow() }}.</p>
+
+    <Contest data="{{ contests['20131105-local-43000-2001'] }}" simple="true" />
+
+    <Contest data="{{ contests['20131105-local-40382-1001'] }}" simple="true" />
+
+    <Contest data="{{ contests['20131105-local-58000-2001'] }}" simple="true" />
+
+    <Contest data="{{ contests['20131105-local-43000-2171'] }}" simple="true" />
+  {{/if}}
+</div>
+
+<script>
+  import Contest from './contest.svelte.html';
+
+  export default {
+    components: {
+      Contest
+    },
+
+    computed: {
+      dataLoaded: (contests, updated) => {
+        return !_.isEmpty(contests) && updated;
+      },
+      updatedMoment(updated, updatedMoment) {
+        return updatedMoment && updatedMoment.unix() === updated ? updatedMoment :
+          updated ? moment.unix(updated) : undefined;
+      }
+    },
+
+    data: () => {
+      return {
+        dataLoaded: false
+      };
+    }
+  }
+</script>

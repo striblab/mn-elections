@@ -1,0 +1,58 @@
+<div class="contest">
+  <h3>{{ data.name }}{{#if data.area }}&nbsp;of {{ data.area }}{{/if}}</h3>
+
+  <p class="reporting">
+    Reporting {{ data.precincts }} of {{ data.totalPrecincts }} precincts.
+    {{#if data.called}}Called by the Star Tribune.{{/if}}
+  </p>
+
+  <table>
+    <thead>
+      <th><span class="sr-only">Winner</span></th>
+      <th>Candidate</th>
+      {{#if !data.nonpartisan}}
+        <th>Party</th>
+      {{/if}}
+      <th>Votes</th>
+      <th>Percent</th>
+    </thead>
+
+    <tbody>
+      {{#each data.candidates as candidate, ci }}
+        {{#if (simple && ci < 3) || !simple}}
+          <tr>
+            <td>{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
+            <td>{{ candidateName(candidate) }}</td>
+            {{#if !data.nonpartisan}}
+              <td>{{ candidate.party }}</td>
+            {{/if}}
+            <td>{{ formatVotes(candidate.votes) }}</td>
+            <td>{{ formatPercent(candidate.percent) }}</td>
+          </tr>
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  export default {
+    helpers: {
+      candidateName: (c) => {
+        return c.displayName ? c.displayName :
+          c.writeIn ? 'Write-in' :
+          _.filter([c.title, c.prefix, c.first, c.middle,
+            c.nick ? '"' + c.nick + '"' : null,
+            c.last, c.suffix]).join(' ');
+      },
+
+      formatPercent(percent) {
+        return percent ? percent + '%' : '';
+      },
+
+      formatVotes(votes) {
+        return votes ? votes.toLocaleString() : '';
+      }
+    }
+  }
+</script>

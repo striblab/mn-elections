@@ -19,6 +19,8 @@
     "node": ">=6.9"
   },
   "dependencies": {
+    "fuse.js": "^3.0.5",
+    "navigo": "^5.3.1",
     "query-string": "^4.3.2",
     "whatwg-fetch": "^2.0.3"
   },

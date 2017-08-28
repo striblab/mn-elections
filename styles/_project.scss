@@ -26,6 +26,69 @@ footer {
   }
 }
 
+.search {
+  background-color: #F1F1F1;
+  padding: 1em;
+
+  .suggestive-input {
+    position: relative;
+    display: inline-block;
+    width: 75%;
+
+    .suggestions {
+      position: absolute;
+      background-color: #FFFFFF;
+      border: 1px solid #777777;
+      width: 100%;
+      overflow-y: auto;
+      max-height: 10em;
+
+      .suggestion {
+        font-size: 0.85em;
+        padding: 0.15em 0.25em;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #F1F1F1;
+        }
+      }
+    }
+  }
+
+  input[type=search] {
+    border: 1px solid #777777;
+    padding: 0.5em 1em;
+    background-color: #FFFFFF;
+    color: $color-text;
+    width: 100%;
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+  }
+
+  button {
+    border: 1px solid #777777;
+    padding: 0.5em 1em;
+    background-color: $color-strib-green-bg;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color-strib-green-bg, 10);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: default;
+      background-color: inherit;
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+}
+
 .contest {
   margin-bottom: 2em;
 
@@ -43,6 +106,7 @@ footer {
     thead th:nth-child(1) {
       width: 5%;
     }
+
     thead th:nth-child(2) {
       width: 33.333%;
     }

@@ -1,0 +1,108 @@
+<div class="search">
+  <form class="search-form">
+    <label for="contest-search" class="sr-only">Search contests</label>
+
+    <div class="suggestive-input">
+      <input id="contest-search" type="search" placeholder="Search contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
+      {{#if suggestions && suggestions.length }}
+        <div class="suggestions">
+          {{#each suggestions as s @id }}
+            <div class="suggestion">
+              <a href="#!contest/{{ s.id }}">{{ s.name }} ({{ s.area }})</a>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+
+    <button type="submit" disabled="{{ !searchLoaded }}"><i class="fa fa-search"></i><span class="sr-only">Submit search</span></button>
+  </form>
+</div>
+
+<script>
+  /* global _ */
+  import Fuse from 'fuse.js';
+
+  // Default fuse search options
+  let defaultSearchOptions = {
+    tokenize: true,
+    shouldSort: true,
+    includeScore: true,
+    threshold: 0.5,
+    location: 0,
+    distance: 128,
+    maxPatternLength: 128,
+    minMatchCharLength: 3,
+    keys: ['full']
+  };
+
+  export default {
+    oncreate: function() {
+      // Proxy if used within another component
+      this.observe('data', (d) => {
+        if (_.isPlainObject(d)) {
+          this.set(d);
+        }
+      });
+
+      // When search data comes in
+      this.observe('searchData', (d) => {
+        this.createSearch();
+
+        // Set as loaded
+        this.set({ searchLoaded: !!d });
+      });
+
+      // Watch for input updates
+      this.observe('searchQuery', (d) => {
+        if (d && d.length && d.length >= defaultSearchOptions.minMatchCharLength) {
+          let r = this.search(d);
+          this.set({ suggestions: r });
+        }
+
+        // svelt outputs undefined as undefined string
+        if (!d) {
+          this.set({ searchQuery: '' });
+        }
+      });
+    },
+
+    methods: {
+      // Create query
+      createSearch: function() {
+        let q = this.query;
+        let d = this.get('searchData');
+
+        if (!q && _.isArray(d) && d.length) {
+          this.query = new Fuse(_.map(d, (i) => {
+            i.full = i.name + ' ' + i.area;
+            return i;
+          }), defaultSearchOptions);
+        }
+      },
+
+      // Run search
+      search: function(input) {
+        if (!input || !this.query) {
+          return [];
+        }
+
+        // Do Fuse search
+        let results = this.query.search(input);
+
+        // Sort and
+        return _.take(_.sortBy(_.map(results, (r) => {
+          r.item.score = r.score;
+          return r.item;
+        }), ['score', 'area', 'name']), 10);
+      }
+    },
+
+    data: () => {
+      return {
+        searchLoaded: true,
+        searchQuery: ''
+      };
+    }
+  }
+</script>

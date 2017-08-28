@@ -3,6 +3,8 @@
   {{#if !dataLoaded}}
     <strong>Loading...</strong>
   {{else}}
+    <Search searchData="{{ searchData }}" />
+
     <p class="updated">Last updated {{ updatedMoment.fromNow() }}.</p>
 
     <Contest data="{{ contests['20131105-local-43000-2001'] }}" simple="true" />
@@ -16,11 +18,23 @@
 </div>
 
 <script>
+  import Search from './search.svelte.html';
   import Contest from './contest.svelte.html';
 
   export default {
     components: {
-      Contest
+      Contest,
+      Search
+    },
+
+    oncreate: function() {
+      // Allow data to set all propeties, since we can't set
+      // all from the markup of a component
+      this.observe('data', (d) => {
+        if (_.isPlainObject(d)) {
+          this.set(d);
+        }
+      });
     },
 
     computed: {

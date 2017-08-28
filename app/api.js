@@ -8,7 +8,7 @@
 import fetch from 'whatwg-fetch';
 
 // Top level config
-let apiBase = 'https://s3.amazonaws.com/stribtest-bucket/test-elections';
+let apiBase = 'https://s3.amazonaws.com/stribtest-bucket/test-elections-nutt';
 let electionID = '20131105';
 
 // Main function

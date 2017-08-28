@@ -1,16 +1,16 @@
 <div class="contest">
-  <h3>{{ data.name }}{{#if data.area }}&nbsp;of {{ data.area }}{{/if}}</h3>
+  <h3><a href="#!contest/{{ id }}">{{ name }}{{#if area }}&nbsp;of {{ area }}{{/if}}</a></h3>
 
   <p class="reporting">
-    Reporting {{ data.precincts }} of {{ data.totalPrecincts }} precincts.
-    {{#if data.called}}Called by the Star Tribune.{{/if}}
+    Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
+    {{#if called}}Called by the Star Tribune.{{/if}}
   </p>
 
   <table>
     <thead>
       <th><span class="sr-only">Winner</span></th>
       <th>Candidate</th>
-      {{#if !data.nonpartisan}}
+      {{#if !nonpartisan}}
         <th>Party</th>
       {{/if}}
       <th>Votes</th>
@@ -18,25 +18,56 @@
     </thead>
 
     <tbody>
-      {{#each data.candidates as candidate, ci }}
-        {{#if (simple && ci < 3) || !simple}}
-          <tr>
-            <td>{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
-            <td>{{ candidateName(candidate) }}</td>
-            {{#if !data.nonpartisan}}
-              <td>{{ candidate.party }}</td>
-            {{/if}}
-            <td>{{ formatVotes(candidate.votes) }}</td>
-            <td>{{ formatPercent(candidate.percent) }}</td>
-          </tr>
-        {{/if}}
-      {{/each}}
+      {{#if candidates }}
+        {{#each candidates as candidate, ci }}
+          {{#if (simple && ci < 3) || !simple}}
+            <tr>
+              <td>{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
+              <td>{{ candidateName(candidate) }}</td>
+              {{#if !nonpartisan}}
+                <td>{{ candidate.party }}</td>
+              {{/if}}
+              <td>{{ formatVotes(candidate.votes) }}</td>
+              <td>{{ formatPercent(candidate.percent) }}</td>
+            </tr>
+          {{/if}}
+        {{/each}}
+      {{/if}}
     </tbody>
   </table>
 </div>
 
 <script>
+  import api from '../api.js';
+
   export default {
+    oncreate: function() {
+      // Allow data to set all propeties, since we can't set
+      // all from the markup of a component
+      this.observe('data', (d) => {
+        if (_.isPlainObject(d)) {
+          this.set(d);
+        }
+      });
+
+      // Look at ID, and see if we should load data
+      this.observe('id', (d) => {
+        if (d && !this.get('updated')) {
+          this.loadData(d);
+        }
+      });
+    },
+
+    methods: {
+      loadData: function(id) {
+        api('results', 'contests/' + id || this.get('id')).then((contest) => {
+          this.set(contest);
+        }).catch((e) => {
+          console.error(e);
+        });
+      }
+    },
+
     helpers: {
       candidateName: (c) => {
         return c.displayName ? c.displayName :

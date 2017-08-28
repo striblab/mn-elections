@@ -1,0 +1,29 @@
+
+<div class="dashboard">
+  {{#if page === 'contest'}}
+    <Contest id="{{ contestID }}" />
+  {{else}}
+    <Dashboard contests="{{ dashboardContests }}" data="{{ election }}" searchData="{{ searchData }}" />
+  {{/if}}
+</div>
+
+<script>
+  import Dashboard from './dashboard.svelte.html';
+  import Contest from './contest.svelte.html';
+
+  export default {
+    components: {
+      Contest,
+      Dashboard
+    },
+
+    oncreate: function() {
+      // Proxy if used within another component
+      this.observe('data', (d) => {
+        if (_.isPlainObject(d)) {
+          this.set(d);
+        }
+      });
+    }
+  }
+</script>

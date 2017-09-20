@@ -9,25 +9,25 @@ import fetch from 'whatwg-fetch';
 
 // Top level config
 let apiBase = 'https://s3.amazonaws.com/stribtest-bucket/test-elections-nutt';
-let electionID = '20131105';
+let electionID = '20171107';
 
 // Main function
 function api(type, set) {
   let url = [apiBase, electionID, type, set + '.json'].join('/');
 
   return new Promise((resolve, reject) => {
-    window.fetch(url)
-      .then((response) => {
+    window
+      .fetch(url)
+      .then(response => {
         if (response.status < 300) {
           return response;
-        }
-        else {
+        } else {
           var error = new Error(response.statusText);
           error.response = response;
           reject(error);
         }
       })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
       .then(resolve)

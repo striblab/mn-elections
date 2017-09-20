@@ -7,50 +7,45 @@
 
     <p class="updated">Last updated {{ updatedMoment.fromNow() }}.</p>
 
-    <Contest data="{{ contests['20131105-local-43000-2001'] }}" simple="true" />
-
-    <Contest data="{{ contests['20131105-local-40382-1001'] }}" simple="true" />
-
-    <Contest data="{{ contests['20131105-local-58000-2001'] }}" simple="true" />
-
-    <Contest data="{{ contests['20131105-local-43000-2171'] }}" simple="true" />
+    <Contest data="{{ contests['20171107-local-43000-2001'] }}" simple="true" />
   {{/if}}
 </div>
 
 <script>
-  import Search from './search.svelte.html';
-  import Contest from './contest.svelte.html';
+import Search from './search.svelte.html';
+import Contest from './contest.svelte.html';
 
-  export default {
-    components: {
-      Contest,
-      Search
-    },
+export default {
+  components: {
+    Contest,
+    Search
+  },
 
-    oncreate: function() {
-      // Allow data to set all propeties, since we can't set
-      // all from the markup of a component
-      this.observe('data', (d) => {
-        if (_.isPlainObject(d)) {
-          this.set(d);
-        }
-      });
-    },
-
-    computed: {
-      dataLoaded: (contests, updated) => {
-        return !_.isEmpty(contests) && updated;
-      },
-      updatedMoment(updated, updatedMoment) {
-        return updatedMoment && updatedMoment.unix() === updated ? updatedMoment :
-          updated ? moment.unix(updated) : undefined;
+  oncreate: function() {
+    // Allow data to set all propeties, since we can't set
+    // all from the markup of a component
+    this.observe('data', d => {
+      if (_.isPlainObject(d)) {
+        this.set(d);
       }
-    },
+    });
+  },
 
-    data: () => {
-      return {
-        dataLoaded: false
-      };
+  computed: {
+    dataLoaded: (contests, updated) => {
+      return !_.isEmpty(contests) && updated;
+    },
+    updatedMoment(updated, updatedMoment) {
+      return updatedMoment && updatedMoment.unix() === updated
+        ? updatedMoment
+        : updated ? moment.unix(updated) : undefined;
     }
+  },
+
+  data: () => {
+    return {
+      dataLoaded: false
+    };
   }
+};
 </script>

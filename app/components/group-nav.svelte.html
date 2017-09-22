@@ -1,0 +1,22 @@
+
+<nav class="group-nav">
+  <ul>
+    <li><a href="#!/">Dashboard</a></li>
+    <li><a href="#!set/areas/minneapolis">Minneapolis</a></li>
+    <li><a href="#!set/areas/st-paul">St. Paul</a></li>
+  </ul>
+</nav>
+
+<script>
+export default {
+  oncreate: function() {
+    // Allow data to set all propeties, since we can't set
+    // all from the markup of a component
+    this.observe('data', d => {
+      if (_.isPlainObject(d)) {
+        this.set(d);
+      }
+    });
+  }
+};
+</script>

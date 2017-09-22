@@ -1,0 +1,49 @@
+
+<div class="set">
+  <h2>{{ title }} contests</h2>
+
+  {{#if contests }}
+    {{#each contests as contest, ci }}
+      <Contest data="{{ contest }}" />
+    {{/each}}
+  {{/if}}
+</div>
+
+<script>
+import api from '../api.js';
+import Contest from './contest.svelte.html';
+
+export default {
+  components: {
+    Contest
+  },
+
+  oncreate: function() {
+    // Proxy if used within another component
+    this.observe('data', d => {
+      if (_.isPlainObject(d)) {
+        this.set(d);
+      }
+    });
+
+    // Get data when ID changes
+    this.observe('setID', d => {
+      if (d) {
+        this.loadData(d);
+      }
+    });
+  },
+
+  methods: {
+    loadData: function(setID) {
+      api('results', setID)
+        .then(set => {
+          this.set(set);
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+};
+</script>

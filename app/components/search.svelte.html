@@ -8,7 +8,8 @@
         <div class="suggestions">
           {{#each suggestions as s @id }}
             <div class="suggestion">
-              <a href="#!contest/{{ s.id }}">{{ s.name }} ({{ s.area }})</a>
+              <a href="#!contest/{{ s.id }}">
+                {{ [s.name, s.area, s.subArea, s.seatName].filter((i) =>  i).join(' ') }}</a>
             </div>
           {{/each}}
         </div>
@@ -20,89 +21,104 @@
 </div>
 
 <script>
-  /* global _ */
-  import Fuse from 'fuse.js';
+/* global _ */
+import Fuse from 'fuse.js';
 
-  // Default fuse search options
-  let defaultSearchOptions = {
-    tokenize: true,
-    shouldSort: true,
-    includeScore: true,
-    threshold: 0.5,
-    location: 0,
-    distance: 128,
-    maxPatternLength: 128,
-    minMatchCharLength: 3,
-    keys: ['full']
-  };
+// Default fuse search options
+let defaultSearchOptions = {
+  tokenize: true,
+  shouldSort: true,
+  includeScore: true,
+  threshold: 0.5,
+  location: 0,
+  distance: 128,
+  maxPatternLength: 128,
+  minMatchCharLength: 3,
+  keys: ['full']
+};
 
-  export default {
-    oncreate: function() {
-      // Proxy if used within another component
-      this.observe('data', (d) => {
-        if (_.isPlainObject(d)) {
-          this.set(d);
-        }
-      });
+export default {
+  oncreate: function() {
+    // Proxy if used within another component
+    this.observe('data', d => {
+      if (_.isPlainObject(d)) {
+        this.set(d);
+      }
+    });
 
-      // When search data comes in
-      this.observe('searchData', (d) => {
-        this.createSearch();
+    // When search data comes in
+    this.observe('searchData', d => {
+      this.createSearch();
 
-        // Set as loaded
-        this.set({ searchLoaded: !!d });
-      });
+      // Set as loaded
+      this.set({ searchLoaded: !!d });
+    });
 
-      // Watch for input updates
-      this.observe('searchQuery', (d) => {
-        if (d && d.length && d.length >= defaultSearchOptions.minMatchCharLength) {
-          let r = this.search(d);
-          this.set({ suggestions: r });
-        }
+    // Watch for input updates
+    this.observe('searchQuery', d => {
+      if (
+        d &&
+        d.length &&
+        d.length >= defaultSearchOptions.minMatchCharLength
+      ) {
+        let r = this.search(d);
+        this.set({ suggestions: r });
+      }
 
-        // svelt outputs undefined as undefined string
-        if (!d) {
-          this.set({ searchQuery: '' });
-        }
-      });
-    },
+      // svelt outputs undefined as undefined string
+      if (!d) {
+        this.set({ searchQuery: '' });
+      }
+    });
+  },
 
-    methods: {
-      // Create query
-      createSearch: function() {
-        let q = this.query;
-        let d = this.get('searchData');
+  methods: {
+    // Create query
+    createSearch: function() {
+      let q = this.query;
+      let d = this.get('searchData');
 
-        if (!q && _.isArray(d) && d.length) {
-          this.query = new Fuse(_.map(d, (i) => {
-            i.full = i.name + ' ' + i.area;
+      if (!q && _.isArray(d) && d.length) {
+        this.query = new Fuse(
+          _.map(d, i => {
+            i.full = _.filter([i.name, i.area, i.subArea, i.seatName]).join(
+              ' '
+            );
             return i;
-          }), defaultSearchOptions);
-        }
-      },
-
-      // Run search
-      search: function(input) {
-        if (!input || !this.query) {
-          return [];
-        }
-
-        // Do Fuse search
-        let results = this.query.search(input);
-
-        // Sort and
-        return _.take(_.sortBy(_.map(results, (r) => {
-          r.item.score = r.score;
-          return r.item;
-        }), ['score', 'area', 'name']), 10);
+          }),
+          defaultSearchOptions
+        );
       }
     },
 
-    data: () => {
-      return {
-        searchLoaded: true,
-        searchQuery: ''
-      };
+    // Run search
+    search: function(input) {
+      if (!input || !this.query) {
+        return [];
+      }
+
+      // Do Fuse search
+      let results = this.query.search(input);
+
+      // Sort and
+      return _.take(
+        _.sortBy(
+          _.map(results, r => {
+            r.item.score = r.score;
+            return r.item;
+          }),
+          ['score', 'area', 'name']
+        ),
+        10
+      );
     }
+  },
+
+  data: () => {
+    return {
+      searchLoaded: true,
+      searchQuery: ''
+    };
   }
+};
 </script>

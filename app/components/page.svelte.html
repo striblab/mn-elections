@@ -1,29 +1,37 @@
 
 <div class="dashboard">
+  <GroupNav />
+
   {{#if page === 'contest'}}
     <Contest id="{{ contestID }}" />
+  {{elseif page === 'set'}}
+    <Set setID="{{ setID }}" />
   {{else}}
     <Dashboard contests="{{ dashboardContests }}" data="{{ election }}" searchData="{{ searchData }}" />
   {{/if}}
 </div>
 
 <script>
-  import Dashboard from './dashboard.svelte.html';
-  import Contest from './contest.svelte.html';
+import Dashboard from './dashboard.svelte.html';
+import Contest from './contest.svelte.html';
+import GroupNav from './group-nav.svelte.html';
+import Set from './set.svelte.html';
 
-  export default {
-    components: {
-      Contest,
-      Dashboard
-    },
+export default {
+  components: {
+    Contest,
+    Dashboard,
+    GroupNav,
+    Set
+  },
 
-    oncreate: function() {
-      // Proxy if used within another component
-      this.observe('data', (d) => {
-        if (_.isPlainObject(d)) {
-          this.set(d);
-        }
-      });
-    }
+  oncreate: function() {
+    // Proxy if used within another component
+    this.observe('data', d => {
+      if (_.isPlainObject(d)) {
+        this.set(d);
+      }
+    });
   }
+};
 </script>

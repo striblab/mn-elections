@@ -19,6 +19,23 @@ footer {
   text-align: center;
 }
 
+nav {
+  background-color: #F1F1F1;
+  padding: 1em;
+  margin-bottom: 1em;
+
+  ul,
+  ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    padding-right: 1em;
+  }
+}
+
 .dashboard {
   .updated {
     font-size: 0.85em;

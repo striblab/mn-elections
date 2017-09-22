@@ -1,10 +1,15 @@
 <div class="contest">
-  <h3><a href="#!contest/{{ id }}">{{ name }}{{#if area }}&nbsp;of {{ area }}{{/if}}</a></h3>
+  <h3><a href="#!contest/{{ id }}">
+    {{ name }}
+    {{ seatName ? seatName : '' }}
+    {{ area ? ' of ' + area : '' }}
+    {{ subArea ? subArea : '' }}
+  </a></h3>
 
   <p class="reporting">
     Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
     {{#if called}}Called by the Star Tribune.{{/if}}
-    {{#if ranked}}Ranked-choice contest{{/if}}
+    {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
   </p>
 
   <table>

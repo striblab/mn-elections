@@ -43,7 +43,13 @@
           {{#if (simple && ci < 3) || !simple}}
             <tr>
               <td>{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
-              <td>{{ candidateName(candidate) }}</td>
+              <td>
+                {{ candidateName(candidate) }}
+                {{#if candidate.incumbent}}
+                  <i class="fa fa-info" aria-hidden="true" title="Incumbent"></i>
+                  <span class="sr-only">(is incumbent)</span>
+                {{/if}}
+              </td>
 
               {{#if !nonpartisan}}
                 <td>{{ candidate.party }}</td>

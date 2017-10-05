@@ -1,11 +1,19 @@
 
 <div class="set">
-  <h2>{{ title }} contests</h2>
+  {{#if (contests && contests.length)}}
+    <h2>{{ title }} contests</h2>
 
-  {{#if contests }}
+    <div>
+      {{ contests.length }} contests in this set with a total of {{ countCandidates(contests) }} candidates.
+    </div>
+
     {{#each contests as contest, ci }}
       <Contest data="{{ contest }}" />
     {{/each}}
+  {{else}}
+    <div class="loading">
+      Loading...
+    </div>
   {{/if}}
 </div>
 
@@ -43,6 +51,18 @@ export default {
         .catch(e => {
           console.error(e);
         });
+    }
+  },
+
+  helpers: {
+    countCandidates: function(contests) {
+      if (contests) {
+        return contests.reduce((sum, c) => {
+          return c.candidates ? sum + c.candidates.length : sum;
+        }, 0);
+      }
+
+      return 0;
     }
   }
 };

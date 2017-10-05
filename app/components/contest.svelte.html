@@ -1,16 +1,26 @@
 <div class="contest">
-  <h3><a href="#!contest/{{ id }}">
-    {{ name }}
-    {{ seatName ? seatName : '' }}
-    {{ area ? ' of ' + area : '' }}
-    {{ subArea ? subArea : '' }}
-  </a></h3>
+  <h3>
+    <a href="#!contest/{{ id }}">
+      {{ name }}
+      {{ seatName ? seatName : '' }}
+      {{ area ? ' of ' + area : '' }}
+      {{ subArea ? subArea : '' }}
+    </a>
+    {{#if questionTitle}}
+      <br> <span class="muted">{{ questionTitle }}</span>
+    {{/if}}
+  </h3>
 
   <p class="reporting">
     Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
+    {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
     {{#if called}}Called by the Star Tribune.{{/if}}
     {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
   </p>
+
+  {{#if (!simple && questionText)}}
+    <p class="question">{{ questionText }}</p>
+  {{/if}}
 
   <table>
     <thead>
@@ -26,10 +36,7 @@
           <th>Votes</th>
           <th>Percent</th>
         {{else}}
-          {{#if final}}
-            <th>Final</th>
-          {{/if}}
-
+          <th>Counted</th>
           <th>1st choice</th>
           <th>2nd choice</th>
           <th>3rd choice</th>
@@ -59,13 +66,15 @@
                 <td>{{ formatVotes(candidate.votes) }}</td>
                 <td>{{ formatPercent(candidate.percent) }}</td>
               {{else}}
-                {{#if final}}
-                  <td>{{ formatPercent(candidate.percent) }} ({{ formatVotes(candidate.votes) }})</td>
-                {{/if}}
+                <td>
+                  {{#if (candidate.votes && candidate.percent)}}
+                    {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
+                  {{/if}}
+                </td>
 
-                <td>{{ formatPercent(candidate.ranks[0].percent) }} ({{ formatVotes(candidate.ranks[0].votes) }})</td>
-                <td>{{ formatPercent(candidate.ranks[1].percent) }} ({{ formatVotes(candidate.ranks[1].votes) }})</td>
-                <td>{{ formatPercent(candidate.ranks[2].percent) }} ({{ formatVotes(candidate.ranks[2].votes) }})</td>
+                <td>{{ formatVotes(candidate.ranks[0].votes) }} ({{ formatPercent(candidate.ranks[0].percent) }})</td>
+                <td>{{ formatVotes(candidate.ranks[1].votes) }} ({{ formatPercent(candidate.ranks[1].percent) }})</td>
+                <td>{{ formatVotes(candidate.ranks[2].votes) }} ({{ formatPercent(candidate.ranks[2].percent) }})</td>
               {{/if}}
             </tr>
           {{/if}}
@@ -126,7 +135,9 @@ export default {
     },
 
     formatPercent(percent) {
-      return _.isNumber(percent) || percent ? percent + '%' : '';
+      return _.isNumber(percent)
+        ? (Math.round(percent * 100) / 100).toLocaleString() + '%'
+        : '';
     },
 
     formatVotes(votes) {

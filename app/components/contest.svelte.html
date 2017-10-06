@@ -16,6 +16,7 @@
     {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
     {{#if called}}Called by the Star Tribune.{{/if}}
     {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
+    {{#if (final && close)}}This race is very close and may need a recount.{{/if}}
   </p>
 
   {{#if (!simple && questionText)}}

@@ -2,48 +2,48 @@
  * Project specific styling.
  */
 
-header.project-header {
+.content header.project-header {
   padding: 1em 1em 0;
   margin-bottom: 1em;
 }
 
-main {
+.content main {
   padding: 1em 1em 0;
   margin-bottom: 1em;
 }
 
-footer {
+.content footer {
   font-size: 0.85em;
   padding: 3rem 1rem 0;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-nav {
+.content nav {
   background-color: #F1F1F1;
   padding: 1em;
   margin-bottom: 1em;
 
-  ul,
-  ul li {
+  .content ul,
+  .content ul li {
     display: inline-block;
     margin: 0;
     padding: 0;
   }
 
-  ul li {
+  .content ul li {
     padding-right: 1em;
   }
 }
 
-.dashboard {
+.content .dashboard {
   .updated {
     font-size: 0.85em;
     color: #676767;
   }
 }
 
-.search {
+.content .search {
   background-color: #F1F1F1;
   padding: 1em;
 
@@ -72,7 +72,7 @@ nav {
     }
   }
 
-  input[type=search] {
+.content input[type=search] {
     border: 1px solid #777777;
     padding: 0.5em 1em;
     background-color: #FFFFFF;
@@ -84,7 +84,7 @@ nav {
     }
   }
 
-  button {
+.content button {
     border: 1px solid #777777;
     padding: 0.5em 1em;
     background-color: $color-strib-green-bg;
@@ -106,7 +106,7 @@ nav {
   }
 }
 
-.contest {
+.content .contest {
   margin-bottom: 2em;
 
   h3 {

@@ -3,7 +3,7 @@
  */
 
 // Font and font-sizeing
-html {
+html .content {
   font-family: $font-text;
   font-size: 16px;
   line-height: 1.5em;
@@ -22,8 +22,8 @@ html {
 }
 
 // Box sizing
-html,
-body {
+html .content,
+body .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -36,13 +36,13 @@ body {
 }
 
 // Common element styling
-body {
+body .content {
   background-color: $color-text-bg;
   color: $color-text;
   -webkit-font-smoothing: antialiased;
 }
 
-a {
+.content a {
   color: $color-link;
   text-decoration: none;
 
@@ -52,7 +52,7 @@ a {
   }
 }
 
-header.project-header {
+.content header.project-header {
   font-size: 1rem;
   width: 100%;
   margin-bottom: 3.125em;

@@ -3,18 +3,18 @@
  */
 
 // Clearfix
-.cf::before,
-.cf::after {
+.content .cf::before,
+.content .cf::after {
   content: " ";
   display: table;
 }
 
-.cf::after {
+.content .cf::after {
   clear: both;
 }
 
 // Screen reader only
-.sr-only {
+.content .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -25,14 +25,14 @@
   border: 0;
 }
 
-.align-right {
+.content .align-right {
   text-align: right;
 }
 
-.align-center {
+.content .align-center {
   text-align: center;
 }
 
-.align-left {
+.content .align-left {
   text-align: left;
 }

@@ -26,6 +26,32 @@ The following should be performed for initial and each code update:
 
 1. Install Node dependencies: `npm install`
 
+### CMS
+
+This project is meant to live within the [Star Tribune CMS](https://cms.clickability.com/cms).  Overall, this means that the markup and content are stored within the CMS, while the styling and javascript is created and managed here.
+
+It is necessary to have [news-platform](https://github.com/MinneapolisStarTribune/news-platform/) running locally as this will create a connection to the CMS data and render the page completely.  It is also important to have it configured with the `ASSETS_STATIC_URL` environment variable set to `http://localhost:3000/` so that [news-platform](https://github.com/MinneapolisStarTribune/news-platform/) can find the files in this project.
+
+If you have static route to your computer to do device testing, see the [docs on using a .local](https://sites.google.com/site/startribunedigitalwiki/workflow-1/localhost-3000-redirects-for-teamjpg).
+
+Once a CMS article has been created and the template is set up, make sure to include the article ID in `config.json` if it is not already there.
+
+#### Template
+
+In the [Twig](https://twig.symfony.com/) template for the article(s), use something like the following to get the assets in this project for both local development and in production.
+
+```twig
+{% block styles %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ static_asset('news/projects/all/<%= package.name %>/style.bundle.css') }}">
+{% endblock %}
+
+{% block scripts %}
+  {{ parent() }}
+  <script type="text/javascript" src="{{ static_asset('news/projects/all/<%= package.name %>/app.bundle.js') }}"></script>
+{% endblock %}
+```
+
 ### Local
 
 To run a local web server that will auto-reload with [Browsersync](https://browsersync.io/), watch for file changes and re-build: `gulp develop`

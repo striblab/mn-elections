@@ -1,8 +1,11 @@
 {
-  "about this file": "This document defines configuration for this project that is not content or copy.",
+  "about this file":
+    "This document defines configuration for this project that is not content or copy.",
   "projectIdentifier": "mn-elections",
-
-
+  "cms": {
+    "id": "449289603",
+    "overrideLocalAssetPath": "projects/mn-elections/build"
+  },
   "social": {
     "image": "assets/images/strib/strib-logo-name-social-card.png"
   },
@@ -20,26 +23,12 @@
     ]
   },
 
-  "content": {
-
-  },
+  "content": {},
   "publish": {
-
-    "default": {
-      "bucket": "static.startribune.com",
-      "path": "news/projects-staging/all/mn-elections/",
-      "url": "http://static.startribune.com/news/projects-staging/all/mn-elections/index.html"
-    },
-    "testing": {
-      "bucket": "stribtest-bucket",
-      "path": "news/projects/mn-elections/",
-      "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/mn-elections/index.html"
-    },
-
     "production": {
       "bucket": "static.startribune.com",
-      "path": "news/projects/all/mn-elections/",
-      "url": "http://static.startribune.com/news/projects/all/mn-elections/index.html"
+      "path": "assets/news/mn-elections/",
+      "url": "http://static.startribune.com/assets/news/mn-elections/index.html"
     }
   }
 }

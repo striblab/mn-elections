@@ -1,0 +1,1989 @@
+
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="no-js ie8 oldie"> <![endif]-->
+<!--[if IE 9]><html lang="en" class="ie ie9"><![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <script
+      src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js"
+      data-apikey="57098e87943fb0b8bcf51a8ffc9ca41a">
+    </script>
+            <script type="text/javascript" src="http://assets.startribune.com/static/vendor/jquery/dist/jquery.min.js?d=1430238021"></script>
+    
+
+    <script>window.strib = window.strib || {};strib.adConfig = {"slotString":"\/7932\/website\/web_homepage","globalTargeting":{"ct":"a","ctid":"449289603","secs":""},"ads":{"zone-none":{"block-2":{"navtab":{"id":"zone-none-block-2-navtab","name":"navtab","sizes":"[[86,40]]","targeting":{"pos":"2"},"targetedTemplates":"standard"},"leaderboard":{"id":"zone-none-block-2-leaderboard","name":"leaderboard","sizes":"[[1,2],[970,30],[970,90],[970,250],[728,90]]","targeting":{"pos":"2"},"targetedTemplates":"standard"}},"block-1":{"leaderboard":{"id":"zone-none-block-1-leaderboard","name":"leaderboard","sizes":"[[1,2],[320,50],[468,60],[970,30],[970,90],[970,250],[728,90]]","targeting":{"pos":"1"},"targetedTemplates":"standard"}},"block-3":{"leaderboard":{"id":"zone-none-block-3-leaderboard","name":"leaderboard","sizes":"[[1,2],[320,50],[468,60],[970,30],[970,90],[970,250],[970,600],[728,90]]","targeting":{"pos":"f1"},"targetedTemplates":"standard","optionalSlotString":"footer","lazyLoad":"false"}}},"zone-2":{"block-1":{"vertical":{"id":"zone-2-block-1-vertical","name":"vertical","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,1050],[300,250]]","targeting":{"pos":"1"},"targetedTemplates":"standard"}},"block-3":{"vertical":{"id":"zone-2-block-3-vertical","name":"vertical","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":"2"},"targetedTemplates":"standard","bottomMargin":"200"}},"block-4":{"fill":{"id":"zone-2-block-4-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":3},"targetedTemplates":"standard"}},"block-5":{"fill":{"id":"zone-2-block-5-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":4},"targetedTemplates":"standard"}},"block-6":{"fill":{"id":"zone-2-block-6-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":5},"targetedTemplates":"standard"}},"block-7":{"fill":{"id":"zone-2-block-7-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":6},"targetedTemplates":"standard"}},"block-8":{"fill":{"id":"zone-2-block-8-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":7},"targetedTemplates":"standard"}},"block-9":{"fill":{"id":"zone-2-block-9-fill","name":"fill","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","targeting":{"pos":8},"targetedTemplates":"standard"}}},"zone-1":{"block-1":{"inline-bottom":{"id":"zone-1-block-1-inline-bottom","name":"inline-bottom","sizes":"[[1,2],[125,125],[180,150],[234,60],[320,50],[250,250],[525,250],[300,250]]","targeting":{"pos":"sig"},"targetedTemplates":"grazers","optionalSlotString":"inline_article"}}}},"streamAds":[{"zone":"c2","topMargin":0,"bottomMargin":600,"initialTargetingPosition":"rc1","sizes":"[[1,2],[234,60],[125,125],[180,150],[250,250],[120,600],[160,600],[300,600],[300,250]]","maxPixelDepth":1200,"optionalSlotString":"rail_comments","name":"square"}],"premium":{"hover":{"sizes":"[[100,90]]","slotString":"\/7932\/Website\/WEB_Homepage","adUnitId":30449401,"adUnitName":"WEB_Homepage","targeting":{"pos":"1"},"id":"div-gpt-ad-premium-WEB_Homepage-hover","lineItemName":"Aud Target | 100x90 | 092517-102017","lineItemExtId":0,"lineItemIntId":4417939563},"not-supported":{"sizes":"[[293,800]]","slotString":"\/7932\/Website","adUnitId":8533441,"adUnitName":"Website","targeting":{"pos":"1"},"id":"div-gpt-ad-premium-Website-not-supported","lineItemName":"hb_pb is 7.50","lineItemExtId":"","lineItemIntId":4366511909},"interstitial":{"sizes":"[[1,1001]]","slotString":"\/7932\/Website","adUnitId":8533441,"adUnitName":"Website","targeting":{"pos":"1"},"id":"div-gpt-ad-premium-Website-interstitial","lineItemName":"Interstitial ROS | Site Template | 1x1001 | CPM (copy 1)","lineItemExtId":"","lineItemIntId":4417753199}},"debug":[],"adsDisabled":false,"disabledPremiumAds":{"hoverAds":0,"interstitialAds":0,"skinAds":0,"superBillboardAds":0},"videoPreroll":"\/7932\/Website\/WEB_Video\/WEB_Video_User_Initiated","refreshInterval":"120","refreshPositions":["pos=z3","pos=z4","pos=f1","pos=z1","pos=z2"],"nativoAds":false};</script>
+    <script type="text/javascript">
+        window.segmentation = window.segmentation || {};
+                    window.segmentation.grazers = true;
+            </script>
+
+    
+        <script type="text/javascript">
+
+            // Variables for optimizely
+            window.opt_target = {
+                contentType: 'story',
+                sectionPath: '/',
+                minorSection: '/',
+                majorSection: '/449289603/',
+                recommendations: 'enabled'
+            };
+        </script>
+                <script src="//cdn.optimizely.com/js/3104270409.js"></script>
+
+                            <script type="text/javascript">
+                try {
+                    if (optimizely.variationIdsMap[8325460468][0] === '8319900213') {
+                        window.segmentation.grazers = true;
+                        window.opt_sideways = false;
+                    }
+                } catch (e) {
+                    Bugsnag.notifyException(e, 'Error in optimizely hard coding for experiment 8325460468');
+                }
+            </script>
+                <script type="text/javascript">
+            var attempts = 1;
+            var tagDetected = false;
+            var detectTag = setInterval(function () {
+                if (typeof googletag !== 'undefined') {
+                    if (googletag.pubadsReady) {
+                        document.cookie = "tagDetected=true; domain=.startribune.com; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+                        tagDetected = true;
+                        clearInterval(detectTag);
+                        clearTimeout(checkComplete);
+                    }
+                }
+                attempts++;
+                if (attempts >= 15) {
+                    clearInterval(detectTag);
+                }
+            }, 1000);
+            var checkComplete = setTimeout(function () {
+                clearInterval(detectTag);
+                if (!tagDetected) {
+                    document.cookie = "tagDetected=false; domain=.startribune.com; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+                }
+            }, 15000);
+        </script>
+    
+
+    <script type="text/javascript">
+        function isWelcomeShowing() {
+            var welcomeModuleElement = jQuery('#WelcomeModule');
+            if (welcomeModuleElement.length > 0 && welcomeModuleElement.css('display') === 'block') {
+                return true;
+            }
+            return false;
+        }
+
+        function isPhone() {
+            return /Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        var twigJsDomain = 'www.startribune.com';
+        var assetDomain = 'assets.startribune.com';
+        if (assetDomain != '' && typeof assetDomain == 'string') {
+          twigJsDomain = assetDomain;
+        }
+        twigJsDomain = 'http://' + twigJsDomain;
+
+        function localStorageAvailable() {
+            try {
+                localStorage.setItem('availability_test', true);
+                localStorage.removeItem('availability_test');
+            } catch (e) {
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+    
+    <title>Election 2017 Results - StarTribune.com</title>
+    <meta name="google-site-verification" content="bLXTXkzm4dJ8hcJy1LXawtxXxGP3JhInARj69uCiMiM" />
+            <meta name="robots" content="noindex" />
+            
+    <link rel="apple-touch-icon" href="http://www.startribune.com/img/touch-icon-iphone-retina.png?d=1507574385">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="http://www.startribune.com/img/touch-icon-ipad.png?d=1507574385">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="http://www.startribune.com/img/touch-icon-iphone-retina.png?d=1507574385">
+
+    <link rel="apple-touch-icon" sizes="152x152" href="http://www.startribune.com/img/touch-icon-ipad-retina.png?d=1507574385">
+
+                        <link rel="canonical" href="http://www.startribune.com/election-2017-results/449289603/" />
+        <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.startribune.com/election-2017-results/449289603/" />
+            
+            <meta itemprop="name" content="Election 2017 Results" /><!-- g+ -->
+    <meta name="description" content="Follow the StarTribune for the news, photos and videos from the Twin Cities and beyond." />
+    <meta itemprop="description" content="Follow the StarTribune for the news, photos and videos from the Twin Cities and beyond." /><!-- g+ -->
+                                            <meta itemprop="image" content="http://assets.startribune.com/static/img/branding/logos/strib-social-card.png?d=1507574385"><!-- g+ -->
+            
+            
+        <meta property="og:site_name" content="Star Tribune" />
+
+                    <meta property="og:type" content="article" />
+        <meta property="og:title" content="Election 2017 Results" /><!-- fb, linkedin, pinterest -->
+        <meta property="og:description" content="Follow the StarTribune for the news, photos and videos from the Twin Cities and beyond." /><!-- fb, linkedin, pinterest -->
+                    <meta property="og:url" content="http://www.startribune.com/election-2017-results/449289603/" />
+                                                            <meta property="og:image" content="http://assets.startribune.com/static/img/branding/logos/strib-social-card.png?d=1507574385" /><!-- fb, linkedin, pinterest -->
+                <meta property="og:image:url" content="http://assets.startribune.com/static/img/branding/logos/strib-social-card.png?d=1507574385" /><!-- fb, linkedin, pinterest -->
+                <meta property="og:image:width" content="1680" /><!-- fb, linkedin, pinterest -->
+                <meta property="og:image:height" content="876" /><!-- fb, linkedin, pinterest -->
+            
+                        
+        <meta name="twitter:site" content="@StarTribune" />
+        <meta name="twitter:card" content="summary_large_image">
+
+            <meta name="twitter:title" content="Election 2017 Results" /><!-- twitter -->
+    <meta name="twitter:description" content="Follow the StarTribune for the news, photos and videos from the Twin Cities and beyond." /><!-- twitter -->
+                <meta name="twitter:url" content="http://www.startribune.com/election-2017-results/449289603/" /><!-- twitter -->
+                                            <meta name="twitter:image" content="http://assets.startribune.com/static/img/branding/logos/strib-social-card.png?d=1507574385"><!-- twitter -->
+                <meta name="twitter:image:src" content="http://assets.startribune.com/static/img/branding/logos/strib-social-card.png?d=1507574385"><!-- twitter -->
+            
+            
+                  <meta property="fb:pages" content="42739463017" />
+          <meta property="fb:pages" content="57441959950" />
+          <meta property="fb:pages" content="37038662909" />
+          <meta property="fb:pages" content="140536902040" />
+          <meta property="fb:pages" content="227191347864" />
+          <meta property="fb:pages" content="54374033570" />
+          <meta property="fb:pages" content="49573759647" />
+        
+                <script type="text/javascript">
+    if( typeof window.console === 'undefined' ) {
+      var noOp = function() {};    // no-op function
+      console = {
+        log: noOp,
+        warn: noOp,
+        info: noOp,
+        error: noOp,
+        debug: noOp
+      };
+    }
+
+    reloadTimerActive = true;
+    var FeatureAPI_JS_TipsNavigation = false;
+      </script>
+            <link rel="stylesheet" href="http://assets.startribune.com/static/css/screen.css?d=80d003acdc9d85c0839c1e46c71291d17e94ea7e">
+      <link rel="shortcut icon" href="http://stmedia.startribune.com/designimages/favicon.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="http://www.startribune.com/vector-icon.svg?d=1507574385" color="#5bbad5">
+    <script type="text/javascript" src="http://assets.startribune.com/static/min/header.min.js?d=1507574442"></script>
+  <script type="text/javascript" src="http://www.startribune.com/analytics-assets/sitecatalyst/AppMeasurement.js?d=1507574385"></script>
+  
+  <script type="text/javascript" src="http://www.startribune.com/analytics-assets/visit-day-count.js?d=1507574385"></script>
+  <script type="text/javascript" src="http://www.startribune.com/analytics-assets/30-day-visits.js?d=1507574385"></script>
+  <script type="text/javascript" src="http://www.startribune.com/analytics-assets/detect-private-browsing.js?d=1507574385"></script>
+
+  
+  
+
+  <script type="text/javascript">
+      //
+      // If user is already logged in to member center but not here, get their info from SAML
+      //
+      if( jQuery.cookie( 'st_usr_plat' ) && !jQuery.cookie( 'st_usr_name' ) && !jQuery.cookie( 'login_attempt_strib' ) ) {
+          jQuery.cookie( 'login_attempt_strib', true );
+          window.location.href = '/login?path=' + encodeURIComponent( document.location );
+      }
+      var isHome = false;
+  </script>
+
+              <link rel="stylesheet" href="http://assets.startribune.com/static/vendor/swiper/dist/idangerous.swiper.css?d=95bf8dfea48f53373131996be7821f295b42de30">
+    <link rel="stylesheet" href="http://assets.startribune.com/static/vendor/magnific-popup/dist/magnific-popup.css?d=f387dcc908778095b11b10bfc01dff47ae1e8f67">
+
+    <% if (config.styles && config.styles.globals) { config.styles.globals.forEach(function(s) { %>
+      <link href="<%= s %>" rel="stylesheet" type="text/css">
+    <% }); } %>
+        <!-- Project-specific styles-->
+    <link rel="stylesheet" href="./styles.bundle.css" type="text/css">
+      <script type="text/javascript">
+        var st_page_obj = {"story_id":"449289603","title":"Election 2017 Results","primary_section_path":"\/449289603"};
+    </script>
+
+    <script type="text/javascript">
+        var omnitureVersion = '/JS-1.6.4/';
+    </script>
+</head>
+<body class=" page-article wide-body">
+
+
+
+    <div id="zone-none-outofpage">
+      <script type="text/javascript">
+        if (!window.disableOOP) {
+          try {
+            googletag.cmd.push(function() { googletag.display( 'zone-none-outofpage' ); });
+          } catch(e) {
+            if( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+              Bugsnag.notifyException(e);
+            }
+          }
+        }
+      </script>
+    </div>
+            <div id="fixed_leader" class="stickyAd_100x90">
+  <div id="div-gpt-ad-premium-WEB_Homepage-hover">
+    <script type='text/javascript'>
+      if(!isWelcomeShowing()) {
+        try {
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-premium-WEB_Homepage-hover'); });
+        } catch(e) {
+          if( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+            Bugsnag.notifyException(e);
+          }
+        }
+      }
+    </script>
+  </div>
+</div>
+<style type="text/css">
+  .stickyAd_100x90 {
+    position:fixed;
+    z-index:100000000;
+    width:100px;
+    bottom:0;
+    left:50%;
+    margin-left:-608px;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight-this.offsetHeight)));
+  }
+</style>
+                <script type="text/javascript" src="http://assets.startribune.com/static/js/ads/interstitial.js?d=1507574385"></script>
+<div id="intWrap" style="display: none;">
+    <div id="div-gpt-ad-premium-Website-interstitial" data-cb-ad-id="interstitial">
+        <script type='text/javascript'>
+          if (!window.disableOOP) {
+            try {
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-premium-Website-interstitial'); });
+            } catch(e) {
+              if( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+                Bugsnag.notifyException(e);
+              }
+            }
+          }
+        </script>
+    </div>
+</div>
+      
+<!-- Start Omniture Tag -->
+<script type="text/javascript">
+    //For omniture impressions. We don't want to access s until the very end.
+    var impression_data = [];
+
+    function analyticsClickTracking($this, linkname, linktype, modulename, moduletype, positions, custom ) {
+        // IE8 throws error on console.log
+        // console.log("Click event triggered");
+        linkname = typeof linkname !== 'undefined' ? linkname : null;
+        if ($this !== false && linkname == null) {
+            linkname = $this.data('linkname');
+        }
+        //If linkname doesn't exist, don't bother with the rest
+        if (typeof linkname !== 'undefined' && linkname !== null && linkname !== '') {
+            linktype = typeof linktype !== 'undefined' ? linktype : null;
+            if ($this !== false && linktype == null) {
+                linktype = $this.data('linktype');
+            }
+            var events = [
+                'event3'
+            ];
+            custom = typeof custom !== 'undefined' ? custom : {};
+            custom.events = typeof custom.events !== 'undefined' ? custom.events : '';
+            var customEvents = custom.events !== '' ? custom.events : null;
+            if ($this !== false && customEvents == null) {
+                 customEvents = $this.data('customevents');
+            }
+            if (customEvents !== null && customEvents !== '' && typeof customEvents  !== 'undefined') {
+                customEvents = customEvents.split(',');
+                for (var i = 0; i < customEvents.length; i++) {
+                    switch (customEvents[i]) {
+                        case 'search-featured-click':
+                            events.push('event56');
+                        break;
+                        case 'search-click':
+                            events.push('event55');
+                        break;
+                        default:
+                        break;
+                    }
+                }
+            }
+            var modulename = typeof modulename !== 'undefined' ? modulename : null;
+            if ($this !== false && modulename == null) {
+                modulename = $this.data('modulename');
+            }
+            var moduletype = typeof moduletype !== 'undefined' ? moduletype.split('-') : null;
+            if ($this !== false && moduletype == null && typeof $this.data('moduletype') !== 'undefined') {
+                moduletype = $this.data('moduletype').split('-');
+            } else if (moduletype == null) {
+                moduletype = '-'.split('-');
+            }
+            var zonetype = moduletype.shift();
+            moduletype = moduletype.join('-');
+            var positions = typeof positions !== 'undefined' ? positions.split('-') : null;
+            if ($this !== false && positions == null && typeof $this.data('position') !== 'undefined') {
+                positions = $this.data('position').split('-');
+            } else if (positions == null) {
+                positions = '0-0'.split('-');
+            }
+            var modulePosition = positions.shift();
+            var linkPosition = positions.shift();
+            if (isNaN(Number(linkPosition))) {
+                modulePosition += '-' + linkPosition;
+                linkPosition = positions.shift();
+            }
+            if (positions.length) {
+                linkPosition += '-' + positions.join('-');
+            }
+            var key = zonetype + '-' + moduletype + '-' + modulename;
+            var contentType = '';
+            if ( $this !== false && $this.data('contenttype') ) {
+                contentType = $this.data('contenttype');
+            }
+            trackClick( {
+                'key':key,
+                'linkname':linkname,
+                'linktype':linktype,
+                'modulename':modulename,
+                'moduletype':moduletype,
+                'zonetype':zonetype,
+                'contentType':contentType,
+                'modulePosition':modulePosition,
+                'linkPosition':linkPosition,
+                'events':events
+            } );
+        }
+    }
+</script>
+<!-- End Omniture Tag -->
+
+
+<!-- Start Chartbeat Tag -->
+<script type="text/javascript">
+    var _sf_async_config = {
+      uid: 19787,
+      domain: 'startribune.com',
+      playerdomain: 'www.startribune.com',
+      useCanonical: true,
+      flickerControl: false,
+      autoDetect: false
+    };
+    if ( typeof isHome !== 'undefined' &&
+        isHome &&
+        window.location.href.indexOf( 'refresh=true' ) > -1 &&
+        window.location.pathname === '/'
+    ) {
+        _sf_async_config.useCanonical = false;
+        _sf_async_config.path = window.location.pathname + '?refresh=true';
+    }
+    var _sf_startpt = ( new Date() ).getTime();
+
+    var svi = readCookie('s_vi');
+    if (svi.indexOf('[CS]') === 0) {
+        _sf_async_config.type = svi.slice(7, svi.length - 4);
+    }
+</script>
+<script async src="//static.chartbeat.com/js/chartbeat_mab.js"></script>
+<!-- End Chartbeat Tag -->
+
+
+<!-- Start Quantcast Tag -->
+<script type="text/javascript">
+    _qoptions={
+    qacct:"p-0fEc9CMkDiJ2g"
+    };
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+    <img src="http://pixel.quantserve.com/pixel/p-0fEc9CMkDiJ2g.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast Tag -->
+
+
+    <!-- Begin comScore Tag -->
+    <script>
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "8428425" });
+        (function() {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+    <noscript>
+      <img src="http://b.scorecardresearch.com/p?c1=2&c2=8428425&cv=2.0&cj=1" alt=""/>
+    </noscript>
+    <!-- End comScore Tag -->
+
+
+
+    <script src="//dc8xl0ndzn2cb.cloudfront.net/js/startribunecom/v0/keywee.min.js" type="text/javascript" async></script>
+    <div class="l-container">
+
+      <div class="global-nav-mod js-global-nav-mod">
+              <div class="l-navigation-shortnav-container">
+    <div class="l-navigation-shortnav">
+        <div class="navigation-shortnav-mod col-1 left">
+            <nav class="navigation-shortnav-sections" role="navigation">
+                <ul class="navigation-shortnav-btn-mod">
+                    <li><a href="http://www.startribune.com/" class="nav-utility-btn btn-home show-divider first" data-linkname="Home" data-linktype="short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-1">Home<i></i></a></li>
+                    <li><a href="#SECTIONS-PAGE" class="nav-utility-btn btn-sections show-divider js-show-sections-menu" data-linkname="All Sections" data-linktype="short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-2">All Sections</a></li>
+                    <li><a href="#SEARCH-PAGE" class="nav-utility-btn btn-search js-show-search-menu" data-linkname="Search" data-linktype="short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-3">Search</a></li>
+                </ul>
+            </nav>
+
+            <div class="navigation-shortnav-ad">
+                            <style type="text/css">
+.dpp {
+  width: 87px;
+  height: 24px;
+}
+.dpp.root {
+  z-index: 1000;
+}
+.dpp.container {
+  left: 6px;
+  top: 6px;
+  position: relative;
+}
+.dpp.viewport {
+  overflow:hidden;
+}
+.dpp.items {
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  width: 1274px;
+  list-style:none;
+}
+.dpp.item {
+  float:left;
+  width: 98px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.dpp img {
+  border: none;
+  width: 98px;
+}
+</style>
+<!--[if lte IE 8]>
+<style type="text/css">
+  div.navigation-shortnav-ad {
+    position:relative;
+    left:140px;
+  }
+</style>
+<![endif]-->
+<script type="text/javascript" src="https://dfp-assets.startribune.com/circulars/advertiser_details.js"></script>
+<script type="text/javascript">
+  if (typeof DPPCounter === 'undefined') {
+    var DPPCounter = 0;
+  };
+  (function() {
+
+    if (typeof ad_AdvertiserArray == 'undefined') {
+      return;
+    };
+
+    DPPCounter = DPPCounter + 1;
+
+    var DPP = {
+      startAt : 1500, // scroll start delay; ms
+      cycleAt : 7000, // scroll interval post-delay; ms
+      timer   : 0,    // interval/timeout id
+      key     : '',   // unique container key for this render
+
+      $wrap   : $('<div></div>'),
+
+      // Configures and renders a scrollable DPP container.
+      //
+      render  : function() {
+        this.key = 'dpp_instance_' + DPPCounter;
+
+        // Each DPP render will be wrapped in a container with a unique id
+        var $root = $('<div></div>', { 'id': this.key }).addClass('dpp root');
+
+        // Alleviate weird Chrome/non-retina display bug
+        if (!!window.chrome && !!window.chrome.webstore) {
+          $root.css({
+            'transform': 'translateZ(1px)'
+          });
+        };
+        $root.appendTo(this.$wrap);
+
+        // Establish a list to add ad button items to
+        var $list = $('<ul></ul>').addClass('dpp items');
+
+        // Establish a ist item template, to clone
+        var $itemTemplate = $('<li></li>').addClass('dpp item');
+
+        // Create generic 'Weekly Ads' label for `on load` display and interleaving
+        var $labelItem = $itemTemplate.clone();
+        $('<img/>', { 'src': 'http://stmedia.startribune.com/images/weeklyAdsLabel.png' })
+          .addClass('dpp')
+          .appendTo(
+            $('<a></a>', { 'href': 'http://www.startribune.com/weekly-ads' })
+              .appendTo($labelItem)
+            );
+
+        // In reverse, due to `appendTo` use, place ad buttons in our list
+        var revArr = ad_AdvertiserArray.data.reverse();
+        for (var i = 0; i < revArr.length; i++ ) {
+          var adData  = revArr[i];
+          var adId    = adData.advertiserID;
+
+          var $buttonItem = $itemTemplate.clone();
+          $('<img/>', { 'src': adData.nav_button })
+            .addClass('dpp')
+            .appendTo(
+              $('<a></a>', { 'href': 'http://www.startribune.com/weekly-ads/?dppAID=' + adId })
+                .appendTo($buttonItem)
+              );
+          $buttonItem
+            .appendTo($list);
+
+          // Interleave the generic label as well
+          $labelItem.clone(true)
+            .appendTo($list);
+        };
+
+        // Prepend generic label for `on load` display
+        $labelItem.prependTo($list);
+
+        // Create the scrollable scaffold:
+        var $dppTemplate = $('<div></div>')
+          .addClass('dpp container')
+          .appendTo($root);
+
+        $list
+          .appendTo(
+            $('<div></div>')
+              .addClass('dpp viewport')
+              .appendTo($dppTemplate)
+          );
+
+        // Render the result
+        document.write(this.$wrap.html());
+
+        // Kick off w/ delay
+        this._start();
+      },
+
+      // Initiates scrolling with a start delay.
+      //
+      _start : function() {
+        var scope = this;
+        this.timer = window.setTimeout(
+          function() {
+            scope._cycle(scope);
+          }, this.startAt );
+      },
+
+      // Scrolling cycle.
+      //
+      _cycle : function( scope ) {
+        clearTimeout(scope.timer);
+        this.timer = setInterval( function() {
+          scope._animate(scope);
+        }, scope.cycleAt );
+      },
+
+      // The actual scrolling applied to list items.
+      //
+      _animate : function( scope ) {
+        var isScope = $('#' + scope.key + ' ul');
+        if(isScope){
+          var $list = $('#' + scope.key + ' ul').first();
+          if ( Math.abs(parseInt($list.css('left'), 10)) + 98 >= ($list.children().length - 1) * 98 ) {
+            $list.css('left', '-98px');
+          };
+          $list.animate({ left: '-=98' }, 500);
+        }
+      },
+    };
+
+    DPP.render();
+  })();
+</script>
+                    </div>
+        </div>
+        <!-- col-1 -->
+
+        <div class="navigation-shortnav-mod col-2">
+            <a href="http://www.startribune.com/" data-linkname="Star Tribune" data-linktype="logo short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-4"><h3 class="navigation-shortnav-branding">StarTribune</h3></a>
+        </div>
+        <!-- col-2 -->
+
+        <div class="navigation-shortnav-mod col-3 right">
+            <nav class="navigation-shortnav-account" role="navigation">
+                <ul class="navigation-shortnav-btn-mod">
+                                        
+<!-- Logged-In: Truncate username at 12 characters -->
+<li style="display: none;" class="nav-utility-dropdown js-nav-user-dropdown logOutBtn">
+    <a class="nav-utility-btn btn-login show-divider nav-utility-dropdown-trigger js-nav-user-dropdown-trigger usernameLink" href="https://users.startribune.com/member_center"></a>
+    <ul class="nav-utility-dropdown-menu">
+        <li class="first" onclick="window.location='https://users.startribune.com/member_center';">
+            <a href="https://users.startribune.com/member_center" data-linkname="Manage Account" data-linktype="login short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-5">Manage Account</a>
+        </li>
+        <li class="last" onclick="window.location='/logout/?path=http%3A%2F%2Fwww.startribune.com%2Felection-2017-results%2F449289603';">
+            <a href="/logout/?path=http%3A%2F%2Fwww.startribune.com%2Felection-2017-results%2F449289603" class="logout-js" data-linkname="Log out" data-linktype="login short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-6">Log out</a>
+        </li>
+    </ul>
+</li>
+
+<li class="nav-utility-dropdown logInBtn">
+    <a class="nav-utility-btn btn-login show-divider login-js" href="/login/" data-linkname="Log In" data-linktype="login short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-7">Log In</a>
+</li>
+                    
+<li class="nav-utility-dropdown js-nav-subscriptions-dropdown subscribeBtn">
+    <a class="nav-utility-btn btn-subscribe show-divider nav-utility-dropdown-trigger js-nav-subscriptions-dropdown-trigger" href="#subscriptions" data-linkname="Subscriptions" data-linktype="subscribe short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-8">Subscriptions</a>
+    <ul class="nav-utility-dropdown-menu">
+        <li class="first" onclick="window.location='http://www.startribune.com/signup/';">
+            <a href="http://www.startribune.com/signup/" target="_blank" data-linkname="New" data-linktype="subscribe short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-9">New</a>
+        </li>
+        <li class="last" onclick="window.location='https://users.startribune.com/member_center';">
+            <a href="https://users.startribune.com/member_center/" target="_blank" data-linkname="Manage Existing" data-linktype="subscribe short navigation" data-modulename="Page Navigation Shortnav" data-moduletype="header-page-nav" data-position="0-10">Manage Existing</a>
+        </li>
+    </ul>
+  </li>
+                </ul>
+            </nav>
+
+            <div class="navigation-shortnav-ad">
+                                <div id="zone-none-block-2-navtab"  data-appear-top-offset="300" class="ad-mod dfp-ad-container standard">
+    <script type='text/javascript'>
+        displayAd(Date.now(), 'zone-none-block-2-navtab');
+    </script>
+</div>
+  
+                    </div>
+        </div>
+        <!-- col-3 -->
+    </div>
+    <!-- l-navigation-shortnav -->
+    
+    
+</div><!-- l-nav-container -->
+    <nav class="navigation-container js-navigation-container" role="navigation">
+    <div class="navigation-sections-mod-triangle"></div>
+    <div class="navigation-sections-mod js-navigation-sections-mod js-navigation-primary-sections-mod needsclick">
+        <div id="nav-tooltip"></div>
+        <h4 class="nav-recent-h">Recently Visited</h4>
+            <ul class="nav-sections-group nav-recent-sections-group"></ul>
+                            <ul class="nav-sections-group lvl-1 last">
+                                    <li class="lvl-item js-lvl-item lvl-1-item  is-link home" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/home/" data-linkname="Home" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-1">Home</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link local" data-lvl="1" data-subnav-target="Local">
+                                              <a class="has-arrow" href="http://www.startribune.com/local/" data-linkname="Local" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-2">Local</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link sports" data-lvl="1" data-subnav-target="Sports">
+                                              <a class="has-arrow" href="http://www.startribune.com/sports/" data-linkname="Sports" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-3">Sports</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link business" data-lvl="1" data-subnav-target="Business">
+                                              <a class="has-arrow" href="http://www.startribune.com/business/" data-linkname="Business" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-4">Business</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link opinion" data-lvl="1" data-subnav-target="Opinion">
+                                              <a class="has-arrow" href="http://www.startribune.com/opinion/" data-linkname="Opinion" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-5">Opinion</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link variety" data-lvl="1" data-subnav-target="Variety">
+                                              <a class="has-arrow" href="http://www.startribune.com/variety/" data-linkname="Variety" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-6">Variety</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link health-highlights" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/mayohealth/" data-linkname="Health Highlights" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-7">Health Highlights</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link politics" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/politics/" data-linkname="Politics" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-8">Politics</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link nation" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/nation/" data-linkname="Nation" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-9">Nation</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link world" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/world/" data-linkname="World" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-10">World</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link science" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/science/" data-linkname="Science" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-11">Science</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link weather" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/weather/" data-linkname="Weather" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-12">Weather</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link traffic" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/local/traffic/" data-linkname="Traffic" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-13">Traffic</a>
+                                            </li>
+                                                </ul>
+                    <ul class="nav-sections-group lvl-1 last">
+                                    <li class="lvl-item js-lvl-item lvl-1-item  is-link video" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/video/" data-linkname="Video" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-14">Video</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link photography" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://www.startribune.com/photography/" data-linkname="Photography" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-15">Photography</a>
+                                            </li>
+                                                </ul>
+                    <ul class="nav-sections-group lvl-1 last">
+                                    <li class="lvl-item js-lvl-item lvl-1-item has-items is-link obituaries" data-lvl="1" data-subnav-target="Obituaries">
+                                              <a class="has-arrow" href="http://www.startribune.com/obituaries/" data-linkname="Obituaries" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-16">Obituaries</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item  is-link archives:-150+-years" data-lvl="1" data-subnav-target="">
+                                              <a class="" href="http://startribune.newspapers.com/" data-linkname="Archives: 150+ years" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-17">Archives: 150+ years</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link classifieds" data-lvl="1" data-subnav-target="Classifieds">
+                                              <a class="has-arrow" href="http://www.startribune.com/classifieds/" data-linkname="Classifieds" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-18">Classifieds</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link autos" data-lvl="1" data-subnav-target="Autos">
+                                              <a class="has-arrow" href="http://www.startribune.com/autos/" data-linkname="Autos" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-19">Autos</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link housing" data-lvl="1" data-subnav-target="Housing">
+                                              <a class="has-arrow" href="http://www.startribune.com/housing/" data-linkname="Housing" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-20">Housing</a>
+                                            </li>
+                                                        <li class="lvl-item js-lvl-item lvl-1-item has-items is-link jobs" data-lvl="1" data-subnav-target="Jobs">
+                                              <a class="has-arrow" href="http://www.startribune.com/jobs/" data-linkname="Jobs" data-linktype="level1 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-21">Jobs</a>
+                                            </li>
+                                                </ul>
+            </div>
+        <div class="navigation-lvl-2-container js-navigation-lvl-2-container js-navigation-sections-mod">
+                                                                                    <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Local">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/minneapolis/" data-linkname="Minneapolis" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-22">Minneapolis</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/stpaul/" data-linkname="St. Paul" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-23">St. Paul</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/east/" data-linkname="East Metro" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-24">East Metro</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/north/" data-linkname="North Metro" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-25">North Metro</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/south/" data-linkname="South Metro" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-26">South Metro</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/west/" data-linkname="West Metro" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-27">West Metro</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/project/" data-linkname="Projects" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-28">Projects</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Local Columnists">
+                                                     <span class="has-arrow" >Local Columnists</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Local Columnists">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/jon-tevlin/10646081/" data-linkname="Jon Tevlin" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-30">Jon Tevlin</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/james-lileks/10645306/" data-linkname="James Lileks" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-31">James Lileks</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Local Blogs">
+                                                     <span class="has-arrow" >Local Blogs</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Local Blogs">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/Campus_Confidential/" data-linkname="Campus Confidential" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-33">Campus Confidential</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/Class_Act/" data-linkname="Class Act" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-34">Class Act</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/Dateline_Minnesota/" data-linkname="Dateline Minnesota" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-35">Dateline Minnesota</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/Full_Disclosure/" data-linkname="Full Disclosure" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-36">Full Disclosure</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/lileks/" data-linkname="Lileks at Lunch" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-37">Lileks at Lunch</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/MPLS/" data-linkname="MPLS." data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-38">MPLS.</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/STP/" data-linkname="STP" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-39">STP</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/The_Drive/" data-linkname="The Drive" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-40">The Drive</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/local/blogs/Yesterdays_News/" data-linkname="Yesterday&#039;s News" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-41">Yesterday&#039;s News</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/fair/" data-linkname="State Fair" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-42">State Fair</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/10000takes/" data-linkname="10,000 Takes" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-43">10,000 Takes</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/local/datadrop/" data-linkname="Data Drop" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-44">Data Drop</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Sports">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/twins/" data-linkname="Twins" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-45">Twins</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/vikings/" data-linkname="Vikings" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-46">Vikings</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/wild/" data-linkname="Wild" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-47">Wild</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/wolves/" data-linkname="Wolves" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-48">Wolves</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/lynx/" data-linkname="Lynx" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-49">Lynx</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/soccer/" data-linkname="MN United" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-50">MN United</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/gophers" data-linkname="Gophers" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-51">Gophers</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/college/" data-linkname="Colleges" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-52">Colleges</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/golf/" data-linkname="Golf" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-53">Golf</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/motorsports/" data-linkname="Motorsports" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-54">Motorsports</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/outdoors/" data-linkname="Outdoors" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-55">Outdoors</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/sports/preps/" data-linkname="High Schools" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-56">High Schools</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/superbowl/" data-linkname="Super Bowl LII" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-57">Super Bowl LII</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Sports Columnists">
+                                                     <span class="has-arrow" >Sports Columnists</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Sports Columnists">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/dennis-anderson/10644341/" data-linkname="Dennis Anderson" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-59">Dennis Anderson</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sid-hartman/10644996/" data-linkname="Sid Hartman" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-60">Sid Hartman</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/patrick-reusse/10645766/" data-linkname="Patrick Reusse" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-61">Patrick Reusse</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/chip-scoggins/10645901/" data-linkname="Chip Scoggins" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-62">Chip Scoggins</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/jim-souhan/10646006/" data-linkname="Jim Souhan" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-63">Jim Souhan</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Sports Blogs">
+                                                     <span class="has-arrow" >Sports Blogs</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Sports Blogs">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/vikings/access-vikings/" data-linkname="Access Vikings" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-65">Access Vikings</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/blogs/gophers_basketball/" data-linkname="Gophers Basketball" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-66">Gophers Basketball</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/blogs/gophers_football/" data-linkname="Gophers Football" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-67">Gophers Football</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/sid_hartman/" data-linkname="Sid Hartman" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-68">Sid Hartman</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/blogs/the_lynx_beat/" data-linkname="The Lynx Beat" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-69">The Lynx Beat</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/the_olympics/" data-linkname="The Olympics" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-70">The Olympics</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/minnesota_outdoors/" data-linkname="Minnesota Outdoors" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-71">Minnesota Outdoors</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/randball/" data-linkname="Randball" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-72">Randball</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/patrick_reusse/" data-linkname="Patrick Reusse" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-73">Patrick Reusse</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/chip_scoggins/" data-linkname="Chip Scoggins" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-74">Chip Scoggins</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/jim_souhan/" data-linkname="Jim Souhan" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-75">Jim Souhan</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/blogs/StribSports_Upload/" data-linkname="StribSports Upload" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-76">StribSports Upload</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/the_twins_beat/" data-linkname="The Twins Beat" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-77">The Twins Beat</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/the_united_beat/" data-linkname="The United Beat" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-78">The United Beat</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/the_wild_beat/" data-linkname="The Wild Beat" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-79">The Wild Beat</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/sports/twins/blogs/the_wolves_beat/" data-linkname="The Wolves Beat" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-80">The Wolves Beat</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Sports Podcasts">
+                                                     <span class="has-arrow" >Sports Podcasts</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Sports Podcasts">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/podcasts/vikings-podcast/" data-linkname="Access Vikings" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-82">Access Vikings</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/podcasts/twins-insider/" data-linkname="Twins Insider" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-83">Twins Insider</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/podcasts/talking-preps/" data-linkname="Talking Preps" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-84">Talking Preps</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Business">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/jobs/topworkplaces/" data-linkname="Top Workplaces" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-85">Top Workplaces</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Business Columnists">
+                                                     <span class="has-arrow" >Business Columnists</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Business Columnists">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/lee-schafer/157932475/" data-linkname="Lee Schafer" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-87">Lee Schafer</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/neal-st-anthony/10646026/" data-linkname="Neal St. Anthony" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-88">Neal St. Anthony</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Business Blogs">
+                                                     <span class="has-arrow" >Business Blogs</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Business Blogs">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/blogs/3D_Economics/" data-linkname="3D Economics" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-90">3D Economics</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/blogs/foodmarket/" data-linkname="Food Market" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-91">Food Market</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/business/blogs/Just_Listed/" data-linkname="Just Listed" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-92">Just Listed</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/blogs/166956356/" data-linkname="Lee Schafer" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-93">Lee Schafer</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/blogs/Point_of_Sale/" data-linkname="Point of Sale" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-94">Point of Sale</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/blogs/themill/" data-linkname="The Mill" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-95">The Mill</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Opinion">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/opinion/commentaries/" data-linkname="Commentary" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-96">Commentary</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/opinion/editorials/" data-linkname="Editorial" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-97">Editorial</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/opinion/cartoons/" data-linkname="Steve Sack" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-98">Steve Sack</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/opinion/letters/" data-linkname="Letters" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-99">Letters</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Podcasts">
+                                                     <span class="has-arrow" >Podcasts</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Podcasts">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/podcasts/playing-politics/" data-linkname="Playing Politics" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-101">Playing Politics</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Variety">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/books/" data-linkname="Books" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-102">Books</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/celebrities/" data-linkname="Celebs" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-103">Celebs</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/comicgames/" data-linkname="Comics &amp; Games" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-104">Comics &amp; Games</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/horoscopes" data-linkname="Horoscopes" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-105">Horoscopes</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/dining/" data-linkname="Eat &amp; Drink" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-106">Eat &amp; Drink</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/movies/" data-linkname="Movies" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-107">Movies</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/music/" data-linkname="Music" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-108">Music</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/stageandarts/" data-linkname="Stage &amp; Arts" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-109">Stage &amp; Arts</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/tv/" data-linkname="TV &amp; Media" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-110">TV &amp; Media</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/bestofmn/" data-linkname="Best of MN" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-111">Best of MN</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/health/" data-linkname="Health" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-112">Health</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/homegarden/" data-linkname="Home &amp; Garden" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-113">Home &amp; Garden</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/kids-health/" data-linkname="Kids&#039; Health" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-114">Kids&#039; Health</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/style/" data-linkname="Style" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-115">Style</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/taste/" data-linkname="Taste" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-116">Taste</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/goodlife/" data-linkname="The Good Life" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-117">The Good Life</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/variety/travel/" data-linkname="Travel" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-118">Travel</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Variety Columnists">
+                                                     <span class="has-arrow" >Variety Columnists</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Variety Columnists">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/gail-rosenblum/10645821/" data-linkname="Gail Rosenblum" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-120">Gail Rosenblum</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/c-j/10645126/" data-linkname="C. J" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-121">C. J</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item has-items " data-subnav-target="Variety Blogs">
+                                                     <span class="has-arrow" >Variety Blogs</span>
+                          
+                                                                                  <ul class="nav-sections-group js-nav-sections-group lvl-3 js-lvl-3" data-subnav-list="Variety Blogs">
+                                                                    <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/blogs/Artcetera/" data-linkname="Artcetera" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-123">Artcetera</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/travel/blogs/Escape_Artists/" data-linkname="Escape Artists" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-124">Escape Artists</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/homegarden/blogs/Greengirls/" data-linkname="Greengirls" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-125">Greengirls</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/blogs/HealthCheck/" data-linkname="Health Check" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-126">Health Check</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/blogs/lileks/" data-linkname="Lileks @ Lunch" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-127">Lileks @ Lunch</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/blogs/OnBooks/" data-linkname="On Books" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-128">On Books</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/taste/blogs/Table_Talk/" data-linkname="Table Talk" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-129">Table Talk</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/homegarden/blogs/Wingnut/" data-linkname="Wingnut" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-130">Wingnut</a>
+                                                                        </li>
+                                                                                                        <li data-lvl="3" class="lvl-item lvl-3-item">
+                                                                          <a href="http://www.startribune.com/variety/travel/blogs/World_Class/" data-linkname="World Class" data-linktype="level3 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-131">World Class</a>
+                                                                        </li>
+                                                                                                </ul>
+                                                  </li>
+                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                    <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Obituaries">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/obituaries/todays/" data-linkname="View all Obituaries" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-132">View all Obituaries</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/how-to-place-an-obituary-notice-in-star-tribune/11603211/" data-linkname="Place an Obituary Notice" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-133">Place an Obituary Notice</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                                                                            <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Classifieds">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://startribune.adperfect.com/" data-linkname="Place an Ad" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-134">Place an Ad</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/garage-sales/search/" data-linkname="Garage Sales" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-135">Garage Sales</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/estate-sales/search/" data-linkname="Estate Sales" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-136">Estate Sales</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/merchandise/search/" data-linkname="Merchandise" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-137">Merchandise</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/pets/search/" data-linkname="Pets" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-138">Pets</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/recreational-vehicles/search/" data-linkname="Recreational Vehicles &amp; Marina" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-139">Recreational Vehicles &amp; Marina</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://digital.olivesoftware.com/adl/adlauncher.asp?skin=StarTribuneADL&amp;search=mst" data-linkname="Newspaper Ads" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-140">Newspaper Ads</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://apps.startribune.com/auctions/" data-linkname="Auctions" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-141">Auctions</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Autos">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/autos/" data-linkname="Search Used Vehicles" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-142">Search Used Vehicles</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://startribune.adperfect.com/" data-linkname="Sell your Vehicle" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-143">Sell your Vehicle</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Housing">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/housing/sell/" data-linkname="Advertise" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-144">Advertise</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/housing/rent/" data-linkname="Rentals" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-145">Rentals</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://classifieds.startribune.com/default/real-estate-business-ind-investment-property/search" data-linkname="Commercial" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-146">Commercial</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/housing/foreclosures/" data-linkname="Foreclosures" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-147">Foreclosures</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://homes.startribune.com/eng/associates/usa/" data-linkname="Find an Agent" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-148">Find an Agent</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                                                <ul class="nav-sections-group js-nav-sections-group lvl-2" data-subnav-list="Jobs">
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://jobs.startribune.com/jobs/" data-linkname="Find a Job" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-149">Find a Job</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/jobs/resume" data-linkname="Your Resume" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-150">Your Resume</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://jobs.startribune.com/logon/?PipelinedPage=%7E%2faccount%2f&amp;PipelinedQueryString=" data-linkname="Your Account" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-151">Your Account</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://jobs.startribune.com/employers/" data-linkname="Employer A-Z" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-152">Employer A-Z</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="http://www.startribune.com/jobs/topworkplaces/" data-linkname="Top Workplaces" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-153">Top Workplaces</a>
+                          
+                                                                              </li>
+                                            <li data-lvl="2" class="lvl-item js-lvl-item lvl-2-item  is-link" data-subnav-target="">
+                                                       <a class="" href="https://startribunejobs-rs.madgexjb.com/" data-linkname="Post a Job" data-linktype="level2 navigation" data-modulename="All Section Navigation" data-moduletype="header-page-nav" data-position="0-154">Post a Job</a>
+                          
+                                                                              </li>
+                                        </ul>
+                                        </div>
+    
+    
+</nav>
+    <nav class="search-menu-mod js-search-menu-mod">
+    <div class="search-menu-inner">
+        <div class="search-branding-mod">Star Tribune</div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var radioFilter = $(".search-menu-radio-group").find("input:radio[name=searchType]");
+                radioFilter.change(function() {
+                    var parent = $(this).parent().parent().parent();
+
+                    if ($(this).val() === 'businessSearch') {
+                        var q = $(parent).find('.search-menu-input[name=q]');
+                        var input = $('<input>').attr('type', 'hidden').attr('name', 'keyword').val($(q).val());
+
+                        //Business search needs the keyword field, not q like what we're using.
+                        $(parent).find(".search-menu-form").append($(input));
+                        $(q).attr('disabled', 'disabled');
+                        $(parent).find(".search-menu-form").attr("action", "http://local.startribune.com/search");
+                    }
+                    else {
+                        $(parent).find(".search-menu-form").attr("action", "/search/");
+                    }
+                });
+            });
+        </script>
+          <form class="search-menu-form" action="http://www.startribune.com/search/" method="get">
+    <div class="search-menu-input-group">
+      <input class="search-menu-input" id="search" name="q" type="text" value="" placeholder="Enter a search term" />
+      <input class="search-menu-submit" type="submit" value="Submit" />
+    </div>
+  </form><!--eo search-menu-form-->
+        <a href="#" class="search-menu-close-trigger js-close-search-menu">Close</a>
+    </div><!--eo search-menu-inner-->
+</nav><!--eo search-menu-mod -->
+
+      </div>
+
+        
+                
+    
+                
+                      <nav class="nav-shortcuts-mod js-nav-shortcuts-mod borderless">
+    <ul class="nav-shortcuts-inner js-nav-shortcuts-inner">
+        <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/" data-linkname="Home" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-1">Home</a>
+                    </li>
+                <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/local/" data-linkname="Local" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-2">Local</a>
+                    </li>
+                <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/sports/" data-linkname="Sports" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-3">Sports</a>
+                    </li>
+                <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/business/" data-linkname="Business" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-4">Business</a>
+                    </li>
+                <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/opinion/" data-linkname="Opinion" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-5">Opinion</a>
+                    </li>
+                <li class="nav-shortcut nav-primary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/variety/" data-linkname="Variety" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-6">Variety</a>
+                    </li>
+                        <li class="nav-shortcut nav-secondary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/obituaries/" data-linkname="Obituaries" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-7">Obituaries</a>
+                            <li class="nav-shortcut nav-secondary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/classifieds/" data-linkname="Classifieds" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-8">Classifieds</a>
+                            <li class="nav-shortcut nav-secondary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/autos/" data-linkname="Autos" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-9">Autos</a>
+                            <li class="nav-shortcut nav-secondary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/housing/" data-linkname="Housing" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-10">Housing</a>
+                            <li class="nav-shortcut nav-secondary-shortcut">
+            <a class="nav-shortcut-link" href="http://www.startribune.com/jobs/" data-linkname="Jobs" data-linktype="navigation" data-modulename="Navigation Bar" data-moduletype="header-page-nav" data-position="0-11">Jobs</a>
+                        </ul>
+    
+    
+</nav><!--nav-shortcuts-mod-->
+    
+
+<div class="l-article-container " itemscope itemtype="http://schema.org/Article">
+    <div class="l-article article p402_premium article">
+        <div class="l-article-body">
+
+
+
+            <!-- Beginning of twig content -->
+
+            <div class="l-election-results-header">
+                <h1 class="election-results-header-title">2017 Election Results</h1>
+                <table class="election-table election-table-legend">
+                    <tbody>
+                        <tr>
+                            <td class="election-legend-symbol  candidate-race-status is-winner"></td>
+                            <td class="election-legend-key">Winner</td>
+                            <td class="election-legend-symbol  is-incumbent"></td>
+                            <td class="election-legend-key">Incumbent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+    <div aria-live="polite" id="announcer" class="sr-only"></div>
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="to-main-content sr-only">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="project-header" role="banner">
+      @@include('./_header.ejs.html')
+    </header>
+
+    <!-- Main content here -->
+    <main id="main-content" class="content" role="main">
+
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      @@include('./_footer.ejs.html')
+    </footer>
+
+    </div><!-- l-article-body -->
+            
+                                                </div>
+
+        
+            </div><!-- l-article-container -->
+
+          <div class="block-row">
+      <div id="zone-none-block-3-leaderboard"  data-appear-top-offset="300" class="ad-mod dfp-ad-container standard">
+    <script type='text/javascript'>
+        displayAd(Date.now(), 'zone-none-block-3-leaderboard');
+    </script>
+</div>
+    </div>
+  
+
+            <img class="trackerImage" src="http://apps.startribune.com/most_popular/?cmd=inc&amp;type=view&amp;section=%2F449289603&amp;story_id=449289603">
+    
+    </div>
+
+      
+<div class="l-footer-container">
+    <nav class="l-footer-inner" role="navigation">
+        <div class="footer-top-mod">
+            <a class="footer-branding-mod" href="http://www.startribune.com/" data-linkname="StarTribune" data-linktype="logo navigation" data-modulename="Page Navigation Bottom logo navigation" data-moduletype="footer-page-nav" data-position="0-1">
+                <h4 class="footer-st-branding">StarTribune</h4>
+            </a>
+            <div class="footer-social-mod">
+                <ul class="footer-social-links">
+                    <li><span class="footer-social-links-label">Follow Us On:</span></li>
+                    <li><a href="https://www.facebook.com/startribune/" class="footer-social-facebook" data-linkname="Facebook" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-2" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/StarTribune/" class="footer-social-twitter" data-linkname="Twitter" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-3" target="_blank">Twitter</a></li>
+                    <li><a href="https://plus.google.com/+startribune/" class="footer-social-gplus" data-linkname="Google+" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-4" target="_blank">Google+</a></li>
+                    <li><a href="http://pinterest.com/startribune/" class="footer-social-pinterest" data-linkname="Pinterest" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-5" target="_blank">Pinterest</a></li>
+                    <li><a href="http://www.instagram.com/startribune/" class="footer-social-instagram" data-linkname="Instagram" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-6" target="_blank">Instagram</a></li>
+                    <li><a href="http://startribune.tumblr.com/" class="footer-social-tumblr" data-linkname="Tumblr" data-linktype="social navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-7" target="_blank">Tumblr</a></li>
+                </ul>
+            </div><!-- footer-social-mod-->
+
+            
+        </div><!-- footer-top-mod -->
+
+                <div class="footer-navigation-mod">
+                                        <div class="footer-navigation-col col-1">
+                                            <h4 class="footer-group-h">Company</h4>
+                                                    <ul class="footer-navigation-links">
+                                                                    <li><a href="http://www.startribunecompany.com/" data-linkname="About the Star Tribune" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-7">About the Star Tribune</a></li>
+                                                                                                        <li><a href="http://www.startribunecompany.com/contact-us/" data-linkname="Contact us" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-8">Contact us</a></li>
+                                                                                                        <li><a href="http://www.startribunecompany.com/work-for-us/" data-linkname="Work For Us" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-9">Work For Us</a></li>
+                                                                                                        <li><a href="http://nieonline.com/startribune/" data-linkname="News in Education" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-10">News in Education</a></li>
+                                                                                                        <li><a href="http://www.citypages.com/" data-linkname="City Pages" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-11">City Pages</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/sports/preps/" data-linkname="High school sports hubs" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-12">High school sports hubs</a></li>
+                                                                                                        <li><a href="http://apps.startribune.com/news/mobile-products/" data-linkname="Mobile and tablet apps" data-linktype="company navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-13">Mobile and tablet apps</a></li>
+                                                                                                </ul>
+                                                            </div>
+                            <div class="footer-navigation-col col-2">
+                                            <h4 class="footer-group-h">Advertise with us</h4>
+                                                    <ul class="footer-navigation-links">
+                                                                    <li><a href="http://mediakit.startribunecompany.com/contact/" data-linkname="Talk with a business consultant" data-linktype="advertise navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-14">Talk with a business consultant</a></li>
+                                                                                                        <li><a href="http://mediakit.startribunecompany.com/" data-linkname="Media kit" data-linktype="advertise navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-15">Media kit</a></li>
+                                                                                                        <li><a href="http://startribune.adperfect.com/" data-linkname="Classifieds" data-linktype="advertise navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-16">Classifieds</a></li>
+                                                                                                </ul>
+                                                            </div>
+                            <div class="footer-navigation-col col-3">
+                                            <h4 class="footer-group-h">Buy</h4>
+                                                    <ul class="footer-navigation-links">
+                                                                    <li><a href="http://shop.startribune.com/" data-linkname="Star Tribune Store" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-17">Star Tribune Store</a></li>
+                                                                                                        <li><a href="https://shop.startribune.com/product/photo-print-request/" data-linkname="Photo Reprints" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-18">Photo Reprints</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/archives/" data-linkname="Archived articles" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-19">Archived articles</a></li>
+                                                                                                        <li><a href="http://startribune.newspapers.com/" data-linkname="Full Page Archive: 150+ years" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-20">Full Page Archive: 150+ years</a></li>
+                                                                                                        <li><a href="http://www.startribunecompany.com/contact-us/#_newspaper_back" data-linkname="Back Copies" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-21">Back Copies</a></li>
+                                                                                                        <li><a href="http://reprints.ygsgroup.com/m/startribune/" data-linkname="Commercial reprints" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-22">Commercial reprints</a></li>
+                                                                                                        <li><a href="https://secure.startribune.com/company/ic/home/newspaper/permission_new.htm" data-linkname="Licensing" data-linktype="ecommerce navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-23">Licensing</a></li>
+                                                                                                </ul>
+                                                            </div>
+                            <div class="footer-navigation-col col-4">
+                                            <h4 class="footer-group-h">Customer support</h4>
+                                                    <ul class="footer-navigation-links">
+                                                                    <li><a href="http://www.startribune.com/contactus/" data-linkname="Help and Feedback" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-24">Help and Feedback</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/membercenter/" data-linkname="Manage your account" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-25">Manage your account</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/subscriptionservices/" data-linkname="Newspaper subscription" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-26">Newspaper subscription</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/digitalaccess/" data-linkname="Digital access" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-27">Digital access</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/eedition/" data-linkname="eEdition" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-28">eEdition</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/subscriptionservices/" data-linkname="Vacation hold/billing" data-linktype="support navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-29">Vacation hold/billing</a></li>
+                                                                                                </ul>
+                                                            </div>
+                            <div class="footer-navigation-col col-5">
+                                            <h4 class="footer-group-h">Website</h4>
+                                                    <ul class="footer-navigation-links">
+                                                                    <li><a href="http://www.startribune.com/terms/" data-linkname="Terms of use" data-linktype="website navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-30">Terms of use</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/privacy/" data-linkname="Privacy policy" data-linktype="website navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-31">Privacy policy</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/siteindex/" data-linkname="Site index" data-linktype="website navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-32">Site index</a></li>
+                                                                                                        <li><a href="http://www.startribune.com/rss-index/112994779/" data-linkname="RSS" data-linktype="website navigation" data-modulename="Page Navigation Bottom" data-moduletype="footer-page-nav" data-position="0-33">RSS</a></li>
+                                                                                                </ul>
+                                                            </div>
+                    </div><!--footer-navigation-mod -->
+    </nav><!-- l-footer-inner -->
+</div><!--l-footer-container-->
+
+<div class="l-footer-container footer-copyright-mod">
+    <div class="l-footer-inner">
+        <p class="footer-copyright">&copy; 2017 StarTribune. All rights reserved.</p>
+    </div><!-- l-footer-inner -->
+</div><!--l-footer-container-->
+
+
+    
+  
+  
+  
+    <script type="text/javascript" src="http://assets.startribune.com/static/min/footer.min.js?d=1507574442"></script>
+  
+  <!-- our JS modules -->
+  <!-- <script type="text/javascript" src="http://assets.startribune.com/static/js/ad.js"></script> -->
+
+  <!-- per-page JS modules -->
+  
+        
+  <!-- housing page JS modules // this placement resolves script conflicts -->
+  
+  
+<!-- Start Omniture Tag -->
+    <script type="text/javascript" src="http://www.startribune.com/analytics-assets/sitecatalyst/StarTribunePageConfiguration.js?d=1507574385"></script>
+
+<script>
+
+    // Optimizely Adobe Analytics SiteCatalyst Integration code
+    window.optimizely = window.optimizely || [];
+    window.optimizely.push('activateSiteCatalyst');
+</script>
+<script type="text/javascript">
+    //Impression Tracking
+    var impression_map = {};
+    var evar_map = {};
+    //Code removed because we are not currently doing impression tracking.
+
+    //Pageload Tracking
+                                        s.prop1 = 'D=g';
+                                                            s.prop2 = 'V20171009';
+                                
+            s.events = 'event31,event32';
+                                                s.channel = '';
+                                                            s.server = 'startribune.com';
+                                                            s.eVar61 = '+1';
+                                                            s.prop22 = '1';
+                                                            s.prop23 = '';
+                                                            s.prop56 = '';
+                                                            s.prop7 = '';
+                                                            s.prop3 = 'story';
+                                                            s.prop4 = '';
+                                                            s.prop11 = 'Uncategorized';
+                                                            s.prop24 = 'article';
+                                                            s.prop25 = '449289603';
+                                                            s.prop35 = 'Jamie Hutt ';
+                                                            s.prop45 = '';
+                                                            s.prop65 = 'October 11, 2017';
+                                                            s.prop74 = 0
+                                                            s.prop75 = 0
+                                                            s.pageName = 'Election 2017 Results';
+                        
+        var storyExists = 'true';
+    var sidewaysEligible = 'true';
+
+    if(storyExists === 'true' && sidewaysEligible === 'true' && typeof referrerCheck !== 'undefined' && referrerCheck()) {
+        s.prop56 = "PerfectMarket";
+    }
+
+    if (typeof isUserGrazer === 'function') {
+        if(storyExists === 'true' && isUserGrazer() && window.segmentation.grazers) {
+            s.prop56 = 'Grazer';
+        }
+    }
+
+    
+    
+    //
+    // Special check for override templates to track whether they have ads
+    //
+
+    (function($, s) {
+
+        var adCount = 0;
+
+        //
+        // If we aren't on sideways, don't count those ads
+        // (Sideways ads are built client-side; the scaffolding always exists.)
+        //
+
+        if( typeof s.prop56 === 'undefined' || s.prop56 === '' ) {
+            var adDivs = $('.dfp-ad-container').not( '.sideways-ad' );
+        } else {
+            var adDivs = $('.dfp-ad-container');
+        }
+
+        for( var i = 0, j = adDivs.length; i < j; i++ ) {
+
+            //
+            // CSS is hiding ad, skip it
+            //
+
+            if( $(adDivs[i]).is(':hidden' ) ) {
+                continue;
+            }
+
+            //
+            // Don't count ads in the navigation bar
+            //
+
+            var adDivIdParts = adDivs[i].id.split('-');
+            var adNameParts = adDivIdParts.slice(4, adDivIdParts.length);
+            var adName = adNameParts.join('-');
+            if( $.inArray( adName, [ 'navtab', 'nav-flag' ] ) !== -1 ) {
+                continue;
+            }
+
+            //
+            // Whatever is left is a valid ad
+            //
+
+            adCount++;
+        }
+
+        s.prop54 = ( adCount > 0 ) ? 'Override Template Ads' : 'Override Template No Ads';
+
+    })(jQuery, s);
+
+    
+
+  if(isWelcomeShowing()){
+    s.prop21 = "Welcome Screen";
+  }
+
+    var s_code=s.t();if(s_code)document.write(s_code);
+
+    //Click Tracking
+    function userInteraction(events, vars, linkName) {
+        try {
+            s.linkTrackEvents = events.join(',');
+            s.events = s.linkTrackEvents;
+            s.linkTrackVars = 'events';
+            if (typeof vars === 'object') {
+                for (var key in vars) {
+                    if (vars.hasOwnProperty(key)) {
+                        s[key] = vars[key];
+                        s.linkTrackVars += ',' + key;
+                    }
+                }
+            }
+            s.tl(this, 'o', 'user interaction: ' + linkName);
+        } catch (e) {}
+    }
+
+    function trackClick( clickData ) {
+        //var impression = impression_map[clickData.key];
+        //var impressionEvar = evar_map[clickData.key];
+        userInteraction(clickData.events, {
+            'eVar44':'startribune.com',
+            'eVar45':clickData.modulename,
+            'eVar46':'D=pageName',
+            'eVar47':clickData.linkPosition,
+            'eVar48':clickData.linkname,
+            'eVar50':clickData.zonetype,
+            'eVar56':'homepage',
+            'eVar57':clickData.contentType,
+            'eVar58':clickData.linktype,
+            'eVar73':clickData.moduletype,
+            'eVar74':'story',
+            'eVar75':clickData.modulePosition,
+            //'products':'D="' + impression + '"'
+        }, clickData.linkname );
+    }
+    $(document).ready(function() {
+        $(document).on('click', 'a, input[type=submit]', function() {
+            analyticsClickTracking( $(this) );
+
+            return true;
+        });
+
+        //to fix Adobe bug that grabs our custom vars (lnk_o) on the lnk_e tracking calls
+        $(document).on('click', '.article-share a', function() {
+            setTimeout(function() {
+                s.clearVars();
+            },1000)
+        });
+
+        if ( $('.fly-in').length > 0 ) {
+            // Add a data attribute to the meter fly-in so it will be detected by click tracking
+            $('.fly-in-start-btn').attr('data-linkname', 'fly-in');
+        }
+    });
+</script>
+<!-- End Omniture Tag -->
+
+
+<!-- Begin Chartbeat Tag -->
+<script type="text/javascript">
+    var _sf_async_config = _sf_async_config || {};
+    _sf_async_config.sections = s.channel;
+    _sf_async_config.authors = s.prop35;
+    if ( typeof isHome !== 'undefined' &&
+        isHome &&
+        window.location.href.indexOf( 'refresh=true' ) > -1 &&
+        window.location.pathname === '/'
+    ) {
+        _sf_async_config.title = s.pageName;
+        _sf_async_config.sections = s.prop3;
+    }
+    var chartBeatAwesomeUser;
+    var samlId = readCookie('st_usr_saml_id');
+    if (!isNaN( parseInt(samlId) )) {
+        chartBeatAwesomeUser = 'lgdin';
+    }
+    else {
+        chartBeatAwesomeUser = 'anon';
+    }
+    if (!isNaN( parseInt(getUserSubscriptionId()) )) {
+        chartBeatAwesomeUser = 'paid';
+    }
+    var _cbq=window._cbq||[];
+    _cbq.push(['_acct',chartBeatAwesomeUser]);
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt = (new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src',
+                (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                "js/chartbeat_video.js");
+            document.body.appendChild(e);
+        }
+        jQuery(function(){loadChartbeat();});
+    })();
+</script>
+<!-- End Chartbeat Tag -->
+
+
+
+                        
+    <!-- BEGIN:  Snowplow analytics -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var triedTimes = 1;
+            var tooManyTimes = 4;
+            var intervalId;
+            var delay = 500; // milliseconds
+
+            function displayNow() {
+                if ($.cookie("s_vi")) {
+                    return true;
+                }
+                return false;
+            }
+
+            var displaySnowplow = function() {
+                ;
+                (function (p, l, o, w, i, n, g) {
+                    if (!p[i]) {
+                        p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || [];
+                        p.GlobalSnowplowNamespace.push(i);
+                        p[i] = function () {
+                            (p[i].q = p[i].q || []).push(arguments)
+                        };
+                        p[i].q = p[i].q || [];
+
+                        n = l.createElement(o);
+                        g = l.getElementsByTagName(o)[0];
+                        n.async = 1;
+                        n.src = w;
+                        g.parentNode.insertBefore(n, g);
+                    }
+                }(window, document, "script", "http://assets.startribune.com/static/js/snowplow/sp.js?d=1507574385", "snowplow"));
+                var firstPageType = "";
+                if (!$.cookie('snowp_first_page_type')) {
+                    firstPageType = "story";
+                    $.cookie('snowp_first_page_type', firstPageType, {expires: 30, path: '/'}   );
+                } else {
+                    firstPageType = $.cookie('snowp_first_page_type');
+                    $.cookie('snowp_first_page_type', firstPageType, {expires: 30, path: '/'}   );
+                }
+                // Data Layer Object
+                var objDL = {
+                    getSegment: function () {
+                        // Return current Segment based on global variables
+                        if (getUserSubscriptionId() != "No DTI ID") {
+                            return 400;     // "Subscriber";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() == 1 &&    this.isFirstViewArticle()) {
+                            // First visit day count in past 30 days, enter on story/blog   page, non-subscriber
+                            return 100;     // "Grazer";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() < 5 ) {
+                            // Visit day count = 2 - 4, OR Visit day count = 1 AND enter non-   story/non-blog page
+                            return 200;     //"Test Driver";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() > 4) {
+                            //Visit day count = 5+
+                            return 300;     // "Intender";
+                        }
+                        return 0;       // Should not happen
+                    },
+                    isFirstViewArticle: function () {
+                        // Is/was the first page viewed an article (that is, page type ==   "story")?
+                        return (firstPageType == 'story');
+                    },
+                    getFirstPageType: function () {
+                        return firstPageType;
+                    },
+                    getAdobeId: function () {
+                        return $.cookie("s_vi") || 'No Adobe ID';
+                    },
+                    getContentArticleId: function () {
+                        return this.dataSet.contentArticleID;
+                    },
+                    getContentPageType: function () {
+                        return this.dataSet.contentPageType;
+                    },
+                    getContentAuthor: function () {
+                        return this.dataSet.contentAuthor;
+                    },
+                    getContentPubDate: function () {
+                        return this.dataSet.contentPubDate;
+                    },
+                    getContentSection: function () {
+                        return this.dataSet.contentSection;
+                    },
+                    getContentSubsection: function () {
+                        return this.dataSet.contentSubsection;
+                    },
+                    getCurrentUserSegment: function () {
+                        return this.getSegment();
+                    },
+                    getDtiId: function () {
+                        return getUserSubscriptionId();
+                    },
+                    getEmailAddress: function () {
+                        return this.dataSet.emailAddress;
+                    },
+                    getLoggedInStatus: function () {
+                        return this.dataSet.loggedInStatus;
+                    },
+                    getReferringDomain: function () {
+                        return document.referrer;
+                    },
+                    getSubscriptionType: function () {
+                        return $.cookie("st_usr_products");
+                    },
+                    getUserSubscriptionPurchases: function () {
+                        return $.cookie("meter_sign_up");
+                    },
+                    getUsername: function () {
+                        return this.dataSet.username;
+                    },
+                    getPagesViewed: function () {
+                        return this.userBehavior['pageviewed'];
+                    },
+                    getpageViewCount: function () {
+                        return this.userBehavior['pagecount'];
+                    },
+                    getVisitDayCountNumberDaysUserVisitedPast30: function () {
+                        return parseInt(window.visitDays30) || 0;
+                    },
+                    getLoginAccountId: function () {
+                        return $.cookie("st_usr_saml_id") || 'No Login Account ID';
+                    },
+                    dataSet: {
+                        contentPubDate: "October 11, 2017",
+                        contentSection: "",
+                        contentSubsection: "",
+                        contentAuthor: "Jamie Hutt ",
+                        contentPageType: "story",
+                        contentArticleID: "449289603",
+                        username: "",
+                        dti_Id: "",
+                        emailAddress: "",
+                        loggedInStatus: "",
+                        referringDomain: "",
+                        pageName: "Election 2017 Results"
+                    }
+                };
+                objDL.dataSet.firstPageType = $.cookie('snowp_first_page_type');
+                var snowplowData = {
+                    collectorURL: 'd1epsz32winqbo.cloudfront.net',
+                    dataSet: {}
+                };
+                snowplowData.dataSet.adobeId = objDL.getAdobeId();
+                snowplowData.dataSet.contentArticleId = objDL.getContentArticleId();
+                snowplowData.dataSet.contentArticleType = objDL.getContentPageType();
+                snowplowData.dataSet.contentAuthor = objDL.getContentAuthor();
+                snowplowData.dataSet.contentPubDate = objDL.getContentPubDate();
+                snowplowData.dataSet.contentSection = objDL.getContentSection();
+                snowplowData.dataSet.contentSubsection = objDL.getContentSubsection();
+                snowplowData.dataSet.currentUserSegment = objDL.getCurrentUserSegment();
+                snowplowData.dataSet.dtiId = objDL.getDtiId();
+                snowplowData.dataSet.emailAddress = objDL.getEmailAddress();
+                snowplowData.dataSet.loggedInStatus = objDL.getLoggedInStatus();
+                snowplowData.dataSet.referringDomain = objDL.getReferringDomain();
+                snowplowData.dataSet.subscriptionType = objDL.getSubscriptionType();
+                snowplowData.dataSet.username = objDL.getUsername();
+                snowplowData.dataSet.visitDayCountNumberDaysUserVisitedPast30 = objDL.  getVisitDayCountNumberDaysUserVisitedPast30();
+                snowplowData.dataSet.loginAccountId = objDL.getLoginAccountId();
+
+                window.snowplow('newTracker', 'co', snowplowData.collectorURL, { //     Initialize Snowplow tracker
+                    appId: 'startribune_web',
+                    platform: 'web'
+                });
+                window.snowplow('trackPageView', document.title, [ // Auto-set page title;  add page context
+                    {
+                        schema: "iglu:com.startribune/trackPageView/jsonschema/1-0-15",
+                        data: snowplowData.dataSet
+                    }
+                ]);
+
+                if (localStorageAvailable()) {
+                    var minutesSinceFetch = null;
+
+                    if (localStorage.getItem('visitorAndContentDataLastFetched')                    ) {
+                        var timeStampValue = localStorage.getItem(' visitorAndContentDataLastFetched');
+                        var lastDate = new Date(timeStampValue);
+                        var currentDate = new Date();
+                        minutesSinceFetch = Math.floor(Math.abs(lastDate - currentDate) /   60000);
+                    }
+                    if(minutesSinceFetch == null || minutesSinceFetch > 60)
+                    {
+                        $.get('http://www.startribune.com/api/personalize', function (data) {
+                            var jsonData = JSON.stringify(data);
+                            localStorage.setItem('visitorAndContentData', jsonData);
+                        });
+                        localStorage.setItem('visitorAndContentDataLastFetched', new Date());
+                    }
+                }
+            };
+
+            if (displayNow()) {
+                displaySnowplow();
+            }
+            else {
+                intervalId = setInterval(repeatThisFunction, delay);
+            }
+
+            function repeatThisFunction() {
+                triedTimes++;
+                if (triedTimes >= tooManyTimes || displayNow()) {
+                    clearInterval(intervalId);
+                    displaySnowplow();
+                }
+            }
+        });
+    </script>
+<!-- END: Snowplow analytics -->
+
+    <script type="text/javascript">
+        var src = 'https://ds.reson8.com/insights.gif' +
+            '?rand=' + new Date().getTime() +
+            '&t=0&pixt=resonate&advkey=0013000000O4v2fAAB&opptykey=STRI0117A&evkey=159130&evtype=custom&resnc1=esp&resnc2=open' +
+            '&resnc3=' + readCookie('st_usr_saml_id') +
+            '&resnc4=' + s.prop1 +
+            '&resnc6=' + s.prop9 +
+            '&resnc7=' + s.prop10 +
+            '&resnc8=' + s.prop33 +
+            '&resnc9=' + s.prop39;
+
+        var img = document.createElement('img');
+        img.id = 'resonate';
+        img.src = src;
+        img.width = 1;
+        img.height = 1;
+        img.border = 0;
+        document.body.appendChild(img);
+    </script>
+
+
+    
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWTSNPP"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+  <script type="text/javascript">
+var reloadTimerLong = null;
+if(typeof reloadTimerActive === 'undefined') {
+  var reloadTimerActive = true;
+}
+reloadTimerLong = window.setTimeout(function() { if(reloadTimerActive) { window.location.reload(false); } } , 3600000 );
+</script>
+
+      <script type="text/javascript">
+            window._taboola = window._taboola || [];
+        _taboola.push({flush: true});
+      </script>
+      
+            <script id="e2ma-embed">window.e2ma=window.e2ma||{};e2ma.accountId='1788361';</script><script src="//dk98ddgl0znzm.cloudfront.net/e2ma.js" async="async"></script>
+    
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f550207221","applicationID":"60731094","transactionName":"M1JaYBQAVhVYW0cPWwoYeVcSCFcIFltcCEABWUw=","queueTime":0,"applicationTime":2732,"atts":"HxVZFlwaRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script><!-- Global/external scripts -->
+    <% if (config.js && config.js.globals) { config.js.globals.forEach(function(s) { %>
+      <script src="<%= s %>"></script>
+    <% }); } %>
+
+    <!-- Scripts -->
+    <script src="./app.bundle.js"></script>
+  </body>
+</html>

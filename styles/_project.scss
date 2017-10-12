@@ -5,6 +5,18 @@
     font-size: 1.5em;
     color:#444;
 }
+
+.content .group-nav{
+  width:30%;
+  display:inline-block;
+  vertical-align: top;
+}
+.content .dashboard{
+  width:65%;
+  display:inline-block;
+  vertical-align: top;
+}
+
 main.content{
   max-width:970px;
   margin:auto;

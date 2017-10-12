@@ -1351,20 +1351,6 @@
 
             <!-- Beginning of twig content -->
 
-            <div class="l-election-results-header">
-                <h1 class="election-results-header-title">2017 Election Results</h1>
-                <table class="election-table election-table-legend">
-                    <tbody>
-                        <tr>
-                            <td class="election-legend-symbol  candidate-race-status is-winner"></td>
-                            <td class="election-legend-key">Winner</td>
-                            <td class="election-legend-symbol  is-incumbent"></td>
-                            <td class="election-legend-key">Incumbent</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
 
     <div aria-live="polite" id="announcer" class="sr-only"></div>
 
@@ -1372,9 +1358,9 @@
     <a href="#main-content" class="to-main-content sr-only">Skip to main content</a>
 
     <!-- Header -->
-    <header class="project-header" role="banner">
+    <section class="project-header" role="banner">
       @@include('./_header.ejs.html')
-    </header>
+    </section>
 
     <!-- Main content here -->
     <main id="main-content" class="content" role="main">
@@ -1382,9 +1368,9 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
+    <section role="contentinfo">
       @@include('./_footer.ejs.html')
-    </footer>
+    </section>
 
     </div><!-- l-article-body -->
             

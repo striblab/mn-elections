@@ -34,23 +34,23 @@ It is necessary to have [news-platform](https://github.com/MinneapolisStarTribun
 
 If you have static route to your computer to do device testing, see the [docs on using a .local](https://sites.google.com/site/startribunedigitalwiki/workflow-1/localhost-3000-redirects-for-teamjpg).
 
-Once a CMS article has been created and the template is set up, make sure to include the article ID in `config.json` if it is not already there.
-
-#### Template
-
 In the [Twig](https://twig.symfony.com/) template for the article(s), use something like the following to get the assets in this project for both local development and in production.
 
 ```twig
 {% block styles %}
   {{ parent() }}
-  <link rel="stylesheet" href="{{ static_asset('news/projects/all/<%= package.name %>/style.bundle.css') }}">
+  <link rel="stylesheet" href="{{ static_asset('projects/mn-elections/style.bundle.css') }}">
 {% endblock %}
 
 {% block scripts %}
   {{ parent() }}
-  <script type="text/javascript" src="{{ static_asset('news/projects/all/<%= package.name %>/app.bundle.js') }}"></script>
+  <script type="text/javascript" src="{{ static_asset('projects/mn-elections/app.bundle.js') }}"></script>
 {% endblock %}
 ```
+
+**NOTE**: The location of the static assets should be where they will live on S3, relative to their bucket (i.e. `static.startribune.com`).  Local hosting will use the redirect this path to the `build/` folder as long as the `{ publish: { production: { path: "projects/mn-elections" }}}` is set in `config.json`.
+
+In the `config.json`, make sure the main article ID is set `{ cms: { id: "XXXXXX" }}`.  The
 
 ### Local
 

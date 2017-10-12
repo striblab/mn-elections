@@ -216,10 +216,10 @@ gulp.task('server', ['build'], () => {
 // Watch for building
 gulp.task('watch', () => {
   gulp.watch(['styles/**/*.scss'], ['styles']);
-  gulp.watch(
-    ['templates/**/*', 'config.*json', 'package.json', 'content.json'],
-    ['html:lint']
-  );
+  // gulp.watch(
+  //   ['templates/**/*', 'config.*json', 'package.json', 'content.json'],
+  //   ['html:lint']
+  // );
   gulp.watch(['app/**/*', 'config.json'], ['js']);
   gulp.watch(['assets/**/*'], ['assets']);
   gulp.watch(['config.*json'], ['publish:build']);
@@ -237,7 +237,8 @@ gulp.task('publish:confirm', gulpPublish.confirmToken(gulp));
 gulp.task('publish:open', gulpPublish.openURL(gulp));
 
 // Full build
-gulp.task('build', ['publish:build', 'assets', 'html:lint', 'styles', 'js']);
+//gulp.task('build', ['publish:build', 'assets', 'html:lint', 'styles', 'js']);
+gulp.task('build', ['publish:build', 'assets', 'styles', 'js']);
 gulp.task('default', ['build']);
 
 // Deploy (build and publish)

@@ -27,8 +27,8 @@
   "publish": {
     "production": {
       "bucket": "static.startribune.com",
-      "path": "assets/news/mn-elections/",
-      "url": "http://static.startribune.com/assets/news/mn-elections/index.html"
+      "path": "projects/mn-elections",
+      "url": "http://static.startribune.com/projects/mn-elections/index.html"
     }
   }
 }

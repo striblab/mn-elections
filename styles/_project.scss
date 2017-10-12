@@ -1,7 +1,14 @@
 /**
  * Project specific styling.
  */
-
+.l-article-body {
+    font-size: 1.5em;
+    color:#444;
+}
+main.content{
+  max-width:970px;
+  margin:auto;
+}
 .content header.project-header {
   padding: 1em 1em 0;
   margin-bottom: 1em;
@@ -35,6 +42,8 @@
     padding-right: 1em;
   }
 }
+
+
 
 .content .dashboard {
   .updated {
@@ -132,4 +141,46 @@
       width: 33.333%;
     }
   }
+}
+.l-election-results-header {
+    padding-bottom: 1.5em;
+    padding-top: .5em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #e7e7e7;
+    text-align: center;
+    max-width:970px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.election-results-header-title {
+    font: 700 2.2em/.25  Popular,Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+}
+.l-election-results-header .election-table {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.election-table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85em;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+}
+.election-table-legend .election-legend-symbol {
+    width: 1em;
+    padding-right: 0;
+}
+.election-table .candidate-race-status {
+    width: 1em;
+    padding-right: 0;
+}
+.election-table td {
+    padding: .75em;
+    vertical-align: middle;
+}
+.election-table-legend {
+    width: auto;
 }

@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1059.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <script
+        src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js"
+        data-apikey="d7596b77ded8b4d26234ad90e77b67a2">
+    </script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://m.startribune.com/assets/js/libs/jquery.cookie.js?d=1507746391"></script>
+        <script src="http://m.startribune.com/assets/js/libs/jquery.visible.min.js?d=1507746391"></script>
+        <script>window.strib = window.strib || {};strib.adConfig = {"id":"421782183","title":"Mobile Article (Base)","targets":{"target":[{"destinationID":899484,"destPath":"\/","domainID":15079,"domain":"m.startribune.com","url":"http:\/\/m.startribune.com\/421782183.html","priority":1,"isLive":true,"isArchive":false,"isDead":false,"createDate":"2017-05-24T19:41:55.000Z","startDate":"2017-05-24T19:41:55.000Z"}]},"version":5,"typeID":80651,"typeName":"Ad Config","typeVersion":40,"createDate":"2017-05-09T19:03:23.000Z","modifiedDate":"2017-05-30T19:50:00.000Z","_apiUpdateDate":"2017-05-30T21:09:03.786Z","categories":[],"categoryPaths":[],"categoryTree":[],"type":"Article","standardPageAds":[{"name":"sticky","pagePosition":"1","sizes":"[[320,50]]","targetingPosition":"1","targetedTemplates":"standard"}],"standardZoneAds":[],"dynamicZoneAds":[{"name":"instream","zone":"1","start":"800","repeat":"1600","sizes":"[[1,3],[234,60],[320,50],[300,250],[300,600]]","initialTargetingPosition":"1","targetedTemplates":"standard","lazyLoad":"false"},{"name":"instream","zone":"1","start":"1300","repeat":"800","sizes":"[[1,3],[234,60],[320,50],[300,250],[300,600]]","initialTargetingPosition":"1","targetedTemplates":"grazers"}],"fillToFitZoneAds":[],"streamZoneAds":[],"globalTargeting":"ct=a","dartSlotOverride":null,"dartZoneOverride":null,"comments":null,"disableHoverAds":false,"disableInterstitialAds":false,"disableSkinAds":false,"disableSuperBillboardAds":false,"refreshInterval":null,"refreshPositions":[],"nativoAds":false,"contentLiveDate":"2017-05-24T19:41:55.000Z"};</script>        <script type="text/javascript">
+            function localStorageAvailable() {
+                try {
+                    localStorage.setItem('availability_test', true);
+                    localStorage.removeItem('availability_test');
+                } catch (e) {
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+        <script type="text/javascript">
+            window.segmentation = window.segmentation || {};
+                            window.segmentation.grazers = false;
+                    </script>
+    
+    
+    <script type="text/javascript" src="http://m.startribune.com/analytics-assets/sitecatalyst/AppMeasurement.js?d=1507746390"></script>
+<script type="text/javascript" src="http://m.startribune.com/analytics-assets/visit-day-count.js?d=1507746390"></script>
+<script type="text/javascript" src="http://m.startribune.com/analytics-assets/30-day-visits.js?d=1507746390"></script>
+<script type="text/javascript" src="http://m.startribune.com/analytics-assets/detect-private-browsing.js?d=1507746390"></script>
+
+
+
+<script type="text/javascript">
+    var trackingVars = {};
+    var trackingLinkName = {};
+</script>
+
+<!-- Optimizely -->
+    <script type="text/javascript">
+        var storyExists = 'true';
+        var sidewaysEligible = 'true';
+
+        var sidewaysArticle = false;
+        if( ( storyExists == 'true' && sidewaysEligible == 'true' && ( typeof referrerCheck != 'undefined' && referrerCheck() ) ) || false ) {
+            sidewaysArticle = true;
+        }
+
+        // Variables for optimizely
+        window.opt_target = {
+            contentType: 'story',
+            sectionPath: '/',
+            minorSection: '/',
+            majorSection: '/',
+            relatedStoryCount: 0,
+            relatedMediaCount: 0,
+
+            sideways: sidewaysArticle,
+            localReferrer: !( typeof referrerCheck != 'undefined' && referrerCheck() ),
+            loggedIn: ( typeof getUsername != 'undefined' && getUsername() != 'Not Logged In' ),
+            monthlyCounter: ( typeof monthlyCounter != 'undefined' ? monthlyCounter() : 1 )
+        };
+
+                    window.opt_target[ 'relatedStoryCount' ] = 0;
+                            window.opt_target[ 'relatedMediaCount' ] = 0;
+                        </script>
+    <script src="//cdn.optimizely.com/js/3084170745.js"></script>
+    <!-- End Optimizely -->
+
+                <script type="text/javascript">
+            try {
+                if (optimizely.variationIdsMap[8298767300][0] === '8308374923') {
+                    window.segmentation.grazers = true;
+                }
+            } catch (e) {
+                Bugsnag.notifyException(e, 'Error in optimizely hard coding for experiment 8298767300');
+            }
+        </script>
+    
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWTSNPP');</script>
+<!-- End Google Tag Manager -->
+
+    <script type="text/javascript">
+                                            window.analytics = {"prop1":"D=g","prop2":"V20171011","events":{"event41":"event41","event42":"event42"},"channel":"news","server":"m.startribune.com","eVar31":"+1","prop22":"1","prop23":"","prop56":"","prop7":"News","prop3":"story","prop4":"","prop11":"Uncategorized","prop24":"article","prop25":"449289603","prop35":"Jamie Hutt ","prop45":"","prop65":"October 12, 2017","prop74":0,"prop75":0,"pageName":"Election 2017 Results"};
+        window.triggerPageView = true;  //New pageloads should always trigger analytics
+    </script>
+
+    <!-- Start Chartbeat Tag -->
+    <script type="text/javascript">
+        var _sf_async_config = { uid:19787, domain:'m.startribune.com', playerdomain:'m.startribune.com', useCanonical:true, flickerControl:false, autoDetect:false  };
+        var _sf_startpt = ( new Date() ).getTime();
+
+        var svi = readCookie('s_vi');
+        if (svi.indexOf('[CS]') === 0) {
+            _sf_async_config.type = svi.slice(7, svi.length - 4);
+        }
+    </script>
+        <script async src="//static.chartbeat.com/js/chartbeat_mab.js"></script>
+    <!-- End Chartbeat Tag -->
+
+    <!-- Begin comScore Tag -->
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "8428425" });
+        (function() {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+    <noscript>
+        <img src="http://b.scorecardresearch.com/p?c1=2&c2=8428425&cv=2.0&cj=1" />
+    </noscript>
+    <!-- End comScore Tag -->
+
+    <!-- Start Quantcast Tag -->
+    <script type="text/javascript">
+        _qoptions={
+            qacct:"p-0fEc9CMkDiJ2g"
+        };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-0fEc9CMkDiJ2g.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+    </noscript>
+    <!-- End Quantcast Tag -->
+
+    <script src="//dc8xl0ndzn2cb.cloudfront.net/js/startribunecom/v0/keywee.min.js" type="text/javascript" async></script>
+
+    <title>Election 2017 Results | Star Tribune</title>
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="bLXTXkzm4dJ8hcJy1LXawtxXxGP3JhInARj69uCiMiM" />
+                            <meta name="robots" content="noindex" />
+    
+                                        <meta http-equiv="Set-Cookie" content="sectionIndex=1; expires=Friday, 12-Oct-2018 09:13:25 CDT GMT; path=/">
+                    <meta http-equiv="Set-Cookie" content="sectionArticle=449289603|/|News; expires=Friday, 12-Oct-2018 09:13:25 CDT GMT; path=/">
+                    <meta http-equiv="Set-Cookie" content="landOnArticle=1; expires=Friday, 12-Oct-2018 09:13:25 CDT GMT; path=/">
+                    <meta http-equiv="Set-Cookie" content="articleId=449289603; expires=Friday, 12-Oct-2018 09:13:25 CDT GMT; path=/">
+                                <meta property="og:title" content="Election 2017 Results">
+    <meta property="og:url" content="http://www.startribune.com/election-2017-results/449289603/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="">
+
+              <meta property="fb:pages" content="42739463017" />
+      <meta property="fb:pages" content="57441959950" />
+      <meta property="fb:pages" content="37038662909" />
+      <meta property="fb:pages" content="140536902040" />
+      <meta property="fb:pages" content="227191347864" />
+      <meta property="fb:pages" content="54374033570" />
+      <meta property="fb:pages" content="49573759647" />
+    
+                        <link rel="canonical" href="http://www.startribune.com/election-2017-results/449289603/"/>
+    
+        <link rel="shortcut icon" href="http://stmedia.startribune.com/designimages/favicon.ico" type="image/x-icon"/>
+    <link rel="mask-icon" href="http://m.startribune.com/vector-icon.svg?d=1507746390" color="#5bbad5">
+
+    <link rel="apple-touch-icon" href="http://m.startribune.com/img/touch-icon-iphone-retina.png?d=1507746390">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://m.startribune.com/img/touch-icon-ipad.png?d=1507746390">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://m.startribune.com/img/touch-icon-iphone-retina.png?d=1507746390">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://m.startribune.com/img/touch-icon-ipad-retina.png?d=1507746390">
+    <link rel="shortcut icon" sizes="16x16" href="http://m.startribune.com/img/strib-star-16.png?d=1507746390">
+    <link rel="shortcut icon" sizes="196x196" href="http://m.startribune.com/img/strib-star-196.png?d=1507746390">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-title" content="StarTribune.com">
+
+                        <link rel="stylesheet" href="http://m.startribune.com/assets/css/main.css?d=e5d0c1cc7ac74eb824609cc5734e326763d17640" />
+    
+    <link rel="stylesheet" href="http://m.startribune.com/assets/css/vendor/news/desktop-fonts.css">
+        <% if (config.styles && config.styles.globals) { config.styles.globals.forEach(function(s) { %>
+            <link href="<%= s %>" rel="stylesheet" type="text/css">
+    <% }); } %>
+    <!-- Project-specific styles-->
+    <link rel="stylesheet" href="./styles.bundle.css" type="text/css">
+                    <script type="text/javascript">
+    !function(a9,a,p,s,t,A,g){
+        if(a[a9])return;
+        function q(c,r){a[a9]._Q.push([c,r])}
+        a[a9]={init:function(){q("i",arguments)},
+        fetchBids:function(){q("f",arguments)},
+        setDisplayBids:function(){},_Q:[]};
+        A=p.createElement(s);
+        A.async=!0;
+        A.src=t;
+        g=p.getElementsByTagName(s)[0];
+        g.parentNode.insertBefore( A,g)
+    }("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");
+</script>
+        <link rel="stylesheet" href="http://m.startribune.com/assets/css/addtohomescreen.css?d=201717a31c915e731405ab15df6eaa8ae96d60a5" />
+
+    <script>document.domain = window.location.host.replace(/:\d+/, '').split('.')[window.location.host.replace(/:\d+/, '').split('.').length - 2] + '.' + window.location.host.replace(/:\d+/, '').split('.')[window.location.host.replace(/:\d+/, '').split('.').length - 1];</script>
+    <script src="http://m.startribune.com/assets/js/libs/modernizr.js?d=1507746391"></script>
+
+    <script>window.jQuery || document.write( '<script src="http://m.startribune.com/assets/js/libs/jquery.min.js?d=1507746391"><\/script>' )</script>
+    <script src="http://m.startribune.com/assets/js/libs/jquery.onAppear.min.js?d=1507746391"></script>
+                        <script type="text/javascript" data-placement="2"
+                                   data-environment="3">
+        var rSkunkConfig = {"enforcement":true,"countViews":{"guests":true,"loggedIn":true,"subscribers":true},"unmetered":{"sectionPaths":["\/bios","\/help","\/offers","\/lifestyle\/kids-health","\/video","\/obituaries"],"contentIds":["218991591","227829611","231193891","115289839","296766441","296743831","246166341","218991591","217991401","227829611","137705393","11603211","239277721","241138711","11601086","238868691","216063751","137104018","330403811","33982091","2339820912","330695211","331070182","330695801","330696571","331058632","331060792","330697181","330697391","340341182","330403811","327431751","327433381","330128811","328661241","328662141","329568521","318969021","324121191","353175091","361904611","311225761","334160481","360960701","312118531","311225971","374152651","374523971","385789251","385791431","385795521","385826221","385818971","385850431","385878211","385866831","385877781","385882061","385903851","385876581","385911611","385861101","385943021","385941491","385945401","386016701","386029891","386054481","386065661","386082391","386193241","386158771","386221031","386296071","386197981","386344001","386337111","386337251","386337531","386487091","386800181","386810331","401484635",""],"referrers":{"regex":"","exclude":false}},"storageKey":"rskunk_mobile","baseURL":"https:\/\/users.startribune.com","embedURL":"https:\/\/users.startribune.com\/embed\/mainapp.build.js?c=133881146bf42be1c6911ba6db5fc6abd25f3985","embedAssets":["https:\/\/users.startribune.com\/embed\/third-party\/growl.css","https:\/\/users.startribune.com\/embed\/third-party\/colorbox.css"],"placementName":"m.startribune.com","loginRedirect":"https:\/\/m.startribune.com\/signin?passive=true&path=","logoutRedirect":"https:\/\/m.startribune.com\/signout?path=","dataExpiration":{"type":"thirtyDays","month":1,"day":1,"hour":0,"min":0,"sec":0},"topTier":{"id":"m-15monthnopaypal","count":29},"tiers":[{"id":"m-15monthnopaypal","count":29,"action":"ignore","mute":true,"action_config":false,"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/m-15monthnopaypal\/start"},{"id":"m-pda-20mo","count":28,"action":"ignore","mute":true,"action_config":false,"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/m-pda-20mo\/start"},{"id":"m-pda-15mo","count":27,"action":"ignore","mute":true,"action_config":false,"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/m-pda-15mo\/start"},{"id":"m-pda-10mo","count":26,"action":"ignore","mute":true,"action_config":false,"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/m-pda-10mo\/start"},{"id":"m-pda-379wk-qtrly","count":25,"action":"ignore","mute":true,"action_config":false,"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/m-pda-379wk-qtrly\/start"},{"id":"limit","count":11,"action":"new_page","mute":true,"action_config":{"template":"{% extends \"grid\" %}\r\n \r\n{% block heading_text %}You\u2019ve read your 10 free articles for this 30 day period. Sign up now for local coverage you won\u2019t find anywhere else, special sections and your favorite columnists. StarTribune puts Minnesota and the world right at your fingertips. {% endblock %}\r\n \r\n{% block last %}\r\n{{ parent() }}\r\n{# limit Krux pixel from https:\/\/www.squishlist.com\/strib\/customshop\/328\/ #}\r\n<img class=\"tracking-pixel\" src='http:\/\/beacon.krxd.net\/event.gif?event_id=JoaezWux&event_type=rtg' width=0 height=0 \/>\r\n<script>\r\n\/\/Load jQuery library using plain JavaScript\r\n(function(){\r\n  var newscript = document.createElement('script');\r\n     newscript.type = 'text\/javascript';\r\n     newscript.async = true;\r\n     newscript.src = 'https:\/\/code.jquery.com\/jquery-3.1.0.min.js';\r\n  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);\r\nvar newscript2 = document.createElement('script');\r\n     newscript2.type = 'text\/javascript';\r\n     newscript2.async = true;\r\n     newscript2.src = 'https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/js-cookie\/2.1.3\/js.cookie.min.js';\r\n  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript2);\r\n})();\r\n\/********TEST CODE for METER SNOW PLOW ANALYTiCS*******************\/\r\nvar meter = {};\r\n$(document).ready(function(){\r\n    \/\/ console.log(\"this loads well\");\r\n    $('.js-optimizely-click-goal').click(function(){\r\n        \/\/ console.log(this);\r\n  meter['type'] = $(\"input[name='offer']\").val();\r\n  if(meter['type'] = 131){meter['type'] = \"Premium Digital Access\";}\r\n  else if(meter['type'] = 130){meter['type'] = \"Sunday Print + Digital\";}\r\n  else if(meter['type'] = 129){meter['type'] = \"7-Day Print + Digital\";}\r\n  else if(meter['type'] = 128){meter['type'] = \"Sunday Print\";}\r\n  meter['date'] = new Date().toLocaleString();\r\n  \/\/ console.log(meter['type']);\r\n  \/\/ console.log(meter['date']);\r\n  var json_meter_cookie = JSON.stringify(meter);\r\n  Cookies.set('meter_sign_up', json_meter_cookie); \r\n \r\n  });\r\n});\r\n\/************************************************************************\/\r\n  \/\/ FACEBOOK TRACKING PIXEL #1\r\n    !function(f,b,e,v,n,t,s)\r\n    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\r\n    n.callMethod.apply(n,arguments):n.queue.push(arguments)};\r\n    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\r\n    n.queue=[];t=b.createElement(e);t.async=!0;\r\n    t.src=v;s=b.getElementsByTagName(e)[0];\r\n    s.parentNode.insertBefore(t,s)}(window,document,'script',\r\n    'https:\/\/connect.facebook.net\/en_US\/fbevents.js');\r\n    fbq('init', '590074241155998'); \r\n    fbq('track', 'ViewContent');\r\n \r\n<\/script>\r\n{% endblock %}"},"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/limit\/start"},{"id":"limit-signup-opt-mobile","count":7,"action":"new_page","mute":true,"action_config":{"template":"{% extends \"grid\" %}\r\n \r\n{% block heading_text %}You\u2019ve read your free articles for this 30 day period. Sign up now for local coverage you won\u2019t find anywhere else, special sections and your favorite columnists. StarTribune puts Minnesota and the world right at your fingertips. {% endblock %}\r\n \r\n{% block last %}\r\n{{ parent() }}\r\n{# limit Krux pixel from https:\/\/www.squishlist.com\/strib\/customshop\/328\/ #}\r\n<img class=\"tracking-pixel\" src='http:\/\/beacon.krxd.net\/event.gif?event_id=JoaezWux&event_type=rtg' width=0 height=0 \/>\r\n<script>\r\n\/\/Load jQuery library using plain JavaScript\r\n(function(){\r\n  var newscript = document.createElement('script');\r\n     newscript.type = 'text\/javascript';\r\n     newscript.async = true;\r\n     newscript.src = 'https:\/\/code.jquery.com\/jquery-3.1.0.min.js';\r\n  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);\r\nvar newscript2 = document.createElement('script');\r\n     newscript2.type = 'text\/javascript';\r\n     newscript2.async = true;\r\n     newscript2.src = 'https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/js-cookie\/2.1.3\/js.cookie.min.js';\r\n  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript2);\r\n})();\r\n\/********TEST CODE for METER SNOW PLOW ANALYTiCS*******************\/\r\nvar meter = {};\r\n$(document).ready(function(){\r\n    \/\/ console.log(\"this loads well\");\r\n    $('.js-optimizely-click-goal').click(function(){\r\n        \/\/ console.log(this);\r\n  meter['type'] = $(\"input[name='offer']\").val();\r\n  if(meter['type'] = 131){meter['type'] = \"Premium Digital Access\";}\r\n  else if(meter['type'] = 130){meter['type'] = \"Sunday Print + Digital\";}\r\n  else if(meter['type'] = 129){meter['type'] = \"7-Day Print + Digital\";}\r\n  else if(meter['type'] = 128){meter['type'] = \"Sunday Print\";}\r\n  meter['date'] = new Date().toLocaleString();\r\n  \/\/ console.log(meter['type']);\r\n  \/\/ console.log(meter['date']);\r\n  var json_meter_cookie = JSON.stringify(meter);\r\n  Cookies.set('meter_sign_up', json_meter_cookie); \r\n \r\n  });\r\n});\r\n\/************************************************************************\/\r\n  \/\/ FACEBOOK TRACKING PIXEL #1\r\n    !function(f,b,e,v,n,t,s)\r\n    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\r\n    n.callMethod.apply(n,arguments):n.queue.push(arguments)};\r\n    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\r\n    n.queue=[];t=b.createElement(e);t.async=!0;\r\n    t.src=v;s=b.getElementsByTagName(e)[0];\r\n    s.parentNode.insertBefore(t,s)}(window,document,'script',\r\n    'https:\/\/connect.facebook.net\/en_US\/fbevents.js');\r\n    fbq('init', '590074241155998'); \r\n    fbq('track', 'ViewContent');\r\n \r\n<\/script>\r\n{% endblock %}"},"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/limit-signup-opt-mobile\/start"},{"id":"nag","count":5,"action":"new_page","mute":true,"action_config":{"template":"{% extends \"shell\" %}\r\n\r\n{% block substyles %}\r\n<style type=\"text\/css\">\r\n    .nag {\r\n        padding:0;\r\n    }\r\n    .nag-inner {\r\n        padding:0 20px 50px;\r\n    }\r\n    .nag img {\r\n        width:auto;\r\n        margin:0 auto;\r\n    }\r\n    .nag h1 {\r\n        margin-top:-20px;\r\n        text-transform:uppercase;\r\n        color:#61bf1a;\r\n        text-align:center;\r\n        font:normal 26px\/1 'Popular bold', serif;\r\n    }\r\n    .nag h2 {\r\n        font:bold 28px\/1 'Benton Sans', sans-serif;\r\n        font-style:italic;\r\n        text-align:center;\r\n    }\r\n    .nag-status {\r\n        text-align:left;\r\n        background:#f5f5f5 url(\"{{ static_url('img-icon-warning.png') }}\") 12px 10px no-repeat;\r\n        padding:12px 35px 10px;\r\n        margin-bottom:65px;\r\n    }\r\n    .nag-status p {\r\n        display:inline-block;\r\n        margin-bottom:0;\r\n        font:normal 14px\/1 'Benton Sans', sans-serif;\r\n        font-style:italic;\r\n    }\r\n    .nag-status p:first-child {\r\n        color:#ff8200;\r\n        font-weight:bold;\r\n    }\r\n    .nag-status p:last-child {\r\n        color:#ccc;\r\n        float:right;\r\n    }\r\n    .nag-status .btn-link {\r\n        color:#61bf1a;\r\n    }\r\n    .nag-divider {\r\n        border-top:1px solid #e7e7e7;\r\n        text-align:center;\r\n        width:100%;\r\n        max-width:500px;\r\n        margin:40px auto 20px;\r\n    }\r\n    .nag-logo {\r\n        display:inline-block;\r\n        background:#fff;\r\n        padding:10px;\r\n        margin-top:-24px;\r\n    }\r\n    .nag-btn {\r\n        display:block;\r\n        font-size:24px;\r\n        padding:20px;\r\n        border-radius:5px;\r\n        margin:20px auto 0;\r\n    }\r\n    .log-in {\r\n        margin:-40px auto 30px;\r\n        max-width:400px;\r\n    }\r\n<\/style>\r\n{% endblock %}\r\n\r\n{% block page %}\r\n{#\r\n\r\n{{ limit - count - 1 }}\r\n\r\n{{ form.flow_form_open({nextAction: 'firstSlide'}, null, null, '_top') }}\r\n    {{ form.btn('Save Now') }}\r\n{{ form.flow_form_close() }}\r\n\r\n<div class=\"log-in hide\">\r\n    {{ form.get_general_error_messages(['authenticate']) }}\r\n    {{ form.flow_form_open({nextAction: 'login'}, ['authenticate'], 'login-form', '_top') }}\r\n        <div id=\"login-forms-errors\"><\/div>\r\n        {{ form.login }}\r\n    {{ form.flow_form_close() }}\r\n<\/div>\r\n\r\n<button class=\"btn-link js-end-flow btn-inline-baseline\"{% if tripper %} data-return-to=\"{{ tripper }}\"{% endif %}>Keep reading <\/button>\r\n\u2022 <button class=\"btn-link log-in-toggle\">Log in<\/button>\r\n\r\n<img src=\"{{ static_url('img-logo-startribune.png') }}\"\/>\r\n\r\n#}\r\n<div class=\"mtr nag\">\r\n    <div class=\"nag-status\">\r\n        <p>You have {{ limit - count - 1 }} articles left<\/p>\r\n        <p>\r\n            <button class=\"btn-link js-end-flow btn-inline-baseline\"{% if tripper %} data-return-to=\"{{ tripper }}\"{% endif %}>Keep reading<\/button>\r\n            \u00a0\u00a0\u2022\u00a0\u00a0\r\n            <button class=\"btn-link log-in-toggle\">Log in<\/button>\r\n        <\/p>\r\n    <\/div>\r\n    <div class=\"nag-inner\">\r\n        <div class=\"log-in hide\">\r\n            {{ form.get_general_error_messages(['authenticate']) }}\r\n            {{ form.flow_form_open({nextAction: 'login'}, ['authenticate'], 'login-form', '_top') }}\r\n                <div id=\"login-forms-errors\"><\/div>\r\n                {{ form.login }}\r\n            {{ form.flow_form_close() }}\r\n        <\/div>\r\n        <img src=\"{{ static_url('img-txt-savemoretoday.gif') }}\" alt=\"Save More Today\">\r\n        <h1>Over 70% off!<\/h1>\r\n        <div class=\"nag-divider\">\r\n            <div class=\"nag-logo\">\r\n                <img src=\"{{ static_url('img-logo-st-sm-grey.gif') }}\" alt=\"Star Tribune\">\r\n            <\/div>\r\n        <\/div>\r\n        <h2>99\u00a2 for first 4 weeks<\/h2>\r\n        {{ form.flow_form_open({nextAction: 'firstSlide'}, null, null, '_top') }}\r\n            {{ form.button('Save Now', 'btn nag-btn') }}\r\n        {{ form.flow_form_close() }}\r\n    <\/div>\r\n<\/div>\r\n{% endblock %}\r\n\r\n{% block last %}\r\n{{ parent() }}\r\n<script type=\"text\/javascript\">\r\n    $('.log-in-toggle').click(function(){\r\n        $('.log-in').toggle();\r\n        $('#login_email_address').focus();\r\n        mtr_utils.resize();\r\n    });\r\n    $(document).ready(function(){\r\n        setInterval(function(){\r\n            mtr_utils.resize();\r\n        }, 5000);\r\n    });\r\n<\/script>\r\n{% endblock %}"},"start":"https:\/\/users.startribune.com\/placement\/2\/environment\/3\/nag\/start"}]};
+    </script>
+
+
+        <script type="text/javascript">
+        var meteredElement = {
+            "contentID": "449289603",
+            "meteredContent": true,
+            "sectionPath": "/",
+            "user_state": "guest",
+            "products": null
+        };
+        function rskunkCookieMonster(k) {
+            return(r=RegExp('(^|; )'+encodeURIComponent(k)+'=([^;]*)').exec(document.cookie))?r[2]:null;
+        }
+        if(null !== rskunkCookieMonster('st_usr_name')) meteredElement.user_state = "logged_in";
+        if(null !== rskunkCookieMonster('st_usr_products')) meteredElement.products = JSON.parse(unescape(rskunkCookieMonster('st_usr_products')));
+
+        if( typeof optimizelyMeterOverrides == 'object' ) {
+            jQuery.extend( true, rSkunkConfig, optimizelyMeterOverrides );
+        }
+
+        rsInit = function( rs ) {
+            var exemptReferrers = (typeof window.opt_meter_exempt_referrers != 'undefined') ? window.opt_meter_exempt_referrers : [];
+                        rs.calculate( rSkunkConfig, meteredElement, function() {
+                if ( exemptReferrers.indexOf('newsletters') > -1 && window.location.search.match('ref=nl') !== null) {
+                    return;
+                }
+
+                for (ref in exemptReferrers) {
+                    if (document.referrer.match(ref) !== null) {
+                        return;
+                    }
+                }
+
+                rs.enforce(function(count) {
+                                    });
+
+            });
+        }
+    </script>
+
+
+    <script type="text/javascript" src="https://users.startribune.com/embed/mainapp.build.js?c=133881146bf42be1c6911ba6db5fc6abd25f3985"></script>
+            <link rel="stylesheet" href="https://users.startribune.com/embed/third-party/growl.css">
+            <link rel="stylesheet" href="https://users.startribune.com/embed/third-party/colorbox.css">
+        
+        <!-- Google DFP ad library -->
+    <script type='text/javascript'>
+        (function() {
+        var useSSL = 'https:' == document.location.protocol;
+        var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt_mobile.js';
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        })();
+
+        window.lazyLoad = false;
+    </script>
+
+      <script type="text/javascript">
+    // initialize amazon ad integration
+    apstag.init({
+        pubID: '3151',
+        adServer: 'googletag',
+        bidTimeout: 2e3
+    });
+</script>
+    
+        
+                
+          <script src="//biddr.brealtime.com/39959674-1024.js" type="text/javascript"></script>
+    
+        <script type="text/javascript">
+        var dartSlotString = '/7932/mobile/mob_startribune.com/mob_homepage';
+        var adType = 'article';
+
+        var userStatus = 'notloggedin';
+
+        if( readCookie( 'st_usr_sub_id' ) !== '' ) {
+            userStatus = 'subscriber';
+        } else if( readCookie( 'st_usr_saml_id' ) !== '' ) {
+            userStatus = 'loggedin';
+        }
+
+        try {
+            googletag.cmd.push( function() {
+                googletag.pubads().setTargeting('user', userStatus);
+            });
+        } catch(e) {
+            if ( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+                Bugsnag.notifyException(e);
+            }
+        }
+
+    </script>
+            <script type="text/javascript">
+            // var overlaySlot = '';
+            // try {
+            //     googletag.cmd.push( function() {
+            //         overlaySlot = googletag.defineOutOfPageSlot( '/7932/mobile/mob_startribune.com/mob_homepage', 'div-gpt-ad-overlay').addService( googletag.pubads() );
+            //     });
+            // } catch(e) {
+            //     if ( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+            //         Bugsnag.notifyException(e);
+            //     }
+            // }
+        </script>
+        <script type="text/javascript">
+        try {
+            googletag.cmd.push( function () {
+                googletag.pubads().disableInitialLoad();
+                googletag.pubads().enableAsyncRendering();
+                googletag.pubads().collapseEmptyDivs( true );
+                googletag.enableServices();
+            } );
+        } catch(e) {
+            if ( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+                Bugsnag.notifyException(e);
+            }
+        }
+    </script>
+      
+            <script type="text/javascript" src="//s.ntv.io/serve/load.js" async></script>
+    
+    
+    <!-- Grunticon script -->
+    <script>
+        window.grunticon = function ( e ) {
+            if ( e && 3 === e.length ) {
+                var t = window, n = !!t.document.createElementNS && !!t.document.createElementNS( "http://www.w3.org/2000/svg", "svg" ).createSVGRect && !!document.implementation.hasFeature( "http://www.w3.org/TR/SVG11/feature#Image", "1.1" ), A = function ( A ) {
+                    var o = t.document.createElement( "link" ), r = t.document.getElementsByTagName( "script" )[ 0 ];
+                    o.rel = "stylesheet", o.href = e[ A && n ? 0 : A ? 1 : 2 ], r.parentNode.insertBefore( o, r )
+                }, o = new t.Image;
+                o.onerror = function () {
+                    A( !1 )
+                }, o.onload = function () {
+                    A( 1 === o.width && 1 === o.height )
+                }, o.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+            }
+        };
+        grunticon( [ "http://m.startribune.com/assets/css/icons.data.svg.css?d=0ed9da63633b32771dfeabe5a89580fc18b599d0", "http://m.startribune.com/assets/css/icons.data.png.css?d=bbed2d19356b924bfb66aaece1743bf8dfdf9137", "http://m.startribune.com/assets/css/icons.fallback.css?d=6edc112b73d341966711038b94c0dfec8e5d3723" ] );</script>
+    <noscript>
+        <link href="http://m.startribune.com/assets/css/icons.fallback.css?d=6edc112b73d341966711038b94c0dfec8e5d3723" rel="stylesheet">
+    </noscript>
+    <!-- End Grunticon script -->
+
+    <style type="text/css">
+        /*
+        This CSS resource incorporates links to font software which is
+        the valuable copyrighted property of WebType LLC, The Font Bureau,
+        Ascender Corporation and/or their suppliers. You may not
+        attempt to copy, install, redistribute, convert, modify or reverse
+        engineer this font software. Please contact WebType with any
+        questions:
+        http://www.webtype.com
+        */
+
+        /*
+        @font-face syntax based on Fontspring @font-face syntax.
+        */
+
+        @font-face {
+            font-family: Popular;
+            src: url("http://apps.startribune.com/fonts/popular/regular/851caebd-2961-4fd9-a500-2b38452b1ec9-2.eot?") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/popular/regular/851caebd-2961-4fd9-a500-2b38452b1ec9-3.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/popular/regular/851caebd-2961-4fd9-a500-2b38452b1ec9-1.ttf") format("truetype"),
+            url("http://apps.startribune.com/fonts/popular/regular/851caebd-2961-4fd9-a500-2b38452b1ec9-4.svg#web") format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Popular-light";
+            src: url("http://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-2.eot?") format("embedded-opentype"),
+          url("http://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-3.woff") format("woff"),
+          url("http://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-1.ttf") format("truetype"),
+          url("http://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-4.svg#web") format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: Popular-medium;
+            src: url("http://apps.startribune.com/fonts/popular/medium/96c3bd87-fed5-419d-a1cf-d947b17d6ab7-2.eot?") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/popular/medium/96c3bd87-fed5-419d-a1cf-d947b17d6ab7-3.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/popular/medium/96c3bd87-fed5-419d-a1cf-d947b17d6ab7-1.ttf") format("truetype"),
+            url("http://apps.startribune.com/fonts/popular/medium/96c3bd87-fed5-419d-a1cf-d947b17d6ab7-4.svg#web") format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: Popular-bold;
+            src: url("http://apps.startribune.com/fonts/popular/bold/9a23c9ca-82fe-417a-9070-5f5daeaf6214-2.eot?") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/popular/bold/9a23c9ca-82fe-417a-9070-5f5daeaf6214-3.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/popular/bold/9a23c9ca-82fe-417a-9070-5f5daeaf6214-1.ttf") format("truetype"),
+            url("http://apps.startribune.com/fonts/popular/bold/9a23c9ca-82fe-417a-9070-5f5daeaf6214-4.svg#web") format("svg");
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: OpenSans-bold;
+            src: url("http://apps.startribune.com/fonts/OpenSans-Bold/OpenSans-Bold.eot");
+            src: url("http://apps.startribune.com/fonts/OpenSans-Bold/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/OpenSans-Bold/OpenSans-Bold.svg") format("svg"),
+            url("http://apps.startribune.com/fonts/OpenSans-Bold/OpenSans-Bold.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/OpenSans-Bold/OpenSans-Bold.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: OpenSans-light;
+            src: url("http://apps.startribune.com/fonts/OpenSans-Light/OpenSans-Light.eot");
+            src: url("http://apps.startribune.com/fonts/OpenSans-Light/OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/OpenSans-Light/OpenSans-Light.svg") format("svg"),
+            url("http://apps.startribune.com/fonts/OpenSans-Light/OpenSans-Light.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/OpenSans-Light/OpenSans-Light.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: OpenSans-regular;
+            src: url("http://apps.startribune.com/fonts/OpenSans-Regular/OpenSans-Regular.eot");
+            src: url("http://apps.startribune.com/fonts/OpenSans-Regular/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+            url("http://apps.startribune.com/fonts/OpenSans-Regular/OpenSans-Regular.svg") format("svg"),
+            url("http://apps.startribune.com/fonts/OpenSans-Regular/OpenSans-Regular.woff") format("woff"),
+            url("http://apps.startribune.com/fonts/OpenSans-Regular/OpenSans-Regular.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var zipCode = 55488;
+                
+        var domain = "http\x3A\x2F\x2Fm.startribune.com";
+
+                        var articleId = '0';
+    </script>
+
+    <script>
+        window.getMobileOSAndVersion = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (userAgent.match( /iPhone/i ) || userAgent.match( /iPad/i ) || userAgent.match( /iPod/i ) ) {
+                var v = userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/);
+                return {
+                    os: 'iOS',
+                    version: parseInt(v[1], 10),
+                    fullVersion: [ parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10) ],
+                    fullVersionString: [ v[1], v[2], v[3] || '0' ].join('.')
+                };
+            }
+
+            if (userAgent.match( /Android/i ) ) {
+                var v = userAgent.match(/Android (\d+)\.(\d+)\.?(\d+)?/);
+                return {
+                    os: 'Android',
+                    version: parseInt(v[1], 10),
+                    fullVersion: [ parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10) ],
+                    fullVersionString: [ v[1], v[2], v[3] || '0' ].join('.')
+                };
+            }
+
+            return {
+                os: 'other',
+                version: 'unknown'
+            };
+        }
+    </script>
+
+                    <script type="text/javascript">
+            var sectionNav = '/';
+        </script>
+    
+        <script src="http://m.startribune.com/assets/js/libs/pym.min.js?d=1507746391"></script>
+</head>
+<body class="wide-body">
+<div id="div-gpt-ad-overlay">
+    <script type="text/javascript">
+        // if (!window.disableOOP) {
+        //     try {
+        //         googletag.cmd.push( function() {
+        //             googletag.display( 'div-gpt-ad-overlay' );
+        //             googletag.pubads().refresh( [ overlaySlot ] );
+        //         });
+        //     } catch(e) {
+        //         if ( !(e instanceof TypeError) && !(e instanceof ReferenceError) && typeof Bugsnag !== 'undefined' ) {
+        //             Bugsnag.notifyException(e);
+        //         }
+        //     }
+        // }
+    </script>
+</div>
+
+        <script type="text/javascript">
+        var TriggerPrompt = function(articleUrl, contentId) {
+            var ARTICLE_URL = articleUrl;
+            var CONTENT_ID = contentId || '';
+            var el = document.createElement('script');
+            var url = 'http://survey.g.doubleclick.net/survey?site=_ajh2o6mh2usky' +
+                    '&url=' + encodeURIComponent(ARTICLE_URL) +
+                    (CONTENT_ID ? '&cid=' + encodeURIComponent(CONTENT_ID) : '') +
+                    '&random=' + (new Date).getTime() +
+                    '&after=1';
+            el.setAttribute('src', url);
+            var head = document.getElementsByTagName('head')[0] ||
+                    document.getElementsByTagName('body')[0];
+            head.appendChild(el);
+        };
+    </script>
+    
+    
+
+<header class="site-header navbar navbar-default navbar-fixed-top sb-slide">
+    <div id="nav_btn_left" class="nav-btn-left"  data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" data-eVar47="1" data-linkname="Hamburger" data-eVar58="icon"><span class="menu-button"></span></div>
+    <div class="nav-btn-right icon-button icon-nav-utility-search"  data-eVar47="2" data-linkname="User Navigation" data-eVar58="icon" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav"></div>
+    <a id="header-logo" class="icon-startribune-logo" href="http://m.startribune.com"  data-eVar47="3" data-linkname="Star Tribune" data-eVar58="logo navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav"></a>
+                
+<div class="share-bar">
+    <ul class="home-icon nav">
+        <li><a href="/"><span class="icon-startribune-logo"></span></a></li>
+    </ul>
+    <ul class="article-tools nav">
+                    
+            <li class="tool">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstrib.mn%2F2ymGFTp" title="facebook"  data-eVar47="1" data-linkname="Share on Facebook - Top" data-eVar58="share-facebook" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                        <span class="icon-facebook-light social-sharing facebook facebookTop"></span>
+                    </a>
+                            </li>
+                    
+            <li class="tool">
+                                    <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fstrib.mn%2F2ymGFTp&text=Election%202017%20Results&tw_p=tweetbutton&url=http%3A%2F%2Fstrib.mn%2F2ymGFTp" title="twitter"  data-eVar47="2" data-linkname="Share on Twitter - Top" data-eVar58="share-twitter" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                        <span class="icon-twitter-light social-sharing twitter twitterTop"></span>
+                    </a>
+                            </li>
+                <li class="tool">
+            <a href="#" title="more-sharing" data-evar47="2" data-linkname="More sharing" data-evar58="more-sharing" data-evar45="Page Navigation Top" data-evar73="header-page-nav">
+                <span id="more_share_button_nav" class="icon-more-social-close icon-more-social-open social-sharing more-sharing"></span>
+            </a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+    $( document ).ready( function( $ ){
+        var shareURI;
+        var osData = window.getMobileOSAndVersion();
+        var shareBody = 'Election%202017%20Results: http%3A%2F%2Fstrib.mn%2F2ymGFTp';
+        if ( osData.os == 'iOS' ) {
+            if ( osData.version >= 8 ) {
+                shareURI = 'sms:&body=' + shareBody;
+            } else {
+                shareURI = 'sms:;body=' + shareBody;
+            }
+        } else {
+            shareURI = 'sms:?body=' + shareBody;
+        }
+        $( '#share-sms-link-top' ).attr( 'href', shareURI );
+    });
+</script>
+</div>
+</header>
+<div class="search-pane">
+    <div class="search-container">
+        <form method="get" action="http://m.startribune.com/search/" class="search islet">
+            <input type="search" name="q" value="" class="search-input" placeholder="Search">
+        </form>
+    </div>
+    <span class="hide-search icon-close"></span>
+</div>    <div class="site-container">
+        
+        <main class="content-area content-scroll">
+                        
+        
+                            <link rel="stylesheet" href="http://m.startribune.com/assets/css/main.css?d=e5d0c1cc7ac74eb824609cc5734e326763d17640" />
+    
+            <link rel="stylesheet" href="http://m.startribune.com/assets/css/vendor/news/desktop-fonts.css?d=2a5d9a0c0e7a1baac7177f4281fb4f4986a1901b">
+            <link rel="stylesheet" href="http://static.startribune.com/projects/mn-elections/build/styles.bundle.css?d=2017101209">
+        
+                
+        
+        <article id="main-content" class="content" role="main"></article>
+        
+
+                        <script src="http://m.startribune.com/assets/js/article.js?d=1507746391"></script>
+    <script src="http://m.startribune.com/assets/js/gallery-swipebox.js?d=1507746391"></script>
+    <script src="http://m.startribune.com/assets/js/st.fetch-comment-count.js?d=1507746391"></script>
+    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+            <script type="text/javascript">
+            if( typeof commentCount !== 'undefined' && typeof commentCount.fetch === 'function' ) {
+                commentCount.fetch( '449289603', '/' );
+            }
+        </script>
+    
+    <script type="text/javascript">
+        $( '.see-more-link' ).on( 'click', function() {
+            $( '.short-story' ).css( 'height', '' );
+            $( '.see-more-link' ).addClass( 'hidden' );
+            $( 'article' ).removeClass( 'short-story' );
+            $( 'aside.related-links' ).removeClass( 'hidden' );
+            $( 'section.next-article' ).removeClass( 'hidden' );
+        } );
+    </script>
+
+            <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+            <script src="./app.bundle.js"></script>
+        
+            </main>
+        <!-- end of article navigation markup -->
+                    
+
+
+<div class="nav-menu menu-left">
+    <div class="grid">
+        <!-- Search Module -->
+        <div class="grid__item one-whole">
+            <div class="search-container">
+                <form method="get" action="http://m.startribune.com/search/" class="search islet">
+                    <input type="search" name="q" value="" class="search-input" placeholder="Search">
+                </form>
+            </div>
+        </div>
+        <nav class="sections-menu-container islet">
+                        <!-- Sections Menus Module -->
+<div class="grid__item one-whole">
+    <div class="header-links-container islet">
+        <h5>Sections</h5>
+    </div>
+</div>
+<div class="grid__item one-half left">
+    <ul class="block-list">
+                                <li data-item="1" class="home">
+                <a href="http://m.startribune.com/"  data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" data-eVar47="1" data-linkname="home" data-eVar58="link" data-eVar56="homepage" title="Home">Home</a>
+            </li>
+                                <li data-item="2" class="local">
+                <a href="http://m.startribune.com/local/"  data-eVar47="2" data-linkname="local" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Local">Local</a>
+            </li>
+                                <li data-item="3" class="sports">
+                <a href="http://m.startribune.com/sports/"  data-eVar47="3" data-linkname="sports" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Sports">Sports</a>
+            </li>
+                                <li data-item="4" class="business">
+                <a href="http://m.startribune.com/business/"  data-eVar47="4" data-linkname="business" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Business">Business</a>
+            </li>
+                                <li data-item="5" class="opinion">
+                <a href="http://m.startribune.com/opinion/"  data-eVar47="5" data-linkname="opinion" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Opinion">Opinion</a>
+            </li>
+                                <li data-item="6" class="variety">
+                <a href="http://m.startribune.com/variety/"  data-eVar47="6" data-linkname="variety" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Variety">Variety</a>
+            </li>
+            </ul>
+</div>
+
+<div class="grid__item one-half right">
+    <ul class="block-list">
+                                <li data-item="7" class="weather">
+                <a href="http://m.startribune.com/weather/"  data-eVar47="7" data-linkname="weather" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Weather">Weather</a>
+            </li>
+                                <li data-item="8" class="politics">
+                <a href="http://m.startribune.com/politics/"  data-eVar47="8" data-linkname="politics" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Politics">Politics</a>
+            </li>
+                                <li data-item="9" class="nation">
+                <a href="http://m.startribune.com/nation/"  data-eVar47="9" data-linkname="nation" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Nation">Nation</a>
+            </li>
+                                <li data-item="10" class="world">
+                <a href="http://m.startribune.com/world/"  data-eVar47="10" data-linkname="world" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="World">World</a>
+            </li>
+                                <li data-item="11" class="obituaries">
+                <a href="http://m.startribune.com/obituaries/"  data-eVar47="11" data-linkname="obituaries" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Obituaries">Obituaries</a>
+            </li>
+                                <li data-item="12" class="sports scores">
+                <a href="http://m.startribune.com/sports/scoreboard/"  data-eVar47="12" data-linkname="sports scores" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Sports Scores">Sports Scores</a>
+            </li>
+            </ul>
+</div>
+
+<div class="grid__item one-whole health-highlights">
+    <ul class="block-list">
+                                <li data-item="13" class="health-highlights">
+            <a href="http://mayohealthhighlights.startribune.com/"  data-eVar47="13" data-linkname="Health Highlights" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Health Highlights">Health Highlights<span class="milli">Sponsored content from Mayo Clinic</span></a>
+        </li>
+    </ul>
+</div>
+
+<div class="">
+    <div class="grid__item one-whole">
+        <div class="header-links-container islet">
+            <h5>Marketplace</h5>
+        </div>
+    </div>
+
+    <div class="grid__item one-half left">
+        <ul class="block-list">
+                                            <li data-item="14" class="classifieds">
+                    <a href="http://classifieds.startribune.com/m/"  data-eVar47="14" data-linkname="classifieds" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Classifieds">Classifieds</a>
+                </li>
+                                            <li data-item="15" class="jobs">
+                    <a href="http://jobs.startribune.com/"  data-eVar47="15" data-linkname="jobs" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Jobs">Jobs</a>
+                </li>
+                                            <li data-item="16" class="homes">
+                    <a href="http://m.homes.startribune.com/"  data-eVar47="16" data-linkname="homes" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Homes">Homes</a>
+                </li>
+                    </ul>
+    </div>
+
+    <div class="grid__item one-half right">
+        <ul class="block-list">
+                                            <li data-item="17" class="rentals">
+                    <a href="http://m.homes.startribune.com/eng/rentals/search/"  data-eVar47="17" data-linkname="rentals" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Rentals">Rentals</a>
+                </li>
+                                            <li data-item="18" class="weekly-ads">
+                    <a href="http://weeklyads.startribune.com/#/home/"  data-eVar47="18" data-linkname="weekly ads" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Weekly Ads">Weekly Ads</a>
+                </li>
+                                            <li data-item="19" class="daily-deals">
+                    <a href="http://deals.startribune.com/deal/minnesota/"  data-eVar47="19" data-linkname="daily deals" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Daily Deals">Daily Deals</a>
+                </li>
+                    </ul>
+    </div>
+
+    <div class="grid__item one-whole">
+        <div class="header-links-container islet">
+            <h5>Popular</h5>
+        </div>
+    </div>
+    <div class="grid__item one-half left">
+        <ul class="block-list">
+                                            <li data-item="20" class="celebs">
+                    <a href="http://m.startribune.com/variety/celebrities/"  data-eVar47="20" data-linkname="celebs" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Celebs">Celebs</a>
+                </li>
+                                            <li data-item="21" class="eat-drink">
+                    <a href="http://m.startribune.com/variety/dining/"  data-eVar47="21" data-linkname="eat &amp; drink" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Eat &amp; Drink">Eat &amp; Drink</a>
+                </li>
+                                            <li data-item="22" class="home-garden">
+                    <a href="http://m.startribune.com/variety/homegarden/"  data-eVar47="22" data-linkname="home &amp; garden" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Home &amp; Garden">Home &amp; Garden</a>
+                </li>
+                                            <li data-item="23" class="movies">
+                    <a href="http://m.startribune.com/variety/movies/"  data-eVar47="23" data-linkname="movies" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Movies">Movies</a>
+                </li>
+                                            <li data-item="24" class="music">
+                    <a href="http://m.startribune.com/variety/music/"  data-eVar47="24" data-linkname="music" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Music">Music</a>
+                </li>
+                                            <li data-item="25" class="comics">
+                    <a href="http://m.startribune.com/variety/comicgames/comics/"  data-eVar47="25" data-linkname="comics" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Comics">Comics</a>
+                </li>
+                                            <li data-item="26" class="games">
+                    <a href="http://m.startribune.com/variety/comicgames/games/"  data-eVar47="26" data-linkname="games" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Games">Games</a>
+                </li>
+                                            <li data-item="27" class="horoscopes">
+                    <a href="http://m.startribune.com/horoscopes/"  data-eVar47="27" data-linkname="horoscopes" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Horoscopes">Horoscopes</a>
+                </li>
+                                            <li data-item="28" class="podcasts">
+                    <a href="http://m.startribune.com/podcasts/"  data-eVar47="28" data-linkname="podcasts" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Podcasts">Podcasts</a>
+                </li>
+                    </ul>
+    </div>
+
+    <div class="grid__item one-half right">
+        <ul class="block-list">
+                                            <li data-item="29" class="gophers">
+                    <a href="http://m.startribune.com/sports/gophers/"  data-eVar47="29" data-linkname="gophers" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Gophers">Gophers</a>
+                </li>
+                                            <li data-item="30" class="high-schools">
+                    <a href="http://m.startribune.com/sports/preps/"  data-eVar47="30" data-linkname="high schools" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="High Schools">High Schools</a>
+                </li>
+                                            <li data-item="31" class="lynx">
+                    <a href="http://m.startribune.com/sports/lynx/"  data-eVar47="31" data-linkname="lynx" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Lynx">Lynx</a>
+                </li>
+                                            <li data-item="32" class="mn-united">
+                    <a href="http://m.startribune.com/sports/soccer/"  data-eVar47="32" data-linkname="mn united" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="MN United">MN United</a>
+                </li>
+                                            <li data-item="33" class="super-bowl">
+                    <a href="http://m.startribune.com/superbowl/"  data-eVar47="33" data-linkname="super bowl lii" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Super Bowl LII">Super Bowl LII</a>
+                </li>
+                                            <li data-item="34" class="twins">
+                    <a href="http://m.startribune.com/sports/twins/"  data-eVar47="34" data-linkname="twins" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Twins">Twins</a>
+                </li>
+                                            <li data-item="35" class="wild">
+                    <a href="http://m.startribune.com/sports/wild/"  data-eVar47="35" data-linkname="wild" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Wild">Wild</a>
+                </li>
+                                            <li data-item="36" class="wolves">
+                    <a href="http://m.startribune.com/sports/wolves/"  data-eVar47="36" data-linkname="wolves" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Wolves">Wolves</a>
+                </li>
+                                            <li data-item="37" class="vikings">
+                    <a href="http://m.startribune.com/sports/vikings/"  data-eVar47="37" data-linkname="vikings" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Vikings">Vikings</a>
+                </li>
+                    </ul>
+    </div>
+</div>        </nav>
+
+        <!-- Connect Menu Module -->
+        <div class="grid__item one-whole">
+            <div class="nav-connect-container islet">
+                <h5>Follow us</h5>
+                <ul class="nav social nav--fit">
+                                                                                            <li>
+                            <a id="facebook" class="icon-facebook-light" href="https://www.facebook.com/startribune"  data-eVar47="36" data-linkname="Facebook" data-eVar58="social" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Facebook"></a>
+                        </li>
+                                                                                            <li>
+                            <a id="twitter" class="icon-twitter-light" href="http://twitter.com/startribune"  data-eVar47="37" data-linkname="Twitter" data-eVar58="social" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Twitter"></a>
+                        </li>
+                                                                                            <li>
+                            <a id="pinterest" class="icon-pinterest-light" href="http://www.pinterest.com/startribune/"  data-eVar47="38" data-linkname="Pinterest" data-eVar58="social" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Pinterest"></a>
+                        </li>
+                                                                                            <li>
+                            <a id="googleplus" class="icon-googleplus-light" href="http://plus.google.com/+startribune/"  data-eVar47="39" data-linkname="Googleplus" data-eVar58="social" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Googleplus"></a>
+                        </li>
+                                                                                            <li>
+                            <a id="instagram" class="icon-instagram-light" href="http://instagram.com/startribune"  data-eVar47="40" data-linkname="Instagram" data-eVar58="social" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Instagram"></a>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+
+        <nav class="sections-menu-container islet" id="js-navigation-menu">
+            <div class="grid__item one-half left">
+                <ul class="block-list">
+                                        <li data-item="41" class="log-in">
+                        <a href="https://m.startribune.com/login/"  data-eVar47="41" data-linkname="LOG IN" data-eVar58="section heading" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Log In">Log In</a>
+                    </li>
+                    <li data-item="41" class="log-out" style="display: none;">
+                        <a href="https://m.startribune.com/logout/"  data-eVar47="41" data-linkname="LOG OUT" data-eVar58="section heading" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Log Out">Log Out</a>
+                    </li>
+                    <li data-item="42" class="Help">
+                        <a href="http://m.startribune.com/help"  data-eVar47="42" data-linkname="Help" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Help Page">Help</a>
+                    </li>
+                    <li data-item="43" class="manage-subscription">
+                        <a href="http://www.startribune.com/subscriptionservices"  data-eVar47="43" data-linkname="Manage Subscription" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Manage Subscription">Manage Subscription</a>
+                    </li>
+                    <li data-item="44" class="archives-150-years">
+                        <a href="http://startribune.newspapers.com"  data-eVar47="44" data-linkname="Archives: 150+ years" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Archives: 150+ years">Archives: 150+ years</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid__item one-half right">
+                <ul class="block-list">
+                    <li data-item="44" class="apps">
+                        <a href="http://apps.startribune.com/news/mobile-products/"  data-eVar47="44" data-linkname="Mobile and Tablet Apps" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Mobile and Tablet Apps">Apps</a>
+                    </li>
+                    <li data-item="45" class="eedition">
+                        <a href="http://www.startribune.com/eedition"  data-eVar47="45" data-linkname="eEdition" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="eEdition">eEdition</a>
+                    </li>
+                    <li data-item="46" class="about-star-tribune">
+                        <a href="http://www.startribunecompany.com"  data-eVar47="46" data-linkname="About the Star Tribune" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="About the Star Tribune">About Star Tribune</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+    <!-- Close Grid -->
+    <div class="additional-links-container promo-link">
+        <h5>
+            <a href="https://m.startribune.com/signup/"  data-eVar47="47" data-linkname="Subscribe" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">Subscribe • 99¢ for unlimited access</a>
+        </h5>
+    </div>
+
+</div>
+        <div class="nav-menu menu-right">
+    <div class="grid">
+        <div class="grid__item one--whole">
+            <div class="islet user-state">
+                <!-- Your right Slidebar content. -->
+                    <div id="signed-out">
+    <div>
+                        <a href="https://m.startribune.com/signin?path=http%3A%2F%2Fm.startribune.com%2F%2Felection-2017-results%2F449289603%2F"  data-eVar47="1" data-linkname="Sign In" data-eVar58="login navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" class="signin btn btn--primary btn--full" title="Sign In">Sign In</a>
+    </div>
+    <div class="additional-links-container">
+      <ul class="block-list">
+        <li>
+            <a href="https://m.startribune.com/signup/"  data-eVar47="1" data-linkname="Subscribe" data-eVar58="login navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" title="Subscribe">Subscribe</a>
+        </li>
+        <li>
+          <a href="http://www.startribune.com/subscriptionservices"  data-eVar47="1" data-linkname="Manage Subscription" data-eVar58="login navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" class="manage" id="manage-subscription">Manage
+            Subscription</a>
+        </li>
+      </ul>
+    </div>
+</div>
+                    <div id="signed-in" style="display: none;">
+            <h5>Welcome, <span id="the_username"></span></h5>
+    <div id="user-options">
+      <div>
+        <a href="https://m.startribune.com/signout?path=http%3A%2F%2Fm.startribune.com%2F%2Felection-2017-results%2F449289603%2F"  data-eVar47="1" data-linkname="Sign Out" data-eVar58="login navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" class="signout btn btn--primary btn--full" title="Sign Out">Sign Out</a>
+      </div>
+    </div>
+    <div class="additional-links-container">
+      <ul class="block-list">
+        <li>
+          <a href="http://www.startribune.com/subscriptionservices"  data-eVar47="1" data-linkname="Subscription" data-eVar58="login navigation" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" class="manage" id="manage-subscription">Manage Subscription</a>
+        </li>
+      </ul>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+</div>
+                
+    
+<div class="nav-menu more-social-menu-left">
+    <div class="grid">
+        <nav class="sections-menu-container islet" id="">
+            <div class="grid__item one-whole">
+                <ul class="block-list menu-tools sharing-menu">
+                                                                    <li class="tool">
+                                                            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstrib.mn%2F2ymGFTp" title="facebook"  data-eVar47="1" data-linkname="Share on Facebook - Top" data-eVar58="share-facebook" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                                    <span class="icon-facebook-light social-sharing facebook"></span><div>Share on Facebook</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                            <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fstrib.mn%2F2ymGFTp&text=Election%202017%20Results&tw_p=tweetbutton&url=http%3A%2F%2Fstrib.mn%2F2ymGFTp" title="twitter"  data-eVar47="2" data-linkname="Share on Twitter - Top" data-eVar58="share-twitter" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                                    <span class="icon-twitter-light social-sharing twitter"></span><div>Post to Twitter</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                                                                                                                            <a id="share-email-link" href="mailto:?subject=From%20Star%20Tribune%3A%20Election%202017%20Results&amp;body=From%20Star%20Tribune%3A%20%0A%0AElection%202017%20Results%0A%0A%0A%0Ahttp%3A%2F%2Fstrib.mn%2F2ymGFTp" title="email"  data-eVar47="3" data-linkname="Email - Top" data-eVar58="share-email" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" >
+                                    <span class="icon-email-light social-sharing email"></span><div>Email this story</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                            <a id="share-sms-link-menu" href="#" title="sms"  data-eVar47="4" data-linkname="Share on SMS - Top" data-eVar58="share-sms" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav" >
+                                    <span class="icon-sms-light social-sharing sms"></span><div>Share via text message</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fstrib.mn%2F2ymGFTp&title=Election%202017%20Results&summary=" title="linkedin"  data-eVar47="5" data-linkname="Share on Linkedin - Top" data-eVar58="share-linkedin" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                                    <span class="icon-linkedin-light social-sharing linkedin"></span><div>Share on Linkedin</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                            <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-custom="true" data-pin-media="" data-pin-url="http://strib.mn/2ymGFTp" title="pinterest"  data-eVar47="6" data-linkname="Pin to Pinterest - Top" data-eVar58="share-pinterest" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                                    <span class="icon-pinterest-light social-sharing pinterest"></span><div>Pin to Pinterest</div>
+                                </a>
+                                                    </li>
+                                                                    <li class="tool">
+                                                            <a href="https://plus.google.com/share?url=http%3A%2F%2Fstrib.mn%2F2ymGFTp&description=" title="googleplus"  data-eVar47="7" data-linkname="Share on Google+ - Top" data-eVar58="share-googleplus" data-eVar56="homepage" data-eVar45="Page Navigation Top" data-eVar73="header-page-nav">
+                                    <span class="icon-googleplus-light social-sharing googleplus"></span><div>Share on Google+</div>
+                                </a>
+                                                    </li>
+                                    </ul>
+                <script type="text/javascript">
+    $( document ).ready( function( $ ){
+        var shareURI;
+        var osData = window.getMobileOSAndVersion();
+        var shareBody = 'Election%202017%20Results: http%3A%2F%2Fstrib.mn%2F2ymGFTp';
+        if ( osData.os == 'iOS' ) {
+            if ( osData.version >= 8 ) {
+                shareURI = 'sms:&body=' + shareBody;
+            } else {
+                shareURI = 'sms:;body=' + shareBody;
+            }
+        } else {
+            shareURI = 'sms:?body=' + shareBody;
+        }
+        $( '#share-sms-link-menu' ).attr( 'href', shareURI );
+    });
+</script>
+            </div>
+        </nav>
+    </div>
+ <!-- Close Grid -->
+</div>
+    </div>
+    <footer class="site-footer milli cf">
+        <ul class="nav nav--fit footer-menu">
+            <li>&copy; 2017 Star Tribune</li>
+            <li><a class="btn btn--info btn--link open-nav"  data-eVar45="Page Navigation Bottom" data-eVar73="footer-page-nav" data-eVar47="71" data-linkname="Hamburger" data-eVar58="text" data-eVar56="homepage">Menu</a></li>
+            <li><a class="btn btn--info btn--link" id="star-tribune-desktop-url"
+                   href="http://www.startribune.com/templates/full_site_redirect?rurl=http%3A%2F%2Fwww.startribune.com%2Felection-2017-results%2F449289603%2F"  data-eVar47="72" data-linkname="View desktop site" data-eVar58="link" data-eVar56="homepage" data-eVar45="Page Navigation Bottom" data-eVar73="footer-page-nav">View
+                    desktop site</a></li>
+        </ul>
+    </footer>
+
+                        <script src="http://m.startribune.com/assets/min/main.min.js?d=1507746450"></script>
+            
+    <script src="http://m.startribune.com/assets/js/hat.js?d=1507746391"></script>
+                <script src="http://m.startribune.com/assets/js/article.js?d=1507746391"></script>
+    <script src="http://m.startribune.com/assets/js/gallery-swipebox.js?d=1507746391"></script>
+    <script src="http://m.startribune.com/assets/js/st.fetch-comment-count.js?d=1507746391"></script>
+    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+            <script type="text/javascript">
+            if( typeof commentCount !== 'undefined' && typeof commentCount.fetch === 'function' ) {
+                commentCount.fetch( '449289603', '/' );
+            }
+        </script>
+    
+    <script type="text/javascript">
+        $( '.see-more-link' ).on( 'click', function() {
+            $( '.short-story' ).css( 'height', '' );
+            $( '.see-more-link' ).addClass( 'hidden' );
+            $( 'article' ).removeClass( 'short-story' );
+            $( 'aside.related-links' ).removeClass( 'hidden' );
+            $( 'section.next-article' ).removeClass( 'hidden' );
+        } );
+    </script>
+
+            <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+            <script src="http://static.startribune.com/projects/mn-elections/build/app.bundle.js?d=2017101209"></script>
+        
+                <div id="div-gpt-ad-interstitial-1"></div>
+    
+    <script type="text/javascript" src="http://m.startribune.com/analytics-assets/sitecatalyst/StarTribunePageConfiguration.js?d=1507746390"></script>
+    <script type="text/javascript" src="http://m.startribune.com/assets/js/st.analytics.click.tracking.js?d=1507746391"></script>
+    <script type="text/javascript">
+        //Omniture Pageload Tracking
+                                                        s.prop1 = 'D=g';
+                                                                                    s.prop2 = 'V20171011';
+                                                
+                s.events = 'event41,event42';
+                                                                    s.channel = 'news';
+                                                                                    s.server = 'm.startribune.com';
+                                                                                    s.eVar31 = '+1';
+                                                                                    s.prop22 = '1';
+                                                                                    s.prop23 = '';
+                                                                                    s.prop56 = '';
+                                                                                    s.prop7 = 'News';
+                                                                                    s.prop3 = 'story';
+                                                                                    s.prop4 = '';
+                                                                                    s.prop11 = 'Uncategorized';
+                                                                                    s.prop24 = 'article';
+                                                                                    s.prop25 = '449289603';
+                                                                                    s.prop35 = 'Jamie Hutt ';
+                                                                                    s.prop45 = '';
+                                                                                    s.prop65 = 'October 12, 2017';
+                                                                                    s.prop74 = 0
+                                                                                    s.prop75 = 0
+                                                                                    s.pageName = 'Election 2017 Results';
+                                    
+        // Mobile Grazer Detection
+        if ( window.ads && typeof window.ads.userIsGrazer === 'function' && window.ads.userIsGrazer() ) {
+            s.prop56 = "Grazer";
+        }
+
+        
+            // Optimizely Adobe Analytics SiteCatalyst Integration code
+            window.optimizely = window.optimizely || [];
+            window.optimizely.push('activateSiteCatalyst');
+
+            var doAnalyticsPageview = function () {
+                if ( window.triggerPageView ) {
+                    //Trigger Omniture
+                    //Delaying if advertising.js is faster than analytics config
+                    if (typeof s === 'undefined') {
+                        return setTimeout( function() {
+                            doAnalyticsPageview();
+                        }, 100);
+                    }
+                    var s_code = s.t();
+                    if(s_code) document.write(s_code);
+                    window.triggerPageView = false; //Once the pageview is triggered, we don't need to trigger it again until the page reloads
+                }
+            }
+
+            jQuery( document ).on('no-interstitial', doAnalyticsPageview);
+            </script>
+
+    <!-- Begin Chartbeat Tag -->
+    <script type="text/javascript">
+        var _sf_async_config = _sf_async_config || {};
+        _sf_async_config.sections = s.channel;
+        _sf_async_config.authors = s.prop35;
+        $(document).ready(function() {
+            window._sf_endpt = (new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src','//static.chartbeat.com/js/chartbeat_video.js');
+            document.body.appendChild(e);
+        });
+    </script>
+    <!-- End Chartbeat Tag -->
+
+<script type="text/javascript">
+    ST_Analytics_Click_Tracking.listen({
+        'eVar74': 'story'
+    });
+</script>
+
+<script type="text/javascript">
+    //Image caption toggling
+    jQuery( 'span[id^="caption-toggle-"]' ).on( 'click', function() {
+        var imageSelector = '.' + jQuery( this ).prop( 'id' ).replace( 'caption-toggle-', 'image-' );
+        jQuery( imageSelector ).css( 'visibility', 'visible' );
+
+        if ( jQuery( imageSelector ).hasClass( 'open' ) ) {
+            jQuery( imageSelector ).removeClass( 'open' );
+            jQuery( imageSelector ).addClass( 'closed' );
+        }
+        else {
+            jQuery( imageSelector ).removeClass( 'closed' );
+            jQuery( imageSelector ).addClass( 'open' );
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://m.startribune.com/assets/js/libs/addtohomescreen.min.js?d=1507746391"></script>
+<script type="text/javascript" src="http://m.startribune.com/assets/js/libs/imgix.min.js?d=1507746391"></script>
+<script type="text/javascript" src="http://m.startribune.com/assets/js/st.imgix.js?d=1507746391"></script>
+<script type="text/javascript" src="http://m.startribune.com/assets/js/st.inline-share.js?d=1507746391"></script>
+
+
+ 
+
+                        
+    <!-- BEGIN:  Snowplow analytics -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var triedTimes = 1;
+            var tooManyTimes = 4;
+            var intervalId;
+            var delay = 500; // milliseconds
+
+            function displayNow() {
+                if ($.cookie("s_vi")) {
+                    return true;
+                }
+                return false;
+            }
+
+            var displaySnowplow = function() {
+                ;
+                (function (p, l, o, w, i, n, g) {
+                    if (!p[i]) {
+                        p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || [];
+                        p.GlobalSnowplowNamespace.push(i);
+                        p[i] = function () {
+                            (p[i].q = p[i].q || []).push(arguments)
+                        };
+                        p[i].q = p[i].q || [];
+
+                        n = l.createElement(o);
+                        g = l.getElementsByTagName(o)[0];
+                        n.async = 1;
+                        n.src = w;
+                        g.parentNode.insertBefore(n, g);
+                    }
+                }(window, document, "script", "http://m.startribune.com/static/js/snowplow/sp.js", "snowplow"));
+                var firstPageType = "";
+                if (!$.cookie('snowp_first_page_type')) {
+                    firstPageType = "story";
+                    $.cookie('snowp_first_page_type', firstPageType, {expires: 30, path: '/'}   );
+                } else {
+                    firstPageType = $.cookie('snowp_first_page_type');
+                    $.cookie('snowp_first_page_type', firstPageType, {expires: 30, path: '/'}   );
+                }
+                // Data Layer Object
+                var objDL = {
+                    getSegment: function () {
+                        // Return current Segment based on global variables
+                        if (getUserSubscriptionId() != "No DTI ID") {
+                            return 400;     // "Subscriber";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() == 1 &&    this.isFirstViewArticle()) {
+                            // First visit day count in past 30 days, enter on story/blog   page, non-subscriber
+                            return 100;     // "Grazer";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() < 5 ) {
+                            // Visit day count = 2 - 4, OR Visit day count = 1 AND enter non-   story/non-blog page
+                            return 200;     //"Test Driver";
+                        } else if (this.getVisitDayCountNumberDaysUserVisitedPast30() > 4) {
+                            //Visit day count = 5+
+                            return 300;     // "Intender";
+                        }
+                        return 0;       // Should not happen
+                    },
+                    isFirstViewArticle: function () {
+                        // Is/was the first page viewed an article (that is, page type ==   "story")?
+                        return (firstPageType == 'story');
+                    },
+                    getFirstPageType: function () {
+                        return firstPageType;
+                    },
+                    getAdobeId: function () {
+                        return $.cookie("s_vi") || 'No Adobe ID';
+                    },
+                    getContentArticleId: function () {
+                        return this.dataSet.contentArticleID;
+                    },
+                    getContentPageType: function () {
+                        return this.dataSet.contentPageType;
+                    },
+                    getContentAuthor: function () {
+                        return this.dataSet.contentAuthor;
+                    },
+                    getContentPubDate: function () {
+                        return this.dataSet.contentPubDate;
+                    },
+                    getContentSection: function () {
+                        return this.dataSet.contentSection;
+                    },
+                    getContentSubsection: function () {
+                        return this.dataSet.contentSubsection;
+                    },
+                    getCurrentUserSegment: function () {
+                        return this.getSegment();
+                    },
+                    getDtiId: function () {
+                        return getUserSubscriptionId();
+                    },
+                    getEmailAddress: function () {
+                        return this.dataSet.emailAddress;
+                    },
+                    getLoggedInStatus: function () {
+                        return this.dataSet.loggedInStatus;
+                    },
+                    getReferringDomain: function () {
+                        return document.referrer;
+                    },
+                    getSubscriptionType: function () {
+                        return $.cookie("st_usr_products");
+                    },
+                    getUserSubscriptionPurchases: function () {
+                        return $.cookie("meter_sign_up");
+                    },
+                    getUsername: function () {
+                        return this.dataSet.username;
+                    },
+                    getPagesViewed: function () {
+                        return this.userBehavior['pageviewed'];
+                    },
+                    getpageViewCount: function () {
+                        return this.userBehavior['pagecount'];
+                    },
+                    getVisitDayCountNumberDaysUserVisitedPast30: function () {
+                        return parseInt(window.visitDays30) || 0;
+                    },
+                    getLoginAccountId: function () {
+                        return $.cookie("st_usr_saml_id") || 'No Login Account ID';
+                    },
+                    dataSet: {
+                        contentPubDate: "October 12, 2017",
+                        contentSection: "news",
+                        contentSubsection: "News",
+                        contentAuthor: "Jamie Hutt ",
+                        contentPageType: "story",
+                        contentArticleID: "449289603",
+                        username: "",
+                        dti_Id: "",
+                        emailAddress: "",
+                        loggedInStatus: "",
+                        referringDomain: "",
+                        pageName: "Election 2017 Results"
+                    }
+                };
+                objDL.dataSet.firstPageType = $.cookie('snowp_first_page_type');
+                var snowplowData = {
+                    collectorURL: 'd1epsz32winqbo.cloudfront.net',
+                    dataSet: {}
+                };
+                snowplowData.dataSet.adobeId = objDL.getAdobeId();
+                snowplowData.dataSet.contentArticleId = objDL.getContentArticleId();
+                snowplowData.dataSet.contentArticleType = objDL.getContentPageType();
+                snowplowData.dataSet.contentAuthor = objDL.getContentAuthor();
+                snowplowData.dataSet.contentPubDate = objDL.getContentPubDate();
+                snowplowData.dataSet.contentSection = objDL.getContentSection();
+                snowplowData.dataSet.contentSubsection = objDL.getContentSubsection();
+                snowplowData.dataSet.currentUserSegment = objDL.getCurrentUserSegment();
+                snowplowData.dataSet.dtiId = objDL.getDtiId();
+                snowplowData.dataSet.emailAddress = objDL.getEmailAddress();
+                snowplowData.dataSet.loggedInStatus = objDL.getLoggedInStatus();
+                snowplowData.dataSet.referringDomain = objDL.getReferringDomain();
+                snowplowData.dataSet.subscriptionType = objDL.getSubscriptionType();
+                snowplowData.dataSet.username = objDL.getUsername();
+                snowplowData.dataSet.visitDayCountNumberDaysUserVisitedPast30 = objDL.  getVisitDayCountNumberDaysUserVisitedPast30();
+                snowplowData.dataSet.loginAccountId = objDL.getLoginAccountId();
+
+                window.snowplow('newTracker', 'co', snowplowData.collectorURL, { //     Initialize Snowplow tracker
+                    appId: 'startribune_web',
+                    platform: 'web'
+                });
+                window.snowplow('trackPageView', document.title, [ // Auto-set page title;  add page context
+                    {
+                        schema: "iglu:com.startribune/trackPageView/jsonschema/1-0-15",
+                        data: snowplowData.dataSet
+                    }
+                ]);
+
+                if (localStorageAvailable()) {
+                    var minutesSinceFetch = null;
+
+                    if (localStorage.getItem('visitorAndContentDataLastFetched')                    ) {
+                        var timeStampValue = localStorage.getItem(' visitorAndContentDataLastFetched');
+                        var lastDate = new Date(timeStampValue);
+                        var currentDate = new Date();
+                        minutesSinceFetch = Math.floor(Math.abs(lastDate - currentDate) /   60000);
+                    }
+                    if(minutesSinceFetch == null || minutesSinceFetch > 60)
+                    {
+                        $.get('http://m.startribune.com/api/personalize', function (data) {
+                            var jsonData = JSON.stringify(data);
+                            localStorage.setItem('visitorAndContentData', jsonData);
+                        });
+                        localStorage.setItem('visitorAndContentDataLastFetched', new Date());
+                    }
+                }
+            };
+
+            if (displayNow()) {
+                displaySnowplow();
+            }
+            else {
+                intervalId = setInterval(repeatThisFunction, delay);
+            }
+
+            function repeatThisFunction() {
+                triedTimes++;
+                if (triedTimes >= tooManyTimes || displayNow()) {
+                    clearInterval(intervalId);
+                    displaySnowplow();
+                }
+            }
+        });
+    </script>
+<!-- END: Snowplow analytics -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWTSNPP"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+            <script id="e2ma-embed">window.e2ma=window.e2ma||{};e2ma.accountId='1788361';</script>
+        <script src="//dk98ddgl0znzm.cloudfront.net/e2ma.js" async="async"></script>
+    
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f550207221","applicationID":"60731021","transactionName":"M1JaYBQAVhVYW0cPWwoYeVcSCFcIFltcCEABWUw=","queueTime":0,"applicationTime":1444,"atts":"HxVZFlwaRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

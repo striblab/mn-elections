@@ -1,5 +1,4 @@
 
-<div class="dashboard">
   <GroupNav />
 
   {{#if page === 'contest'}}
@@ -9,7 +8,7 @@
   {{else}}
     <Dashboard contests="{{ dashboardContests }}" data="{{ election }}" searchData="{{ searchData }}" />
   {{/if}}
-</div>
+
 
 <script>
 import Dashboard from './dashboard.svelte.html';

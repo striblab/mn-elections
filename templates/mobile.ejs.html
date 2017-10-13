@@ -578,46 +578,42 @@
     <span class="hide-search icon-close"></span>
 </div>    <div class="site-container">
         
-        <main class="content-area content-scroll">
-                        
+        <section class="project-header" role="banner">
+            @@include('./_header.ejs.html')
+        </section>  
         
-                            <link rel="stylesheet" href="http://m.startribune.com/assets/css/main.css?d=e5d0c1cc7ac74eb824609cc5734e326763d17640" />
-    
+        <main class="content-area content-scroll">
+            <link rel="stylesheet" href="http://m.startribune.com/assets/css/main.css?d=e5d0c1cc7ac74eb824609cc5734e326763d17640" />
             <link rel="stylesheet" href="http://m.startribune.com/assets/css/vendor/news/desktop-fonts.css?d=2a5d9a0c0e7a1baac7177f4281fb4f4986a1901b">
             <link rel="stylesheet" href="http://static.startribune.com/projects/mn-elections/build/styles.bundle.css?d=2017101209">
-        
-                
-        
-        <article id="main-content" class="content" role="main"></article>
-        
-
-                        <script src="http://m.startribune.com/assets/js/article.js?d=1507746391"></script>
-    <script src="http://m.startribune.com/assets/js/gallery-swipebox.js?d=1507746391"></script>
-    <script src="http://m.startribune.com/assets/js/st.fetch-comment-count.js?d=1507746391"></script>
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+            <script src="http://m.startribune.com/assets/js/article.js?d=1507746391"></script>
+            <script src="http://m.startribune.com/assets/js/gallery-swipebox.js?d=1507746391"></script>
+            <script src="http://m.startribune.com/assets/js/st.fetch-comment-count.js?d=1507746391"></script>
+            <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 
             <script type="text/javascript">
-            if( typeof commentCount !== 'undefined' && typeof commentCount.fetch === 'function' ) {
-                commentCount.fetch( '449289603', '/' );
-            }
-        </script>
+                if( typeof commentCount !== 'undefined' && typeof commentCount.fetch === 'function' ) {
+                    commentCount.fetch( '449289603', '/' );
+                }
+            </script>
     
-    <script type="text/javascript">
-        $( '.see-more-link' ).on( 'click', function() {
-            $( '.short-story' ).css( 'height', '' );
-            $( '.see-more-link' ).addClass( 'hidden' );
-            $( 'article' ).removeClass( 'short-story' );
-            $( 'aside.related-links' ).removeClass( 'hidden' );
-            $( 'section.next-article' ).removeClass( 'hidden' );
-        } );
-    </script>
+            <script type="text/javascript">
+                $( '.see-more-link' ).on( 'click', function() {
+                    $( '.short-story' ).css( 'height', '' );
+                    $( '.see-more-link' ).addClass( 'hidden' );
+                    $( 'article' ).removeClass( 'short-story' );
+                    $( 'aside.related-links' ).removeClass( 'hidden' );
+                    $( 'section.next-article' ).removeClass( 'hidden' );
+                } );
+            </script>
 
-            <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-            <script src="./app.bundle.js"></script>
-        
             </main>
+
+            <section role="contentinfo">
+                @@include('./_footer.ejs.html')
+            </section>
+
+
         <!-- end of article navigation markup -->
                     
 
@@ -1008,7 +1004,7 @@
             <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-            <script src="http://static.startribune.com/projects/mn-elections/build/app.bundle.js?d=2017101209"></script>
+            <script src="./app.bundle.js"></script>
         
                 <div id="div-gpt-ad-interstitial-1"></div>
     

@@ -12,7 +12,8 @@
   },
   "main": "app/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "gulp-debug": "node --inspect-brk ./node_modules/.bin/gulp"
   },
   "keywords": [],
   "engines": {
@@ -30,7 +31,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-3": "^6.17.0",
-    "browser-sync": "^2.18.12",
+    "browser-sync": "^2.18.13",
     "chrome-remote-interface": "^0.23.2",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",

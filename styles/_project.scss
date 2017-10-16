@@ -6,21 +6,21 @@
     color:#444;
 }
 
-.content .group-nav{
-  width:30%;
-  display:inline-block;
-  vertical-align: top;
-}
-.content .dashboard{
-  width:65%;
-  display:inline-block;
-  vertical-align: top;
-}
-
-main.content{
+.content{
   max-width:970px;
   margin:auto;
+  .group-nav{
+    width:30%;
+    display:inline-block;
+    vertical-align: top;
+  }
+  .dashboard,.set{
+    width:65%;
+    display:inline-block;
+    vertical-align: top;
+  }
 }
+
 .content header.project-header {
   padding: 1em 1em 0;
   margin-bottom: 1em;

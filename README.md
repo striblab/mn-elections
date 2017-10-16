@@ -56,6 +56,8 @@ In the `config.json`, make sure the main article ID is set `{ cms: { id: "XXXXXX
 
 To run a local web server that will auto-reload with [Browsersync](https://browsersync.io/), watch for file changes and re-build: `gulp develop`
 
+Use `gulp develop --mobile` to see the application in the Star Tribune mobile site.
+
 ### Directories and files
 
 * `config.json`: Non-content config for application.

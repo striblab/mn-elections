@@ -38,6 +38,7 @@ const config = exists('config.custom.json')
   ? require('./config.custom.json')
   : require('./config.json');
 
+const argv = require('yargs').argv;
 require('dotenv').load({ silent: true });
 
 // Process base html templates (not templates used in front-end JS)
@@ -198,9 +199,19 @@ gulp.task('server', ['build'], () => {
   //
   // serve_static function for reference:
   // https://github.com/MinneapolisStarTribune/news-platform/blob/1a56bd11892f79e5d48a9263bed2db7c5539fc60/app/Extensions/helpers/url.php#L272
-  return browserSync.init({
+  //
+  // Since we have a different site for mobile, We add the ability to switch
+  // with command line argument
+
+  // Browser sync options
+  let options = {
     port: 3000,
-    proxy: 'http://www.startribune.dev/x/' + config.cms.id + '?preview=1',
+    proxy:
+      'http://' +
+      (argv.mobile ? 'm' : 'www') +
+      '.startribune.dev/x/' +
+      config.cms.id +
+      '?preview=1',
     serveStatic: [
       {
         route:
@@ -210,7 +221,9 @@ gulp.task('server', ['build'], () => {
       }
     ],
     files: './build/**/*'
-  });
+  };
+
+  return browserSync.init(options);
 });
 
 // Watch for building

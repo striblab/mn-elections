@@ -69,9 +69,14 @@
   }
 }
 
+#contest-search {
+    width: 550px;
+    padding: 5px;
+}
+
 .content .search {
   background-color: #F1F1F1;
-  padding: 1em;
+  padding: 0.75em 1em;
 
   .suggestive-input {
     position: relative;
@@ -273,7 +278,7 @@ tr  {
 }
 
 .canTitle   {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 button  {
@@ -328,6 +333,11 @@ p.question  {
     font-size: 13px;
     padding-bottom: 1px;
 }
+
+.fa-check:before    {
+    color: red;
+}
+
 @media only screen and (max-width: 500px) {
     ul  {
         list-style: none;

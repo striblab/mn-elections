@@ -27,7 +27,6 @@
   <table>
     <thead>
       <tr>
-<!--        <th class="firstOne"><span class="sr-only">Winner</span></th>-->
         <th class="canTitle firstOne">Candidate</th>
 
         {{#if !nonpartisan}}
@@ -51,9 +50,12 @@
         {{#each candidates as candidate, ci }}
           {{#if (simple && ci < 3) || !simple}}
             <tr>
-<!--              <td>{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>-->
               <td class="candidate-name per">
-                {{ candidateName(candidate) }} <i class="fa fa-check"></i>
+                {{ candidateName(candidate) }}
+                {{#if candidate.winner }}
+                  <i class="fa fa-check" aria-hidden="true" title="Winner"></i>
+                  <span class="sr-only">(is winner)</span>
+                {{/if}}
                 {{#if candidate.incumbent}}
                   <i class="fa fa-info" aria-hidden="true" title="Incumbent"></i>
                   <span class="sr-only">(is incumbent)</span>
@@ -68,26 +70,15 @@
                 <td class="candidate-name per">{{ formatVotes(candidate.votes) }}</td>
                 <td class="candidate-name per">{{ formatPercent(candidate.percent) }}</td>
               {{else}}
-                <td class="candidate-name">
-                    <span class="totalTally">90,000</span> <span class="perTally">99%</span>
-                </td>        
-<!--
                 <td class="candidate-name per">
                   {{#if (candidate.votes && candidate.percent)}}
                     {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
                   {{/if}}
                 </td>
--->
 
-<!--
                 <td class="candidate-name per"><span class="totalTally">{{ formatVotes(candidate.ranks[0].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[0].percent) }}</span></td>
                 <td class="candidate-name per"><span class="totalTally">{{ formatVotes(candidate.ranks[1].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[1].percent) }}</span></td>
                 <td class="candidate-name per"><span class="totalTally">{{ formatVotes(candidate.ranks[2].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[2].percent) }}</span></td>
--->
-                <td class="candidate-name per"><span class="totalTally">90,000</span> <span class="perTally">99%</span></td>
-                <td class="candidate-name per"><span class="totalTally">90,000</span> <span class="perTally">99%</span></td>
-                <td class="candidate-name per"><span class="totalTally">90,000</span> <span class="perTally">99%</span></td>
-
               {{/if}}
             </tr>
           {{/if}}

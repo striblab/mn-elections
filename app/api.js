@@ -22,7 +22,8 @@ function api(type, set) {
       .then(response => {
         if (response.status < 300) {
           return response;
-        } else {
+        }
+        else {
           var error = new Error(response.statusText);
           error.response = response;
           reject(error);

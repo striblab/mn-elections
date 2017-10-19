@@ -124,6 +124,15 @@ export default {
           return;
         }
 
+        // Since, a set can change contests, but still kind of keep
+        // a reference to it, see if the candidates names have changed
+        let nameDiff = _.differenceBy(n, o, c => {
+          return '' + c.last + c.first;
+        });
+        if (nameDiff && nameDiff.length) {
+          return;
+        }
+
         // See if votes changed
         let diff = _.differenceBy(n, o, 'votes');
         if (this.get('ranked')) {

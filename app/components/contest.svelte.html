@@ -1,5 +1,5 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<div class="contest">
+
+<div class="contest {{ voteChange ? 'vote-change' : '' }}">
   <h3>
     <a href="#!contest/{{ id }}">
       {{ name }}
@@ -114,6 +114,43 @@ export default {
     if (!this.get('embedded')) {
       this.dataInterval = setInterval(_.bind(this.loadData, this), 30000);
     }
+
+    // Highlight changes
+    this.observe(
+      'candidates',
+      (n, o) => {
+        // If not candides on either side, either inital or something wrong
+        if (!n || !o) {
+          return;
+        }
+
+        // See if votes changed
+        let diff = _.differenceBy(n, o, 'votes');
+        if (this.get('ranked')) {
+          diff =
+            !diff || !diff.length
+              ? _.differenceBy(n, o, c => {
+                return c.ranks ? c.ranks[0].votes : undefined;
+              })
+              : diff;
+        }
+
+        if (diff && diff.length) {
+          this.set({
+            voteChange: true
+          });
+
+          setTimeout(() => {
+            if (this) {
+              this.set({
+                voteChange: false
+              });
+            }
+          }, 2000);
+        }
+      },
+      { init: false }
+    );
   },
 
   ondestroy: function() {

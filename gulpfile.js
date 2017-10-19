@@ -182,6 +182,15 @@ gulp.task(
 
 // Web server for development.  Do build first to ensure something is there.
 gulp.task('server', ['build'], () => {
+  // Allow to ignore the CMS integration
+  if (argv['cms'] === false) {
+    return browserSync.init({
+      port: 3000,
+      server: './build/',
+      files: './build/**/*'
+    });
+  }
+
   // Proxy the dev version of news-platform.  (assumes the host file has been set up)
   // https://github.com/MinneapolisStarTribune/news-platform
   //
@@ -229,13 +238,16 @@ gulp.task('server', ['build'], () => {
 // Watch for building
 gulp.task('watch', () => {
   gulp.watch(['styles/**/*.scss'], ['styles']);
-  // gulp.watch(
-  //   ['templates/**/*', 'config.*json', 'package.json', 'content.json'],
-  //   ['html:lint']
-  // );
   gulp.watch(['app/**/*', 'config.json'], ['js']);
   gulp.watch(['assets/**/*'], ['assets']);
   gulp.watch(['config.*json'], ['publish:build']);
+
+  if (argv['cms'] === false) {
+    gulp.watch(
+      ['templates/**/*', 'config.*json', 'package.json', 'content.json'],
+      ['html']
+    );
+  }
 });
 
 // Publishing
@@ -250,8 +262,10 @@ gulp.task('publish:confirm', gulpPublish.confirmToken(gulp));
 gulp.task('publish:open', gulpPublish.openURL(gulp));
 
 // Full build
-//gulp.task('build', ['publish:build', 'assets', 'html:lint', 'styles', 'js']);
 gulp.task('build', ['publish:build', 'assets', 'styles', 'js']);
+if (argv['cms'] === false) {
+  gulp.task('build', ['publish:build', 'assets', 'html', 'styles', 'js']);
+}
 gulp.task('default', ['build']);
 
 // Deploy (build and publish)

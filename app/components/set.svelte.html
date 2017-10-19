@@ -4,11 +4,12 @@
     <h2>{{ title }} contests</h2>
 
     <div class="contestChatter">
+      {{#if updatedMoment}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
       {{ contests.length }} contests in this set with a total of {{ countCandidates(contests) }} candidates.
     </div>
 
     {{#each contests as contest, ci }}
-      <Contest data="{{ contest }}" />
+      <Contest data="{{ contest }}" embedded="true" />
     {{/each}}
   {{else}}
     <div class="loading">
@@ -19,6 +20,7 @@
 
 <script>
 import api from '../api.js';
+import defaultContest from '../contest-default.js';
 import Contest from './contest.svelte.html';
 
 export default {
@@ -30,6 +32,10 @@ export default {
     // Proxy if used within another component
     this.observe('data', d => {
       if (_.isPlainObject(d)) {
+        if (d && d.contests) {
+          d.contests = _.map(d.contests, defaultContest);
+        }
+
         this.set(d);
       }
     });
@@ -40,17 +46,50 @@ export default {
         this.loadData(d);
       }
     });
+
+    // Poll data
+    this.dataInterval = setInterval(_.bind(this.loadData, this), 30000);
+  },
+
+  ondestroy: function() {
+    // Note that using a this.set(interval) does not seem to work, maybe
+    // the value is destroyed before this is called.
+    if (this.dataInterval) {
+      clearInterval(this.dataInterval);
+    }
   },
 
   methods: {
     loadData: function(setID) {
+      setID = setID || this.get('setID');
+
+      if (!setID) {
+        console.error('No setID provided for set.');
+      }
+
       api('results', setID)
         .then(set => {
+          if (set && set.contests) {
+            set.contests = _.map(set.contests, defaultContest);
+          }
+
           this.set(set);
         })
         .catch(e => {
           console.error(e);
         });
+    }
+  },
+
+  computed: {
+    updatedMoment(contests, updatedMoment) {
+      // Look for oldest updated
+      let oldest = contests ? _.minBy(contests, 'updated') : undefined;
+      oldest = _.isPlainObject(oldest) ? oldest.updated : undefined;
+
+      return updatedMoment && updatedMoment.unix() === oldest
+        ? updatedMoment
+        : oldest ? moment.unix(oldest) : undefined;
     }
   },
 

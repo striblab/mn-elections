@@ -9,6 +9,9 @@
 </div>
 
 <script>
+import api from '../api.js';
+import defaultContest from '../contest-default.js';
+
 import Search from './search.svelte.html';
 import Contest from './contest.svelte.html';
 
@@ -26,12 +29,43 @@ export default {
         this.set(d);
       }
     });
+
+    // Load data
+    this.loadData();
+
+    // Poll data
+    this.dataInterval = setInterval(_.bind(this.loadData, this), 30000);
+  },
+
+  ondestroy: function() {
+    // Note that using a this.set(interval) does not seem to work, maybe
+    // the value is destroyed before this is called.
+    if (this.dataInterval) {
+      clearInterval(this.dataInterval);
+    }
+  },
+
+  methods: {
+    loadData: function() {
+      api('results', 'sets/dashboard')
+        .then(set => {
+          if (set && set.contests) {
+            set.contests = _.keyBy(_.map(set.contests, defaultContest), 'id');
+          }
+
+          this.set(set);
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
   },
 
   computed: {
     dataLoaded: (contests, updated) => {
       return !_.isEmpty(contests) && updated;
     },
+
     updatedMoment(updated, updatedMoment) {
       return updatedMoment && updatedMoment.unix() === updated
         ? updatedMoment

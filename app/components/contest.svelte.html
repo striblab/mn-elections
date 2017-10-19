@@ -18,6 +18,7 @@
     {{#if called}}Called by the Star Tribune.{{/if}}
     {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
     {{#if (final && close)}}This race is very close and may need a recount.{{/if}}
+    {{#if (!embedded && updatedMoment)}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
   </p>
 
   {{#if (!simple && questionText)}}
@@ -90,6 +91,7 @@
 
 <script>
 import api from '../api.js';
+import defaultContest from '../contest-default.js';
 
 export default {
   oncreate: function() {
@@ -97,7 +99,7 @@ export default {
     // all from the markup of a component
     this.observe('data', d => {
       if (_.isPlainObject(d)) {
-        this.set(d);
+        this.set(defaultContest(d));
       }
     });
 
@@ -107,17 +109,44 @@ export default {
         this.loadData(d);
       }
     });
+
+    // Poll if not embedded
+    if (!this.get('embedded')) {
+      this.dataInterval = setInterval(_.bind(this.loadData, this), 30000);
+    }
+  },
+
+  ondestroy: function() {
+    // Note that using a this.set(interval) does not seem to work, maybe
+    // the value is destroyed before this is called.
+    if (this.dataInterval) {
+      clearInterval(this.dataInterval);
+    }
   },
 
   methods: {
     loadData: function(id) {
+      id = id || this.get('id');
+
+      if (!id) {
+        console.error('No ID provided for contest.');
+      }
+
       api('results', 'contests/' + id || this.get('id'))
         .then(contest => {
-          this.set(contest);
+          this.set(defaultContest(contest));
         })
         .catch(e => {
           console.error(e);
         });
+    }
+  },
+
+  computed: {
+    updatedMoment(updated, updatedMoment) {
+      return updatedMoment && updatedMoment.unix() === updated
+        ? updatedMoment
+        : updated ? moment.unix(updated) : undefined;
     }
   },
 

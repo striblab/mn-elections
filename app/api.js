@@ -3,6 +3,8 @@
  * https://github.com/striblab/mn-elections-api
  */
 
+'use strict';
+
 // Dependencies
 // eslint-disable-next-line
 import fetch from 'whatwg-fetch';

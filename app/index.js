@@ -2,7 +2,6 @@
  * Main JS file for project.
  */
 
-/* global _ */
 'use strict';
 
 // Dependencies
@@ -29,14 +28,7 @@ api('election', 'election')
   })
   .catch(handleError);
 
-// Get dashboard data
-api('results', 'sets/dashboard')
-  .then(dashboard => {
-    page.set({ dashboardContests: _.keyBy(dashboard.contests, 'id') });
-  })
-  .catch(handleError);
-
-// Get dashboard data
+// Get search data.  TODO, move to search component
 api('results', 'all-search')
   .then(search => {
     page.set({ searchData: search });

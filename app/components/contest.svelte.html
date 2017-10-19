@@ -53,7 +53,7 @@
             <tr>
               <td class="candidate-name per">
                 {{ candidateName(candidate) }}
-                {{#if candidate.winner }}
+                {{#if candidate.winner && !close }}
                   <i class="fa fa-check" aria-hidden="true" title="Winner"></i>
                   <span class="sr-only">(is winner)</span>
                 {{/if}}

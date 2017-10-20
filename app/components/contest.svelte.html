@@ -1,12 +1,12 @@
 
 <div class="contest {{ voteChange ? 'vote-change' : '' }}">
   <h3>
-    <a href="#!contest/{{ id }}">
+<!--    <a href="#!contest/{{ id }}">-->
       {{ name }}
       {{ seatName ? seatName : '' }}
       {{ area ? ' of ' + area : '' }}
       {{ subArea ? subArea : '' }}
-    </a>
+<!--    </a>-->
     {{#if questionTitle}}
       <br> <span class="muted">{{ questionTitle }}</span>
     {{/if}}

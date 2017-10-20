@@ -28,7 +28,8 @@
     "production": {
       "bucket": "static.startribune.com",
       "path": "projects/mn-elections",
-      "url": "http://static.startribune.com/projects/mn-elections/index.html"
+      "url": "http://static.startribune.com/projects/mn-elections/index.html",
+      "cacheSeconds": 60
     }
   }
 }

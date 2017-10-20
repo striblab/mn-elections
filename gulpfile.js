@@ -217,8 +217,8 @@ gulp.task('server', ['build'], () => {
     port: 3000,
     proxy:
       'http://' +
-      (argv.mobile ? 'm' : 'www') +
-      '.startribune.dev/x/' +
+      (argv.mobile ? 'vm-m' : 'vm-www') +
+      '.startribune.com/x/' +
       config.cms.id +
       '?preview=1',
     serveStatic: [

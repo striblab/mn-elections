@@ -15,12 +15,12 @@
   max-width:970px;
   margin:auto;
   .group-nav{
-    width:24%;
+    width:20%;
     display:inline-block;
     vertical-align: top;
   }
   .dashboard,.set{
-    width: 722px;
+    width: 732px;
     display:inline-block;
     vertical-align: top;
   }
@@ -70,7 +70,7 @@
 }
 
 #contest-search {
-    width: 550px;
+    width: 650px;
     padding: 5px;
 }
 
@@ -139,7 +139,7 @@
 
 .content .contest {
   margin-bottom: 2em;
-    width: 722px;
+    width: 732px;
     float: right;
 
   h3 {
@@ -394,10 +394,6 @@ p.question  {
 
     ul > li a:hover {
         color: #777;
-    }
-
-    .canTitle   {
-        font-size: inherit;
     }
 
     div {

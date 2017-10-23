@@ -1,6 +1,10 @@
 /**
  * Project specific styling.
  */
+
+.search-form    {
+    background-color: none;
+}
 .l-article-body {
     font-size: 1.5em;
     color:#444;
@@ -398,8 +402,8 @@ p.question  {
     }
 
     div {
-        width: 98%;
-        margin-left: 1%;
+        width: 99%;
+        margin-left: 0.5%;
     }
 
     table   {

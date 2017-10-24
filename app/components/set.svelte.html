@@ -1,11 +1,11 @@
 
 <div class="set">
   {{#if (contests && contests.length)}}
-    <h2>{{ title }} contests</h2>
+    <h2>{{ title }} races</h2>
 
     <div class="contestChatter">
       {{#if updatedMoment}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
-      {{ contests.length }} contests in this set with a total of {{ countCandidates(contests) }} candidates.
+<!--      {{ contests.length }} contests in this set with a total of {{ countCandidates(contests) }} candidates.-->
     </div>
 
     {{#each contests as contest, ci }}

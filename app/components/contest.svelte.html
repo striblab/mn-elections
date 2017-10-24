@@ -13,7 +13,7 @@
     {{/if}}
   </h3>
 
-  <p class="reporting">
+  <p class="reporting {{ voteChange ? 'vote-change' : '' }}">
     Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
     {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
     {{#if called}}Called by the Star Tribune.{{/if}}

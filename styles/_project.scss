@@ -2,53 +2,54 @@
  * Project specific styling.
  */
 
-li.bottom   {
-    margin-bottom: 10px;
+li.bottom {
+  margin-bottom: 10px;
 }
 
 li.subTileNav:first-of-type {
-    border-top: none;
-    padding-top: 0px;
+  border-top: none;
+  padding-top: 0px;
 }
 
 li.subTileNav {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #333;
-    font-size: 0.8em;
-    border-top: 1px solid #e7e7e7;
-    padding-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.8em;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 10px;
 }
 
-.checkmark  {
-    display: inline;
-    width: 20px;
-    height: 20px;
+.checkmark {
+  display: inline;
+  width: 20px;
+  height: 20px;
 }
 
-td.election-legend-key   {
-    padding-left: .25em !important;
+td.election-legend-key {
+  padding-left: 0.25em !important;
 }
 
-.mobileNav  {
-    display: none;
+.mobileNav,
+.mobileNavHeading {
+  display: none;
 }
 
-.search-form    {
-    background-color: #fff !important;
-    float: right;
+.search-form {
+  background-color: #fff !important;
+  float: right;
 }
 .l-article-body {
-    font-size: 1.5em;
-    color:#444;
+  font-size: 1.5em;
+  color: #444;
 }
 
 .content th {
-    text-align: center;
-    border-bottom: 2px solid #999;
+  text-align: center;
+  border-bottom: 2px solid #999;
 }
 
-section[role=contentinfo] {
+section[role='contentinfo'] {
   max-width: 970px;
   margin: auto;
 
@@ -58,27 +59,24 @@ section[role=contentinfo] {
   }
 }
 
+.content {
+  max-width: 970px;
+  margin: auto;
 
-.content{
-  max-width:970px;
-  margin:auto;
-
-  .group-nav{
-    width:20%;
-    display:inline-block;
+  .group-nav {
+    width: 20%;
+    display: inline-block;
     vertical-align: top;
-      
   }
-  .dashboard,.set{
+  .dashboard,
+  .set {
     width: 771px;
-    display:inline-block;
+    display: inline-block;
     vertical-align: top;
   }
 }
 
 .group-nav {
-
-
   &.bottom-nav {
     display: none;
   }
@@ -112,8 +110,8 @@ section[role=contentinfo] {
 }
 
 .content nav {
-//  background-color: #F1F1F1;
-//  padding: 1em;
+  //  background-color: #F1F1F1;
+  //  padding: 1em;
   margin-bottom: 1em;
 
   .content ul,
@@ -128,8 +126,6 @@ section[role=contentinfo] {
   }
 }
 
-
-
 .content .dashboard {
   .updated {
     font-size: 0.6em;
@@ -139,22 +135,22 @@ section[role=contentinfo] {
 }
 
 #contest-search {
-    width: 640px;
-    padding: 5px;
+  width: 640px;
+  padding: 5px;
 }
 
 .content .search {
-//  background-color: #F1F1F1;
+  //  background-color: #F1F1F1;
   padding: 0.75em 0em;
 
   .suggestive-input {
     position: relative;
     display: inline-block;
-//    width: 82%;
+    //    width: 82%;
 
     .suggestions {
       position: absolute;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       border: 1px solid #777777;
       width: 100%;
       overflow-y: auto;
@@ -166,16 +162,16 @@ section[role=contentinfo] {
         cursor: pointer;
 
         &:hover {
-          background-color: #F1F1F1;
+          background-color: #f1f1f1;
         }
       }
     }
   }
 
-.content input[type=search] {
+  .content input[type='search'] {
     border: 1px solid #777777;
     padding: 0.5em 1em;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: $color-text;
     width: 100%;
 
@@ -184,7 +180,7 @@ section[role=contentinfo] {
     }
   }
 
-.content button {
+  .content button {
     border: 1px solid #777777;
     padding: 0.5em 1em;
     background-color: $color-strib-green-bg;
@@ -208,8 +204,8 @@ section[role=contentinfo] {
 
 .content .contest {
   margin-bottom: 2em;
-    width: 680px;
-    float: right;
+  width: 680px;
+  float: right;
 
   h3 {
     margin-bottom: 0.25em;
@@ -221,364 +217,363 @@ section[role=contentinfo] {
   }
 
   .reporting {
-      margin-top: -10px !important;
+    margin-top: -10px !important;
     font-size: 0.6em;
     color: #676767;
     margin: 0 0 1.25rem;
-    }
+  }
 
   table {
     thead th:nth-child(1) {
       width: 2em;
     }
 
-//    thead th:nth-child(2) {
-//      width: 33.333%;
-//    }
+    //    thead th:nth-child(2) {
+    //      width: 33.333%;
+    //    }
   }
 }
 .l-election-results-header {
-    padding-bottom: 1.5em;
-    padding-top: .5em;
-    margin-bottom: 2em;
-    border-bottom: 1px solid #e7e7e7;
-    text-align: center;
-    max-width:970px;
-    margin-left:auto;
-    margin-right:auto;
+  padding-bottom: 1.5em;
+  padding-top: 0.5em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #e7e7e7;
+  text-align: center;
+  max-width: 970px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .election-results-header-title {
-    font: 700 2.2em/1.25  Popular,Helvetica,Arial,sans-serif;
-    text-transform: uppercase;
+  font: 700 2.2em/1.25 Popular, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 .l-election-results-header .election-table {
-    margin-top: .5em;
-    margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 .election-table {
-    text-align: center;
-/*    width: 100%; */
-    border-collapse: collapse;
-    font-size: .85em;
-    margin: 0 auto;
-    border: 1px solid #ccc;
+  text-align: center;
+  /*    width: 100%; */
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin: 0 auto;
+  border: 1px solid #ccc;
 }
 .election-legend-symbol {
-    width: 1em;
-    padding-right: 0;
-    color: #777;
+  width: 1em;
+  padding-right: 0;
+  color: #777;
 }
 
 .election-table .candidate-race-status {
-    width: 1em;
-    padding-right: 0;
+  width: 1em;
+  padding-right: 0;
 }
 .election-table td {
-    padding: .75em;
-    vertical-align: middle;
+  padding: 0.75em;
+  vertical-align: middle;
 }
 .election-table-legend {
-    width: auto;
+  width: auto;
 }
 
 /* rahul's edits */
 
 .election-table {
-    border-left: 1px solid #ccc;
-        font-size: 15px;
+  border-left: 1px solid #ccc;
+  font-size: 15px;
 }
 
-.election-table-header-title    {
-    font-size: 15px;
+.election-table-header-title {
+  font-size: 15px;
 }
 
 .election-table th {
-    padding: .5em;
-    vertical-align: middle;
+  padding: 0.5em;
+  vertical-align: middle;
 }
 
-.content tbody tr:nth-child(even), .content tbody tr:nth-child(odd)     {
-    background-color: #fff;
+.content tbody tr:nth-child(even),
+.content tbody tr:nth-child(odd) {
+  background-color: #fff;
 }
 
-tr  {
-    border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+tr {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
 .candidate-name {
-    color: #444;
-    font-size: 16px;
+  color: #444;
+  font-size: 16px;
 }
 
-.election-results-nav-link,.content a  {
-    color: #444;
-    padding: .5em 0;
-    font-size: 13.65px;
+.election-results-nav-link,
+.content a {
+  color: #444;
+  padding: 0.5em 0;
+  font-size: 13.65px;
 }
 
-.content a:hover    {
-    color: #777;
+.content a:hover {
+  color: #777;
 }
 
-.election-results-sidebar-heading   {
-    border-bottom: 1px solid #e7e7e7;
-    padding-bottom: 5px;
-    color: #444;
-    max-width: 125px;
+.election-results-sidebar-heading {
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 5px;
+  color: #444;
+  max-width: 125px;
 }
 
-.firstOne   {
-    border-left: 1px solid #fff;
+.firstOne {
+  border-left: 1px solid #fff;
 }
 
 .updated {
-    font-size: .8em;
-    margin-bottom: 1em;
+  font-size: 0.8em;
+  margin-bottom: 1em;
 }
 
-.election-results-nav-link, .content h3 > a {
-    font-family: Benton Sans,Helvetica,Arial,sans-serif;
-    font-size: 1em;
-//    text-transform: uppercase;
+.election-results-nav-link,
+.content h3 > a {
+  font-family: Benton Sans, Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  //    text-transform: uppercase;
 }
 
-.election-results-nav-link, .content h3 {
-    line-height: 24px;
+.election-results-nav-link,
+.content h3 {
+  line-height: 24px;
 }
 
-.canTitle   {
-    font-size: 15px;
+.canTitle {
+  font-size: 15px;
 }
 
-button  {
-    background-color: white;
-    border: 1px solid #ccc;
-    color: #444;
-    height: 37px;
-    width: 37px;
+button {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #444;
+  height: 37px;
+  width: 37px;
 }
 
 section > p {
-    font-size: 0.7em;
-    float: right;
-    text-align: center;
-    width: 100%;
+  font-size: 0.7em;
+  float: right;
+  text-align: center;
+  width: 100%;
 }
 
-.set > h2   {
-    font-size: 1.2em;
-    margin-left: 90px;
-    font-family: Benton Sans,sans-serif;
-    text-align: left;
-    color: #333;
-    text-transform: uppercase;
+.set > h2 {
+  font-size: 1.2em;
+  margin-left: 90px;
+  font-family: Benton Sans, sans-serif;
+  text-align: left;
+  color: #333;
+  text-transform: uppercase;
 }
-
 
 .contestChatter {
-    font-size: 0.8em;
-    margin-bottom: 10px;
-    margin-top: -5px;
-    margin-left: 90px;
-    color: #444;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  margin-top: -5px;
+  margin-left: 90px;
+  color: #444;
 }
 
-p.question  {
-        font-size: 0.8em;
-    line-height: 1.4em;
-    margin-bottom: 50px;
+p.question {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  margin-bottom: 50px;
 }
 
-.election-results-sidebar-heading   {
-    display: none;
+.election-results-sidebar-heading {
+  display: none;
 }
 
 .choice {
-    width: 21%;
+  width: 21%;
 }
 
-.fa .fa-check   {
-    color: green;
+.fa .fa-check {
+  color: green;
 }
 
 .checkmark > .fa {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
 .totalTally {
-    font-weight: bold;
-    margin-right: 3px;
+  font-weight: bold;
+  margin-right: 3px;
 }
 
-.perTally   {
-    font-weight: 100;
-    font-style: italic;
-    font-size: 13px;
-    padding-bottom: 1px;
+.perTally {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 13px;
+  padding-bottom: 1px;
 }
 
-.fa-check:before    {
-    color: red;
+.fa-check:before {
+  color: red;
 }
 
-.vote-change h3, .vote-change p {
+.vote-change h3,
+.vote-change p {
   background-color: yellow;
 }
 
-.smC    {
-    width: 13.1%;
+.smC {
+  width: 13.1%;
 }
 
 .rightAlign {
-    text-align: right;
+  text-align: right;
 }
 
 @media only screen and (max-width: 500px) {
-    
-    .contest {
-        margin-top: 70px;
-    }
-    
-    .search-form    {
-        width: 100%;
-    }
-    
-    ul  {
-        list-style: none;
-    }
-    
-    .mobileNav  {
-        display: inherit;
-            border: 1px solid #e7e7e7;
+  .contest {
+    margin-top: 70px;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .mobileNavHeading {
+    display: inherit;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    padding-top: 1em;
+  }
+
+  .mobileNav {
+    display: inherit;
+    border: 1px solid #e7e7e7;
     padding: 5px;
     width: 96%;
     background-color: white;
-    }
-    
-    .desktopNav {
-        display: none;
-    }
+    margin-bottom: 2em;
+  }
 
-    body    {
-        margin: 0 auto;
-    }
+  .desktopNav {
+    display: none;
+  }
 
-    .election-results-sidebar-heading   {
-        width: 130px;
-        max-width: none;
-        margin: 0 auto;
-    }
+  body {
+    margin: 0 auto;
+  }
 
-    ul > li a {
-        color: #777;
-        text-align: center;
-    }
+  .election-results-sidebar-heading {
+    width: 130px;
+    max-width: none;
+    margin: 0 auto;
+  }
 
-    p.reporting {
-        margin-top: -15px;
-        color: #676767;
-        font-size: 0.8em;
-            margin-bottom: 15px;
-    }
+  ul > li a {
+    color: #777;
+    text-align: center;
+  }
 
-    ul > li {
-            padding: .5em 0px;
-        font-size: 13.65px;
-    }
+  p.reporting {
+    margin-top: -15px;
+    color: #676767;
+    font-size: 0.8em;
+    margin-bottom: 15px;
+  }
 
-    ul  {
-        margin-left: 0;
-        text-align: center;
-    }
+  ul > li {
+    padding: 0.5em 0px;
+    font-size: 13.65px;
+  }
 
-    h3 > a {
-            color: #444;
-    }
-    
-    .checkmark>.fa  {
-        margin-top: 6px;
-    }
+  ul {
+    margin-left: 0;
+    text-align: center;
+  }
 
-    .set>h2 {
-        font-weight: 700;
-        color: #444;
-        margin-left: 0px;
-        margin-bottom: 10px;
-    }
-    
-    .contestChatter {
-        margin-left: 0px;
-        margin-bottom: 20px;
-    }
+  h3 > a {
+    color: #444;
+  }
 
-    ul > li a:hover {
-        color: #777;
-    }
+  .checkmark > .fa {
+    margin-top: 6px;
+  }
 
-    div {
-        width: 99%;
-        margin-left: 0.5%;
-    }
+  .set > h2 {
+    font-weight: 700;
+    color: #444;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
 
-    table   {
-        margin: 0 auto;
-    }
+  .contestChatter {
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
 
-    .contest   {
-        margin: 10px 0px;
-    }
+  ul > li a:hover {
+    color: #777;
+  }
 
-    button  {
-        width: 25px;
-        float: right;
-        height: 30px;
-        margin-top: -37px;
-    }
+  div {
+    width: 99%;
+    margin-left: 0.5%;
+  }
 
-    #contest-search {
-            width: 85%;
-    }
+  table {
+    margin: 0 auto;
+  }
 
+  .contest {
+    margin: 10px 0px;
+  }
+
+  button {
+    width: 25px;
+    float: right;
+    height: 30px;
+    margin-top: -37px;
+  }
+
+  #contest-search {
+    width: 85%;
+  }
 }
 
 /* Select */
 
 select {
-  background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
     linear-gradient(135deg, gray 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em - 2.25px),
-    calc(100% - 15px) calc(1em - 2.25px),
-    calc(100% - 2.5em) 0.25em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
+  background-position: calc(100% - 20px) calc(1em - 2.25px),
+    calc(100% - 15px) calc(1em - 2.25px), calc(100% - 2.5em) 0.25em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
 }
 
 select:focus {
-  background-image:
-    linear-gradient(45deg, darkgray 50%, transparent 50%),
+  background-image: linear-gradient(45deg, darkgray 50%, transparent 50%),
     linear-gradient(135deg, transparent 50%, darkgray 50%),
     linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 15px) calc(1em - 2.25px),
-    calc(100% - 20px) calc(1em - 2.25px),
-    calc(100% - 2.5em) 0.25em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
+  background-position: calc(100% - 15px) calc(1em - 2.25px),
+    calc(100% - 20px) calc(1em - 2.25px), calc(100% - 2.5em) 0.25em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
   border-color: darkgray;
   outline: 0;
 }
 
-.election-table .is-incumbent   {
-    padding-right: 0.05em;
+.election-table .is-incumbent {
+  padding-right: 0.05em;
 }

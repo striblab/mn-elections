@@ -18,7 +18,10 @@ const router = new Navigo(null, true, '#!');
 
 // Set up page
 const page = new Page({
-  target: document.querySelector('main')
+  target: document.querySelector('main'),
+  data: {
+    router: router
+  }
 });
 
 // Get election mn-elections-api data

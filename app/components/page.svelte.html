@@ -1,5 +1,5 @@
 <div class="cf">
-  <GroupNav />
+  <GroupNav router="{{ router }}"/>
 
   {{#if page === 'contest'}}
     <Contest id="{{ contestID }}" />
@@ -9,7 +9,7 @@
     <Dashboard data="{{ election }}" searchData="{{ searchData }}" />
   {{/if}}
 
-  <GroupNav bottom="true" />
+  <GroupNav router="{{ router }}" bottom="true" />
 </div>
 
 

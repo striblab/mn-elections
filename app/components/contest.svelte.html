@@ -53,7 +53,7 @@
           <th class="election-table choice smC">Votes</th>
           <th class="election-table choice smC">Percent</th>
         {{else}}
-          <th class="election-table-header-title choice">Counted</th>
+<!--          <th class="election-table-header-title choice">Counted</th>-->
           <th class="election-table choice">1st choice</th>
           <th class="election-table choice">2nd choice</th>
           <th class="election-table choice">3rd choice</th>
@@ -83,11 +83,13 @@
                 <td class="candidate-name per rightAlign">{{ formatVotes(candidate.votes) }}</td>
                 <td class="candidate-name per rightAlign">{{ formatPercent(candidate.percent) }}</td>
               {{else}}
+<!--
                 <td class="candidate-name per">
                   {{#if (candidate.votes && candidate.percent)}}
                     {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
                   {{/if}}
                 </td>
+-->
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[0].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[0].percent) }}</span></td>
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[1].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[1].percent) }}</span></td>
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[2].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[2].percent) }}</span></td>

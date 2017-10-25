@@ -2,301 +2,51 @@
  * Project specific styling.
  */
 
-
-
-
-
-.mobileNav,
-.mobileNavHeading {
-  display: none;
-}
-
-
-
-
-.content th {
-  text-align: center;
-  border-bottom: 2px solid #999;
-}
-
-
-.content header.project-header {
-  padding: 1em 1em 0;
-  margin-bottom: 1em;
-}
-
-.content main {
-  padding: 1em 1em 0;
-  margin-bottom: 1em;
-}
-
-.content footer {
-  font-size: 0.85em;
-  padding: 3rem 1rem 0;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.content nav {
-  //  background-color: #F1F1F1;
-  //  padding: 1em;
-  margin-bottom: 1em;
-
-  .content ul,
-  .content ul li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .content ul li {
-    padding-right: 1em;
-  }
-}
-
-.content .dashboard {
-  .updated {
-    font-size: 0.6em;
-    color: #676767;
-    margin-left: 90px;
-  }
-}
-
-
-.content .contest {
-  margin-bottom: 2em;
-  width: 680px;
-  float: right;
-
-  h3 {
-    margin-bottom: 0.25em;
-
-    .muted {
-      font-weight: normal;
-      font-size: 0.8em;
-    }
-  }
-
-  .reporting {
-    margin-top: -10px !important;
-    font-size: 0.6em;
-    color: #676767;
-    margin: 0 0 1.25rem;
-  }
-
-  table {
-    thead th:nth-child(1) {
-      width: 2em;
-    }
-
-    //    thead th:nth-child(2) {
-    //      width: 33.333%;
-    //    }
-  }
-}
-.l-election-results-header {
-  padding-bottom: 1.5em;
-  padding-top: 0.5em;
-  margin-bottom: 2em;
-  border-bottom: 1px solid #e7e7e7;
-  text-align: center;
-  max-width: 970px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.election-results-header-title {
-  font: 700 2.2em/1.25 Popular, Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-}
-.l-election-results-header .election-table {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.election-table {
-  text-align: center;
-  /*    width: 100%; */
-  border-collapse: collapse;
-  font-size: 0.85em;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-}
-.election-legend-symbol {
-  width: 1em;
-  padding-right: 0;
-  color: #777;
-}
-
-.election-table .candidate-race-status {
-  width: 1em;
-  padding-right: 0;
-}
-.election-table td {
-  padding: 0.75em;
-  vertical-align: middle;
-}
-.election-table-legend {
-  width: auto;
-}
-
-/* rahul's edits */
-
-.election-table {
-  border-left: 1px solid #ccc;
-  font-size: 15px;
-}
-
-.election-table-header-title {
-  font-size: 15px;
-}
-
-.election-table th {
-  padding: 0.5em;
-  vertical-align: middle;
-}
-
-.content tbody tr:nth-child(even),
-.content tbody tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-tr {
-  border-bottom: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-
-.candidate-name {
-  color: #444;
-  font-size: 16px;
-}
-
-.election-results-nav-link,
-.content a {
-  color: #444;
-  padding: 0.5em 0;
-  font-size: 13.65px;
-}
-
-.content a:hover {
-  color: #777;
-}
-
-.election-results-sidebar-heading {
-  border-bottom: 1px solid #e7e7e7;
-  padding-bottom: 5px;
-  color: #444;
-  max-width: 125px;
-}
-
-.firstOne {
-  border-left: 1px solid #fff;
-}
-
-.updated {
-  font-size: 0.8em;
-  margin-bottom: 1em;
-}
-
-.election-results-nav-link,
-.content h3 > a {
-  font-family: Benton Sans, Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  //    text-transform: uppercase;
-}
-
-.election-results-nav-link,
-.content h3 {
-  line-height: 24px;
-}
-
-.canTitle {
-  font-size: 15px;
-}
-
-button {
-  background-color: white;
-  border: 1px solid #ccc;
-  color: #444;
-  height: 37px;
-  width: 37px;
-}
-
-section > p {
-  font-size: 0.7em;
-  float: right;
-  text-align: center;
-  width: 100%;
-}
-
-.set > h2,
-.contest h2 {
-  font-size: 1.2em;
-  margin-left: 90px;
-  font-family: Benton Sans, sans-serif;
-  text-align: left;
-  color: #333;
-  text-transform: uppercase;
-}
-
-.contest h2 {
-  margin-left: 0;
-}
-
-.contestChatter {
-  font-size: 0.8em;
-  margin-bottom: 10px;
-  margin-top: -5px;
-  margin-left: 90px;
-  color: #444;
-}
-
-p.question {
-  font-size: 0.8em;
-  line-height: 1.4em;
-  margin-bottom: 50px;
-}
-
-.election-results-sidebar-heading {
-  display: none;
-}
-
-.choice {
-  width: 21%;
-}
-
-.fa .fa-check {
-  color: green;
-}
-
-
-.totalTally {
-  font-weight: bold;
-  margin-right: 3px;
-}
-
-.perTally {
-  font-weight: 100;
-  font-style: italic;
-  font-size: 13px;
-  padding-bottom: 1px;
-}
-
 .fa-check:before {
-  color: red;
+  color: $color-checkmark;
 }
 
-.vote-change h3,
-.vote-change p {
-  background-color: yellow;
+.election-app {
+  a {
+    color: #444;
+
+    &:hover {
+      color: #777;
+    }
+  }
+
+  h2 {
+    font-size: 1.2em;
+    font-family: Benton Sans, sans-serif;
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  .updated {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    color: #444;
+  }
+
+  .text-right {
+    text-align: right;
+  }
 }
 
-.smC {
-  width: 13.1%;
-}
 
-.rightAlign {
-  text-align: right;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 500px) {
   .contest {

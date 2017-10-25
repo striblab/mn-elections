@@ -4,6 +4,7 @@
 
 .group-nav {
   display: none;
+  margin-bottom: 1em;
 
   // There are two navs, one for mobile, and one for
   &.default-nav,
@@ -17,7 +18,12 @@
   }
 
   ul {
+
     li {
+      padding: 0.5em 0;
+      font-size: 0.75em;
+      line-height: 1.15em;
+
       &.bottom {
         margin-bottom: 0.5em;
       }
@@ -28,7 +34,7 @@
         color: #333;
         font-size: 0.8em;
         border-top: 1px solid #e7e7e7;
-        padding-top: 0.5em;
+        padding-top: 1em;
 
         &:first-of-type {
           border-top: none;

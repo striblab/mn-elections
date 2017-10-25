@@ -2,7 +2,8 @@
   {{#if !dataLoaded}}
     <strong>Loading...</strong>
   {{else}}
-    <Search searchData="{{ searchData }}" />
+    <h2>Top Races</h2>
+
     <p class="updated">Last updated {{ updatedMoment.fromNow() }}.</p>
 
     {{#each contests as contest, c}}

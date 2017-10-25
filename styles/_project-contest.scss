@@ -3,32 +3,114 @@
  */
 
 .contest {
+  margin-bottom: 2em;
+
+  h3 {
+    margin-bottom: 0.25em;
+
+    .muted {
+      font-weight: normal;
+      font-size: 0.8em;
+    }
+  }
+
+  .reporting {
+    margin-top: -10px !important;
+    font-size: 0.6em;
+    color: #676767;
+    margin: 0 0 1.25em;
+  }
+
+  .question {
+    font-size: 0.8em;
+    line-height: 1.4em;
+    margin-bottom: 50px;
+  }
 
   .checkmark {
-    padding-right: 0em;
+    padding-right: 0;
     font-size: 0.85em;
+  }
+
+  .candidate-name {
+    color: #444;
+    font-size: 0.85em;
+  }
+
+  .ranked-total {
+    font-weight: bold;
+  }
+
+  .ranked-percent {
+    font-weight: 100;
+    font-style: italic;
+    font-size: 0.75em;
+  }
+
+  @keyframes votechange {
+    0% {
+      background: none;
+    }
+
+    60% {
+      background: #ffeb0f;
+    }
+
+    100% {
+      background: none;
+    }
+  }
+
+  &.vote-change {
+    h3,
+    h2,
+    .reporting,
+    .question {
+      animation: votechange 1s ease;
+    }
   }
 
   table {
     border-collapse: collapse;
     margin: 0 auto;
     vertical-align: middle;
-  }
 
-  th {
-    text-align: center;
-    padding: 0.5em;
-    border-bottom: 2px solid #999;
-    font-size: 0.75em;
+    // Specificity to override default
+    tbody tr:nth-child(even),
+    tbody tr:nth-child(odd) {
+      background-color: #fff;
+    }
 
-    &.heading-alternate {
-      border-top: 1px solid #ccc;
+    tbody tr {
+      border-bottom: 1px solid #ccc;
       border-left: 1px solid #ccc;
       border-right: 1px solid #ccc;
     }
-  }
 
-  td {
-    padding: 0.75em;
+    th {
+      text-align: center;
+      padding: 0.5em;
+      border-bottom: 2px solid #999;
+      font-size: 0.75em;
+
+      &.heading-alternate {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+      }
+    }
+
+    td {
+      padding: 0.75em;
+    }
+
+    thead th.column-small {
+      width: 13.1%;
+    }
+
+    // Winner column
+    thead th:nth-child(1) {
+      width: 1.85em;
+    }
   }
 }

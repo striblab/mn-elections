@@ -367,13 +367,18 @@ section > p {
   width: 100%;
 }
 
-.set > h2 {
+.set > h2,
+.contest h2 {
   font-size: 1.2em;
   margin-left: 90px;
   font-family: Benton Sans, sans-serif;
   text-align: left;
   color: #333;
   text-transform: uppercase;
+}
+
+.contest h2 {
+  margin-left: 0;
 }
 
 .contestChatter {

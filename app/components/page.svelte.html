@@ -5,6 +5,8 @@
     <Contest id="{{ contestID }}" />
   {{elseif page === 'set'}}
     <Set setID="{{ setID }}" />
+  {{elseif page === 'search'}}
+    <Search searchData="{{ searchData }}" full="true" />
   {{else}}
     <Dashboard data="{{ election }}" searchData="{{ searchData }}" />
   {{/if}}
@@ -15,6 +17,7 @@
 
 <script>
 import Dashboard from './dashboard.svelte.html';
+import Search from './search.svelte.html';
 import Contest from './contest.svelte.html';
 import GroupNav from './group-nav.svelte.html';
 import Set from './set.svelte.html';
@@ -24,7 +27,8 @@ export default {
     Contest,
     Dashboard,
     GroupNav,
-    Set
+    Set,
+    Search
   },
 
   oncreate: function() {

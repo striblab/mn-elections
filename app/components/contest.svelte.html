@@ -1,17 +1,30 @@
 
 <div class="contest {{ voteChange ? 'vote-change' : '' }}">
-  <h3>
-<!--    <a href="#!contest/{{ id }}">-->
-            {{ area ? '' + area : '' }}
-      {{ subArea ? subArea : '' }}:
-      {{ name }}
-      {{ seatName ? seatName : '' }}
+  {{#if embedded}}
+    <h3>
+      <a href="#!contest/{{ id }}">
+        {{ area ? '' + area : '' }}{{ subArea ? ' ' + subArea : '' }}:
+        {{ name }}
+        {{ seatName ? seatName : '' }}
+      </a>
 
-<!--    </a>-->
-    {{#if questionTitle}}
-      <br> <span class="muted">{{ questionTitle }}</span>
-    {{/if}}
-  </h3>
+      {{#if questionTitle}}
+        <br> <span class="muted">{{ questionTitle }}</span>
+      {{/if}}
+    </h3>
+  {{else}}
+    <h2>
+      <a href="#!contest/{{ id }}">
+        {{ area ? '' + area : '' }}{{ subArea ? ' ' + subArea : '' }}:
+        {{ name }}
+        {{ seatName ? seatName : '' }}
+      </a>
+
+      {{#if questionTitle}}
+        <br> <span class="muted">{{ questionTitle }}</span>
+      {{/if}}
+    </h2>
+  {{/if}}
 
   <p class="reporting {{ voteChange ? 'vote-change' : '' }}">
     Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
@@ -40,7 +53,7 @@
           <th class="election-table choice smC">Votes</th>
           <th class="election-table choice smC">Percent</th>
         {{else}}
-<!--          <th class="election-table-header-title choice">Counted</th>-->
+          <th class="election-table-header-title choice">Counted</th>
           <th class="election-table choice">1st choice</th>
           <th class="election-table choice">2nd choice</th>
           <th class="election-table choice">3rd choice</th>
@@ -70,14 +83,11 @@
                 <td class="candidate-name per rightAlign">{{ formatVotes(candidate.votes) }}</td>
                 <td class="candidate-name per rightAlign">{{ formatPercent(candidate.percent) }}</td>
               {{else}}
-<!--
                 <td class="candidate-name per">
                   {{#if (candidate.votes && candidate.percent)}}
                     {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
                   {{/if}}
                 </td>
--->
-
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[0].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[0].percent) }}</span></td>
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[1].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[1].percent) }}</span></td>
                 <td class="candidate-name per rightAlign"><span class="totalTally">{{ formatVotes(candidate.ranks[2].votes) }}</span> <span class="perTally">{{ formatPercent(candidate.ranks[2].percent) }}</span></td>
@@ -105,8 +115,8 @@ export default {
     });
 
     // Look at ID, and see if we should load data
-    this.observe('id', d => {
-      if (d && !this.get('updated')) {
+    this.observe('id', (d, o) => {
+      if (d && d !== o) {
         this.loadData(d);
       }
     });

@@ -3,7 +3,7 @@
     <label for="contest-search" class="sr-only">Search races</label>
 
     <div class="suggestive-input">
-      <input id="contest-search" type="search" placeholder="Search contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
+      <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
       {{#if suggestions && suggestions.length }}
         <div class="suggestions">
           {{#each suggestions as s @id }}

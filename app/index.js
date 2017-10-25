@@ -53,6 +53,11 @@ router.on(/set\/(.*)/, params => {
   page.set({ page: 'set', setID: params });
 });
 
+// Search
+router.on('search', () => {
+  page.set({ page: 'search' });
+});
+
 // Load reouter
 router.resolve();
 page.set({ routerLoaded: true });

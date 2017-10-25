@@ -1,0 +1,28 @@
+/**
+ * Styles for contest
+ */
+
+.contest {
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+
+  th {
+    text-align: center;
+    padding: 0.5em;
+    border-bottom: 2px solid #999;
+
+    &.heading-alternate {
+      border-top: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+    }
+  }
+
+  td {
+    padding: 0.75em;
+  }
+}

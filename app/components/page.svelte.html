@@ -1,15 +1,17 @@
-<div class="cf">
+<div class="election-app cf">
   <GroupNav router="{{ router }}"/>
 
-  {{#if page === 'contest'}}
-    <Contest id="{{ contestID }}" />
-  {{elseif page === 'set'}}
-    <Set setID="{{ setID }}" />
-  {{elseif page === 'search'}}
-    <Search searchData="{{ searchData }}" full="true" />
-  {{else}}
-    <Dashboard data="{{ election }}" searchData="{{ searchData }}" />
-  {{/if}}
+  <div class="election-app-main">
+    {{#if page === 'contest'}}
+      <Contest id="{{ contestID }}" />
+    {{elseif page === 'set'}}
+      <Set setID="{{ setID }}" />
+    {{elseif page === 'search'}}
+      <Search searchData="{{ searchData }}" full="true" />
+    {{else}}
+      <Dashboard data="{{ election }}" searchData="{{ searchData }}" />
+    {{/if}}
+  </div>
 
   <GroupNav router="{{ router }}" bottom="true" />
 </div>

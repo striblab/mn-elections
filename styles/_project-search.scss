@@ -1,0 +1,45 @@
+/**
+ * Search form
+ */
+
+.search {
+  padding: 0.75em 0em;
+  margin-bottom: 2em;
+
+  input[type='search'] {
+    padding: 0.39em;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #444;
+    height: 2em;
+    width: 2em;
+  }
+
+  .suggestive-input {
+    position: relative;
+    display: inline-block;
+
+    .suggestions {
+      position: absolute;
+      background-color: #ffffff;
+      border: 1px solid #777777;
+      width: 100%;
+      overflow-y: auto;
+      max-height: 10em;
+
+      .suggestion {
+        font-size: 0.85em;
+        padding: 0.15em 0.25em;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+  }
+}

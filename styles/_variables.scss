@@ -45,13 +45,8 @@ $color-text-bg: $color-white !default;
 $color-link: $color-strib-green-dark !default;
 
 // Breakpoints
-$bp-small: 450px !default;
+$bp-xsmall: 375px !default;
+$bp-small: 485px !default;
 $bp-medium: 775px !default;
-$bp-large: 1050px !default;
-
-$responsive-points: (
-  ("default", 0),
-  ("small", $bp-small),
-  ("medium", $bp-medium),
-  ("large", $bp-large)
-) !default;
+$bp-large: 970px !default;
+$bp-xlarge: 1100px !default;

@@ -1,24 +1,24 @@
 
 <nav class="group-nav {{ bottom ? 'bottom-nav' : 'default-nav' }}">
-  <h3 class="election-results-sidebar-heading">More results</h3>
-  <ul class="desktopNav">
-    <li class="subTileNav bottom"><a href="#!/">Top races</a></li>
-    <li class="subTileNav">Metro-Area Races</li>
+  <h3 class="list-nav list-nav-heading sr-only">More results</h3>
+  <ul class="list-nav">
+    <li class="sub-title-nav bottom"><a href="#!/">Top races</a></li>
+    <li class="sub-title-nav">Metro-Area Races</li>
     <li><a href="#!contest/20171107-local-43000-2001">Minneapolis mayor</a></li>
     <li><a href="#!contest/20171107-local-58000-2001">St. Paul mayor</a></li>
     <li><a href="#!set/areas/minneapolis">Minneapolis city races</a></li>
     <li class="bottom"><a href="#!set/sets/metro-local">Metro city races</a></li>
-    <li class="subTileNav">Schools</li>
+    <li class="sub-title-nav">Schools</li>
     <li><a href="#!set/sets/metro-school-board">Metro school board</a></li>
     <li><a href="#!set/sets/metro-school-questions">Metro school questions</a></li>
     <li><a href="#!set/sets/outstate-school-board">Other MN school board</a></li>
     <li class="bottom"><a href="#!set/sets/outstate-school-questions">Other MN school questions</a></li>
-    <li class="subTileNav bottom"><a href="#!set/sets/outstate-local">Other</a></li>
-    <li class="subTileNav"><a href="#!/search">Search</a></li>
+    <li class="sub-title-nav bottom"><a href="#!set/sets/outstate-local">Other</a></li>
+    <li class="sub-title-nav"><a href="#!/search">Search</a></li>
   </ul>
 
-  <h3 class="mobileNavHeading">More results</h3>
-  <select class="mobileNav" bind:value="navSelect">
+  <h3 class="dropdown-nav dropdown-nav-heading">More results</h3>
+  <select class="dropdown-nav" bind:value="navSelect">
     <option value="set/areas/minneapolis">Minneapolis</option>
     <option value="set/areas/st-paul">St. Paul</option>
     <option value="set/sets/metro-local">Metro races</option>

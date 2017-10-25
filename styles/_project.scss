@@ -2,95 +2,23 @@
  * Project specific styling.
  */
 
-li.bottom {
-  margin-bottom: 10px;
-}
 
-li.subTileNav:first-of-type {
-  border-top: none;
-  padding-top: 0px;
-}
 
-li.subTileNav {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #333;
-  font-size: 0.8em;
-  border-top: 1px solid #e7e7e7;
-  padding-top: 10px;
-}
 
-.checkmark {
-  display: inline;
-  width: 20px;
-  height: 20px;
-}
-
-td.election-legend-key {
-  padding-left: 0.25em !important;
-}
 
 .mobileNav,
 .mobileNavHeading {
   display: none;
 }
 
-.search-form {
-  background-color: #fff !important;
-  float: right;
-}
-.l-article-body {
-  font-size: 1.5em;
-  color: #444;
-}
+
+
 
 .content th {
   text-align: center;
   border-bottom: 2px solid #999;
 }
 
-section[role='contentinfo'] {
-  max-width: 970px;
-  margin: auto;
-
-  @media only screen and (max-width: 970px) {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-}
-
-.content {
-  max-width: 970px;
-  margin: auto;
-
-  .group-nav {
-    width: 20%;
-    display: inline-block;
-    vertical-align: top;
-  }
-  .dashboard,
-  .set {
-    width: 771px;
-    display: inline-block;
-    vertical-align: top;
-  }
-}
-
-.group-nav {
-  &.bottom-nav {
-    display: none;
-  }
-
-  @media only screen and (max-width: 500px) {
-    &.default-nav {
-      display: none;
-    }
-
-    &.bottom-nav {
-      display: block;
-    }
-  }
-}
 
 .content header.project-header {
   padding: 1em 1em 0;
@@ -134,73 +62,6 @@ section[role='contentinfo'] {
   }
 }
 
-#contest-search {
-  width: 640px;
-  padding: 5px;
-}
-
-.content .search {
-  //  background-color: #F1F1F1;
-  padding: 0.75em 0em;
-
-  .suggestive-input {
-    position: relative;
-    display: inline-block;
-    //    width: 82%;
-
-    .suggestions {
-      position: absolute;
-      background-color: #ffffff;
-      border: 1px solid #777777;
-      width: 100%;
-      overflow-y: auto;
-      max-height: 10em;
-
-      .suggestion {
-        font-size: 0.85em;
-        padding: 0.15em 0.25em;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #f1f1f1;
-        }
-      }
-    }
-  }
-
-  .content input[type='search'] {
-    border: 1px solid #777777;
-    padding: 0.5em 1em;
-    background-color: #ffffff;
-    color: $color-text;
-    width: 100%;
-
-    &[disabled] {
-      opacity: 0.5;
-    }
-  }
-
-  .content button {
-    border: 1px solid #777777;
-    padding: 0.5em 1em;
-    background-color: $color-strib-green-bg;
-    cursor: pointer;
-
-    &:hover {
-      background-color: darken($color-strib-green-bg, 10);
-    }
-
-    &[disabled] {
-      opacity: 0.5;
-      cursor: default;
-      background-color: inherit;
-
-      &:hover {
-        background-color: inherit;
-      }
-    }
-  }
-}
 
 .content .contest {
   margin-bottom: 2em;
@@ -407,9 +268,6 @@ p.question {
   color: green;
 }
 
-.checkmark > .fa {
-  margin-top: 12px;
-}
 
 .totalTally {
   font-weight: bold;
@@ -510,9 +368,6 @@ p.question {
     color: #444;
   }
 
-  .checkmark > .fa {
-    margin-top: 6px;
-  }
 
   .set > h2 {
     font-weight: 700;

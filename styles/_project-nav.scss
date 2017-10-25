@@ -1,0 +1,52 @@
+/**
+ * Specific to the election results nav.
+ */
+
+.group-nav {
+  display: none;
+
+  // There are two navs, one for mobile, and one for
+  &.default-nav,
+  .list-nav {
+    display: block;
+  }
+
+  &.bottom-nav,
+  .dropdown-nav {
+    display: none;
+  }
+
+  ul {
+    li {
+      &.bottom {
+        margin-bottom: 0.5em;
+      }
+
+      &.sub-title-nav {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #333;
+        font-size: 0.8em;
+        border-top: 1px solid #e7e7e7;
+        padding-top: 0.5em;
+
+        &:first-of-type {
+          border-top: none;
+          padding-top: 0px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    &.default-nav,
+    .list-nav {
+      display: none;
+    }
+
+    &.bottom-nav,
+    .dropdown-nav {
+      display: block;
+    }
+  }
+}

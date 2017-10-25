@@ -66,7 +66,7 @@
         {{#each candidates as candidate, ci }}
           {{#if (simple && ci < 3) || !simple}}
             <tr>
-            <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
+              <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
               <td class="candidate-name per">
                 {{ candidateName(candidate) }}
                 {{#if candidate.incumbent}}

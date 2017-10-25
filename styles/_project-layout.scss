@@ -1,0 +1,31 @@
+/**
+ * High-level layout
+ */
+
+.election-app {
+  max-width: $bp-large;
+  margin: auto;
+
+  @media only screen and (max-width: $bp-large) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .group-nav {
+    float: left;
+    width: 18%;
+  }
+
+  .election-app-main {
+    float: right;
+    width: 75%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    .election-app-main,
+    .group-nav {
+      width: 100%;
+      float: none;
+    }
+  }
+}

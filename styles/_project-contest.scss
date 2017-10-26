@@ -117,12 +117,17 @@
 
     // Winner column
     thead th:nth-child(1) {
-      width: 1.85em;
+      width: 1.25em;
     }
 
     // Candidate column
     thead th:nth-child(2) {
       width: 33.333%;
+
+      // Acts weird on mobile version
+      .page-mobile & {
+        width: auto;
+      }
     }
   }
 }

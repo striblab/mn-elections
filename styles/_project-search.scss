@@ -3,12 +3,21 @@
  */
 
 .search {
-  padding: 0.75em 0em;
+  padding: 0.75em 0;
   margin-bottom: 2em;
+
+  .search-form {
+    display: block;
+    margin: 0 auto 1em;
+    width: 100%;
+    text-align: center;
+  }
 
   input[type='search'] {
     padding: 0.39em;
     border: 1px solid #ccc;
+    display: inline-block;
+    width: 70%;
   }
 
   button {
@@ -17,28 +26,27 @@
     color: #444;
     height: 2em;
     width: 2em;
+    display: inline-block;
   }
 
-  .suggestive-input {
-    position: relative;
-    display: inline-block;
+  .no-results {
+    margin-bottom: 2em;
+    font-size: 0.85em;
+    text-align: center;
+    color: #444;
+  }
 
-    .suggestions {
-      position: absolute;
-      background-color: #ffffff;
-      border: 1px solid #777777;
-      width: 100%;
-      overflow-y: auto;
-      max-height: 10em;
+  .results {
+    margin-bottom: 2em;
 
-      .suggestion {
-        font-size: 0.85em;
-        padding: 0.15em 0.25em;
-        cursor: pointer;
+    .result a {
+      display: block;
+      font-size: 0.85em;
+      padding: 0.15em 0.5em;
+      cursor: pointer;
 
-        &:hover {
-          background-color: #f1f1f1;
-        }
+      &:hover {
+        background-color: #f1f1f1;
       }
     }
   }

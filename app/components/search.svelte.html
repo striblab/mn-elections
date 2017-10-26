@@ -1,23 +1,32 @@
 <div class="search">
-  <form class="search-form">
-    <label for="contest-search" class="sr-only">Search races</label>
-
-    <div class="suggestive-input">
-      <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
-      {{#if suggestions && suggestions.length }}
-        <div class="suggestions">
-          {{#each suggestions as s @id }}
-            <div class="suggestion">
-              <a href="#!contest/{{ s.id }}">
-                {{ [s.name, s.area, s.subArea, s.seatName].filter((i) =>  i).join(' ') }}</a>
-            </div>
-          {{/each}}
-        </div>
-      {{/if}}
+  {{#if (!searchData)}}
+    <div class="loading">
+      Loading search data...
     </div>
+  {{else}}
 
-    <button type="submit" disabled="{{ !searchLoaded }}"><i class="fa fa-search"></i><span class="sr-only">Submit search</span></button>
-  </form>
+    <form class="search-form">
+      <label for="contest-search" class="sr-only">Search races</label>
+
+      <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
+
+      <button type="submit" disabled="{{ !searchLoaded }}"><i class="fa fa-search"></i><span class="sr-only">Submit search</span></button>
+    </form>
+
+    {{#if suggestions && suggestions.length }}
+      <div class="results">
+        {{#each suggestions as s @id }}
+          <div class="result">
+            <a href="#!contest/{{ s.id }}">{{ s.full }}</a>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <div class="no-results">
+        <p>No results.</p>
+      </div>
+    {{/if}}
+  {{/if}}
 </div>
 
 <script>
@@ -81,9 +90,10 @@ export default {
       if (!q && _.isArray(d) && d.length) {
         this.query = new Fuse(
           _.map(d, i => {
-            i.full = _.filter([i.name, i.area, i.subArea, i.seatName]).join(
-              ' '
-            );
+            i.full =
+              _.filter([i.area, i.subArea]).join(' ') +
+              ': ' +
+              _.filter([i.name, i.seatName]).join(' ');
             return i;
           }),
           defaultSearchOptions

@@ -17,173 +17,19 @@
 
   h2 {
     font-size: 1.2em;
-    font-family: Benton Sans, sans-serif;
+    font-family: $font-benton-sans;
     color: #333;
     text-transform: uppercase;
+    margin-bottom: 0.15em;
   }
 
   .updated {
     font-size: 0.8em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     color: #444;
   }
 
   .text-right {
     text-align: right;
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 500px) {
-  .contest {
-    margin-top: 70px;
-  }
-
-  .search-form {
-    width: 100%;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  .mobileNavHeading {
-    display: inherit;
-    font-size: 1em;
-    font-weight: normal;
-    margin: 0 0 0.5em;
-    padding-top: 1em;
-  }
-
-  .mobileNav {
-    display: inherit;
-    border: 1px solid #e7e7e7;
-    padding: 5px;
-    width: 96%;
-    background-color: white;
-    margin-bottom: 2em;
-  }
-
-  .desktopNav {
-    display: none;
-  }
-
-  body {
-    margin: 0 auto;
-  }
-
-  .election-results-sidebar-heading {
-    width: 130px;
-    max-width: none;
-    margin: 0 auto;
-  }
-
-  ul > li a {
-    color: #777;
-    text-align: center;
-  }
-
-  p.reporting {
-    margin-top: -15px;
-    color: #676767;
-    font-size: 0.8em;
-    margin-bottom: 15px;
-  }
-
-  ul > li {
-    padding: 0.5em 0px;
-    font-size: 13.65px;
-  }
-
-  ul {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  h3 > a {
-    color: #444;
-  }
-
-
-  .set > h2 {
-    font-weight: 700;
-    color: #444;
-    margin-left: 0px;
-    margin-bottom: 10px;
-  }
-
-  .contestChatter {
-    margin-left: 0px;
-    margin-bottom: 20px;
-  }
-
-  ul > li a:hover {
-    color: #777;
-  }
-
-  div {
-    width: 99%;
-    margin-left: 0.5%;
-  }
-
-  table {
-    margin: 0 auto;
-  }
-
-  .contest {
-    margin: 10px 0px;
-  }
-
-  button {
-    width: 25px;
-    float: right;
-    height: 30px;
-    margin-top: -37px;
-  }
-
-  #contest-search {
-    width: 85%;
-  }
-}
-
-/* Select */
-
-select {
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px) calc(1em - 2.25px),
-    calc(100% - 15px) calc(1em - 2.25px), calc(100% - 2.5em) 0.25em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-}
-
-select:focus {
-  background-image: linear-gradient(45deg, darkgray 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, darkgray 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 15px) calc(1em - 2.25px),
-    calc(100% - 20px) calc(1em - 2.25px), calc(100% - 2.5em) 0.25em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  border-color: darkgray;
-  outline: 0;
-}
-
-.election-table .is-incumbent {
-  padding-right: 0.05em;
 }

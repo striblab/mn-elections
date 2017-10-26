@@ -53,7 +53,7 @@
           <th class="heading-alternate choice column-small">Votes</th>
           <th class="heading-alternate choice column-small">Percent</th>
         {{else}}
-          <th class="election-table-header-title choice">Counted</th>
+          <th class="election-table-header-title choice">Final</th>
           <th class="heading-alternate choice">1st choice</th>
           <th class="heading-alternate choice">2nd choice</th>
           <th class="heading-alternate choice">3rd choice</th>
@@ -67,7 +67,7 @@
           {{#if (simple && ci < 3) || !simple}}
             <tr>
               <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
-              <td class="candidate-name per">
+              <td class="candidate-name">
                 {{ candidateName(candidate) }}
                 {{#if candidate.incumbent}}
                   <span class="election-legend-symbol is-incumbent">(i)</span>
@@ -80,23 +80,23 @@
               {{/if}}
 
               {{#if !ranked}}
-                <td class="candidate-name per text-right">{{ formatVotes(candidate.votes) }}</td>
-                <td class="candidate-name per text-right">{{ formatPercent(candidate.percent) }}</td>
+                <td class="candidate-name text-right">{{ formatVotes(candidate.votes) }}</td>
+                <td class="candidate-name text-right">{{ formatPercent(candidate.percent) }}</td>
               {{else}}
-                <td class="candidate-name per">
+                <td class="candidate-name">
                   {{#if (candidate.votes && candidate.percent)}}
                     {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
                   {{/if}}
                 </td>
-                <td class="candidate-name per text-right">
+                <td class="candidate-name text-right">
                   <span class="ranked-total">{{ formatVotes(candidate.ranks[0].votes) }}</span>
                   <span class="ranked-percent">{{ formatPercent(candidate.ranks[0].percent) }}</span>
                 </td>
-                <td class="candidate-name per text-right">
+                <td class="candidate-name text-right">
                   <span class="ranked-total">{{ formatVotes(candidate.ranks[1].votes) }}</span>
                   <span class="ranked-percent">{{ formatPercent(candidate.ranks[1].percent) }}</span>
                 </td>
-                <td class="candidate-name per text-right">
+                <td class="candidate-name text-right">
                   <span class="ranked-total">{{ formatVotes(candidate.ranks[2].votes) }}</span>
                   <span class="ranked-percent">{{ formatPercent(candidate.ranks[2].percent) }}</span>
                 </td>

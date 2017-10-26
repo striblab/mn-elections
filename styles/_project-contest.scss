@@ -6,7 +6,9 @@
   margin-bottom: 2em;
 
   h3 {
-    margin-bottom: 0.25em;
+    line-height: 1.25em;
+    padding-bottom: 0.25em;
+    margin-bottom: 0;
 
     .muted {
       font-weight: normal;
@@ -15,10 +17,10 @@
   }
 
   .reporting {
-    margin-top: -10px !important;
     font-size: 0.6em;
     color: #676767;
-    margin: 0 0 1.25em;
+    margin-bottom: 1.75em;
+    line-height: 1em;
   }
 
   .question {
@@ -45,6 +47,11 @@
     font-weight: 100;
     font-style: italic;
     font-size: 0.75em;
+
+    @media only screen and (max-width: $bp-large) {
+      display: block;
+      line-height: 1em;
+    }
   }
 
   @keyframes votechange {
@@ -105,12 +112,17 @@
     }
 
     thead th.column-small {
-      width: 13.1%;
+      width: 15%;
     }
 
     // Winner column
     thead th:nth-child(1) {
       width: 1.85em;
+    }
+
+    // Candidate column
+    thead th:nth-child(2) {
+      width: 33.333%;
     }
   }
 }

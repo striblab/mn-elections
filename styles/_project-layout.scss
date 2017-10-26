@@ -4,11 +4,32 @@
 
 .election-app {
   max-width: $bp-large;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
+
+  // The mobile version has some container issues that are from
+  // the site.  The desktop has container issues as well, but they
+  // seem to be ok.
+  .page-mobile & {
+    max-width: $bp-mobile-max;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+
+    @media only screen and (max-width: $bp-mobile-max) {
+      width: 90%;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
 
   @media only screen and (max-width: $bp-large) {
     padding-left: 1em;
     padding-right: 1em;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
 
   .group-nav {

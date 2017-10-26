@@ -1,112 +1,119 @@
 
-<div class="contest {{ voteChange ?  : '' }}"><!-- removed vote-change class -->
-  {{#if embedded}}
-    <h3>
-      <a href="#!contest/{{ id }}">
-        {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
-        {{ name }}
-        {{ seatName ? seatName: '' }}
-      </a>
-
-      {{#if questionTitle}}
-        <br> <span class="muted">{{ questionTitle }}</span>
-      {{/if}}
-    </h3>
+<div class="contest">
+  {{#if (!embedded && (!id || !updated))}}
+    <div class="loading">
+      Loading contest details...
+    </div>
   {{else}}
-    <h2>
-      <a href="#!contest/{{ id }}">
-        {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
-        {{ name }}
-        {{ seatName ? seatName: '' }}
-      </a>
 
-      {{#if questionTitle}}
-        <br> <span class="muted">{{ questionTitle }}</span>
-      {{/if}}
-    </h2>
-  {{/if}}
+    {{#if embedded}}
+      <h3>
+        <a href="#!contest/{{ id }}">
+          {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
+          {{ name }}
+          {{ seatName ? seatName: '' }}
+        </a>
 
-  <p class="reporting {{ voteChange ? : '' }}">
-    Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
-    {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
-    {{#if called}}Called by the Star Tribune.{{/if}}
-    {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
-    {{#if (final && close)}}This race is very close and may need a recount.{{/if}}
-    {{#if (!embedded && updatedMoment)}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
-  </p>
-
-  {{#if (!simple && questionText)}}
-    <p class="question">{{ questionText }}</p>
-  {{/if}}
-
-  <table>
-    <thead>
-      <tr>
-        <th><span class="sr-only">Winner</span></th>
-        <th><span class="sr-only">Candidate</span></th>
-
-        {{#if !nonpartisan}}
-          <th>Party</th>
+        {{#if questionTitle}}
+          <br> <span class="muted">{{ questionTitle }}</span>
         {{/if}}
+      </h3>
+    {{else}}
+      <h2>
+        <a href="#!contest/{{ id }}">
+          {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
+          {{ name }}
+          {{ seatName ? seatName: '' }}
+        </a>
 
-        {{#if !ranked}}
-          <th class="heading-alternate choice column-small">Votes</th>
-          <th class="heading-alternate choice column-small">Percent</th>
-        {{else}}
-          <th class="election-table-header-title choice">Votes</th>
-          <th class="heading-alternate choice">1st choice</th>
-          <th class="heading-alternate choice">2nd choice</th>
-          <th class="heading-alternate choice">3rd choice</th>
+        {{#if questionTitle}}
+          <br> <span class="muted">{{ questionTitle }}</span>
         {{/if}}
-      <tr>
-    </thead>
+      </h2>
+    {{/if}}
 
-    <tbody>
-      {{#if candidates }}
-        {{#each candidates as candidate, ci }}
-          {{#if (simple && ci < 3) || !simple}}
-            <tr>
-              <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
-              <td class="candidate-name">
-                {{ candidateName(candidate) }}
-                {{#if candidate.incumbent}}
-                  <span class="election-legend-symbol is-incumbent">(i)</span>
-                  <span class="sr-only">(is incumbent)</span>
-                {{/if}}
-              </td>
+    <p class="reporting">
+      Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
+      {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
+      {{#if called}}Called by the Star Tribune.{{/if}}
+      {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
+      {{#if (final && close)}}This race is very close and may need a recount.{{/if}}
+      {{#if (!embedded && updatedMoment)}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
+    </p>
 
-              {{#if !nonpartisan}}
-                <td>{{ candidate.party }}</td>
-              {{/if}}
+    {{#if (!simple && questionText)}}
+      <p class="question">{{ questionText }}</p>
+    {{/if}}
 
-              {{#if !ranked}}
-                <td class="candidate-name text-right">{{ formatVotes(candidate.votes) }}</td>
-                <td class="candidate-name text-right">{{ formatPercent(candidate.percent) }}</td>
-              {{else}}
+    <table>
+      <thead>
+        <tr>
+          <th><span class="sr-only">Winner</span></th>
+          <th><span class="sr-only">Candidate</span></th>
+
+          {{#if !nonpartisan}}
+            <th>Party</th>
+          {{/if}}
+
+          {{#if !ranked}}
+            <th class="heading-alternate choice column-small">Votes</th>
+            <th class="heading-alternate choice column-small">Percent</th>
+          {{else}}
+            <th class="election-table-header-title choice">Votes</th>
+            <th class="heading-alternate choice">1st choice</th>
+            <th class="heading-alternate choice">2nd choice</th>
+            <th class="heading-alternate choice">3rd choice</th>
+          {{/if}}
+        <tr>
+      </thead>
+
+      <tbody>
+        {{#if candidates }}
+          {{#each candidates as candidate, ci }}
+            {{#if (simple && ci < 3) || !simple}}
+              <tr>
+                <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
                 <td class="candidate-name">
-                  {{#if (candidate.votes && candidate.percent)}}
-                    {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
+                  {{ candidateName(candidate) }}
+                  {{#if candidate.incumbent}}
+                    <span class="election-legend-symbol is-incumbent">(i)</span>
+                    <span class="sr-only">(is incumbent)</span>
                   {{/if}}
                 </td>
-                <td class="candidate-name text-right">
-                  <span class="ranked-total">{{ formatVotes(candidate.ranks[0].votes) }}</span>
-                  <span class="ranked-percent">{{ formatPercent(candidate.ranks[0].percent) }}</span>
-                </td>
-                <td class="candidate-name text-right">
-                  <span class="ranked-total">{{ formatVotes(candidate.ranks[1].votes) }}</span>
-                  <span class="ranked-percent">{{ formatPercent(candidate.ranks[1].percent) }}</span>
-                </td>
-                <td class="candidate-name text-right">
-                  <span class="ranked-total">{{ formatVotes(candidate.ranks[2].votes) }}</span>
-                  <span class="ranked-percent">{{ formatPercent(candidate.ranks[2].percent) }}</span>
-                </td>
-              {{/if}}
-            </tr>
-          {{/if}}
-        {{/each}}
-      {{/if}}
-    </tbody>
-  </table>
+
+                {{#if !nonpartisan}}
+                  <td>{{ candidate.party }}</td>
+                {{/if}}
+
+                {{#if !ranked}}
+                  <td class="candidate-name text-right">{{ formatVotes(candidate.votes) }}</td>
+                  <td class="candidate-name text-right">{{ formatPercent(candidate.percent) }}</td>
+                {{else}}
+                  <td class="candidate-name">
+                    {{#if (candidate.votes && candidate.percent)}}
+                      {{ formatVotes(candidate.votes) }} ({{ formatPercent(candidate.percent) }})
+                    {{/if}}
+                  </td>
+                  <td class="candidate-name text-right">
+                    <span class="ranked-total">{{ formatVotes(candidate.ranks[0].votes) }}</span>
+                    <span class="ranked-percent">{{ formatPercent(candidate.ranks[0].percent) }}</span>
+                  </td>
+                  <td class="candidate-name text-right">
+                    <span class="ranked-total">{{ formatVotes(candidate.ranks[1].votes) }}</span>
+                    <span class="ranked-percent">{{ formatPercent(candidate.ranks[1].percent) }}</span>
+                  </td>
+                  <td class="candidate-name text-right">
+                    <span class="ranked-total">{{ formatVotes(candidate.ranks[2].votes) }}</span>
+                    <span class="ranked-percent">{{ formatPercent(candidate.ranks[2].percent) }}</span>
+                  </td>
+                {{/if}}
+              </tr>
+            {{/if}}
+          {{/each}}
+        {{/if}}
+      </tbody>
+    </table>
+  {{/if}}
 </div>
 
 <script>

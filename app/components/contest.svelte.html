@@ -1,11 +1,11 @@
 
-<div class="contest {{ voteChange ? 'vote-change' : '' }}">
+<div class="contest {{ voteChange ?  : '' }}"><!-- removed vote-change class -->
   {{#if embedded}}
     <h3>
       <a href="#!contest/{{ id }}">
-        {{ area ? '' + area : '' }}{{ subArea ? ' ' + subArea : '' }}:
+        {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
         {{ name }}
-        {{ seatName ? seatName : '' }}
+        {{ seatName ? seatName: '' }}
       </a>
 
       {{#if questionTitle}}
@@ -15,9 +15,9 @@
   {{else}}
     <h2>
       <a href="#!contest/{{ id }}">
-        {{ area ? '' + area : '' }}{{ subArea ? ' ' + subArea : '' }}:
+        {{ area ? '' + area: '' }}{{ subArea ? ' ' + subArea: '' }}:
         {{ name }}
-        {{ seatName ? seatName : '' }}
+        {{ seatName ? seatName: '' }}
       </a>
 
       {{#if questionTitle}}
@@ -26,7 +26,7 @@
     </h2>
   {{/if}}
 
-  <p class="reporting {{ voteChange ? 'vote-change' : '' }}">
+  <p class="reporting {{ voteChange ? : '' }}">
     Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
     {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
     {{#if called}}Called by the Star Tribune.{{/if}}
@@ -53,7 +53,7 @@
           <th class="heading-alternate choice column-small">Votes</th>
           <th class="heading-alternate choice column-small">Percent</th>
         {{else}}
-          <th class="election-table-header-title choice">Final</th>
+          <th class="election-table-header-title choice">Votes</th>
           <th class="heading-alternate choice">1st choice</th>
           <th class="heading-alternate choice">2nd choice</th>
           <th class="heading-alternate choice">3rd choice</th>

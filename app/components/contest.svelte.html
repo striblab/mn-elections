@@ -235,7 +235,7 @@ export default {
 
     formatPercent(percent) {
       return _.isNumber(percent)
-        ? (Math.round(percent * 100) / 100).toLocaleString() + '%'
+        ? (Math.round(percent * 10) / 10).toLocaleString() + '%'
         : '';
     },
 

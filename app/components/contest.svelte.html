@@ -225,8 +225,8 @@ export default {
 
   helpers: {
     candidateName: c => {
-      return c.displayName
-        ? c.displayName
+      return c.display
+        ? c.display
         : c.writeIn
           ? 'Write-in'
           : _.filter([

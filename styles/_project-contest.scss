@@ -37,6 +37,7 @@
   .candidate-name {
     color: #444;
     font-size: 0.85em;
+    line-height: 20px;
   }
 
   .ranked-total {
@@ -133,7 +134,7 @@
 }
 
 th.heading-alternate.choice {
-    width: 20%;
+    width: 10%;
 }
 
 td.checkmark {
@@ -142,4 +143,17 @@ td.checkmark {
 
 th.election-table-header-title.choice {
     width: 10%;
+}
+
+td.candidate-name.nameActual   {
+    padding-top: 23px;
+}
+
+td.checkmark > i.fa.fa-check   {
+    margin-top: 11px;
+}
+
+th.heading-alternate.VotesColumn.choice {
+    border-top: 0px;
+    border-left: 0px;
 }

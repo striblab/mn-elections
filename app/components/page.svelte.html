@@ -1,5 +1,5 @@
 <div class="election-app cf">
-  <GroupNav router="{{ router }}"/>
+  <GroupNav router="{{ router }}" />
 
   <div class="election-app-main">
     {{#if page === 'contest'}}
@@ -7,8 +7,9 @@
     {{elseif page === 'set'}}
       <Set setID="{{ setID }}" />
     {{elseif page === 'search'}}
-      <Search searchData="{{ searchData }}" full="true" />
+      <Search searchData="{{ searchData }}" showResults="true" router="{{ router }}" searchQuery="{{ searchQuery }}" />
     {{else}}
+      <Search searchData="{{ searchData }}" router="{{ router }}" />
       <Dashboard data="{{ election }}" searchData="{{ searchData }}" />
     {{/if}}
   </div>

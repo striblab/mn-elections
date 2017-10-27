@@ -54,8 +54,8 @@ router.on(/set\/(.*)/, params => {
 });
 
 // Search
-router.on('search', () => {
-  page.set({ page: 'search' });
+router.on(/search\/(.*)/, params => {
+  page.set({ page: 'search', searchQuery: params });
 });
 
 // Load reouter

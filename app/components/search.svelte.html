@@ -5,26 +5,30 @@
     </div>
   {{else}}
 
-    <form class="search-form">
+    <form class="search-form" on:submit="submitSearch(event)">
       <label for="contest-search" class="sr-only">Search races</label>
 
       <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
 
-      <button type="submit" disabled="{{ !searchLoaded }}"><i class="fa fa-search"></i><span class="sr-only">Submit search</span></button>
+      <button type="submit" disabled="{{ !searchLoaded }}" on:click="submitSearch(event)">
+        <i class="fa fa-search"></i><span class="sr-only">Submit search</span>
+      </button>
     </form>
 
-    {{#if suggestions && suggestions.length }}
-      <div class="results">
-        {{#each suggestions as s @id }}
-          <div class="result">
-            <a href="#!contest/{{ s.id }}">{{ s.full }}</a>
-          </div>
-        {{/each}}
-      </div>
-    {{else}}
-      <div class="no-results">
-        <p>No results.</p>
-      </div>
+    {{#if showResults}}
+      {{#if suggestions && suggestions.length }}
+        <div class="results">
+          {{#each suggestions as s @id }}
+            <div class="result">
+              <a href="#!contest/{{ s.id }}">{{ s.full }}</a>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="no-results">
+          <p>No results.</p>
+        </div>
+      {{/if}}
     {{/if}}
   {{/if}}
 </div>
@@ -66,6 +70,7 @@ export default {
     // Watch for input updates
     this.observe('searchQuery', d => {
       if (
+        this.get('showResults') &&
         d &&
         d.length &&
         d.length >= defaultSearchOptions.minMatchCharLength
@@ -98,36 +103,67 @@ export default {
           }),
           defaultSearchOptions
         );
+
+        if (this.get('searchQuery')) {
+          this.set({ suggestions: this.search(this.get('searchQuery')) });
+        }
       }
     },
 
     // Run search
-    search: function(input) {
-      if (!input || !this.query) {
-        return [];
+    search: function(i) {
+      this.throttledSearch =
+        this.throttledSearch ||
+        _.throttle(input => {
+          if (!input || !this.query) {
+            return [];
+          }
+
+          // Update url
+          let r = this.get('router');
+          r.pause();
+          r.navigate('search/' + encodeURIComponent(input));
+          r.resume();
+
+          // Do Fuse search
+          let results = this.query.search(input);
+
+          // Sort and
+          return _.take(
+            _.sortBy(
+              _.map(results, r => {
+                r.item.score = r.score;
+                return r.item;
+              }),
+              ['score', 'area', 'name']
+            ),
+            15
+          );
+        }, 500);
+
+      return this.throttledSearch(i);
+    },
+
+    // Submit search if no results
+    submitSearch(event) {
+      if (event && _.isObject(event)) {
+        event.preventDefault();
       }
 
-      // Do Fuse search
-      let results = this.query.search(input);
-
-      // Sort and
-      return _.take(
-        _.sortBy(
-          _.map(results, r => {
-            r.item.score = r.score;
-            return r.item;
-          }),
-          ['score', 'area', 'name']
-        ),
-        10
-      );
+      // Only do for not showing results
+      if (!this.get('showResults') && this.get('searchQuery')) {
+        this.get('router').navigate(
+          'search/' + encodeURIComponent(this.get('searchQuery'))
+        );
+      }
     }
   },
 
   data: () => {
     return {
       searchLoaded: true,
-      searchQuery: ''
+      searchQuery: '',
+      suggestions: []
     };
   }
 };

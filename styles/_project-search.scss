@@ -8,16 +8,16 @@
 
   .search-form {
     display: block;
-    margin: 0 auto 1em;
+//    margin: 0 auto 1em;
     width: 100%;
-    text-align: center;
+//    text-align: center;
   }
 
   input[type='search'] {
     padding: 0.39em;
     border: 1px solid #ccc;
     display: inline-block;
-    width: 70%;
+    width: 93%;
   }
 
   button {
@@ -50,4 +50,11 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 480px) {
+    .search input[type='search'] {
+        width: 82%;   
+    }
+    
 }

@@ -14,6 +14,10 @@
           {{ seatName ? seatName: '' }}
         </a>
 
+        {{#if !embedded && updating}}
+          <span class="updating"><i class="fa fa-refresh fa-spin fa-fw"></i></span>
+        {{/if}}
+
         {{#if questionTitle}}
           <br> <h3 class="muted">{{ questionTitle }}</h3>
         {{/if}}
@@ -26,6 +30,10 @@
           {{ seatName ? seatName: '' }}
         </a>
 
+        {{#if !embedded && updating}}
+          <span class="updating"><i class="fa fa-refresh fa-spin fa-fw"></i></span>
+        {{/if}}
+
         {{#if questionTitle}}
           <br> <span class="muted">{{ questionTitle }}</span>
         {{/if}}
@@ -36,9 +44,10 @@
       Reporting {{ precincts }} of {{ totalPrecincts }} precincts.
       {{#if (seats && seats > 1)}}{{ seats }} seats.{{/if}}
       {{#if called}}Called by the Star Tribune.{{/if}}
-      {{#if ranked}}Ranked-choice contest ({{ candidates[0].ranks.length }} choices){{/if}}
-      {{#if (final && close)}}This race is very close and may need a recount.{{/if}}
+      {{#if ranked}}Ranked-choice contest.{{/if}}
+      {{#if (final && close)}}This race is very close and may require a recount.{{/if}}
       {{#if (!embedded && updatedMoment)}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
+      {{#if !embedded && updating}}<span class="sr-only">Refreshing data...</span>{{/if}}
     </p>
 
     {{#if (!simple && questionText)}}
@@ -206,11 +215,14 @@ export default {
         console.error('No ID provided for contest.');
       }
 
+      this.set({ updating: true });
       api('results', 'contests/' + id || this.get('id'))
         .then(contest => {
           this.set(defaultContest(contest));
+          this.set({ updating: false });
         })
         .catch(e => {
+          this.set({ updating: false });
           console.error(e);
         });
     }

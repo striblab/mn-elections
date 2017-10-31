@@ -4,6 +4,7 @@
 
 .contest {
   margin-bottom: 2em;
+    width: 95%;
 
   h3 {
     line-height: 1.25em;
@@ -13,18 +14,19 @@
     .muted {
       font-weight: normal;
       font-size: 0.8em;
+        margin-top: 15px;
     }
   }
 
   .reporting {
-    font-size: 0.6em;
+    font-size: 0.8em;
     color: #676767;
     margin-bottom: 1.75em;
     line-height: 1em;
   }
 
   .question {
-    font-size: 0.8em;
+    font-size: 0.85em;
     line-height: 1.4em;
     margin-bottom: 50px;
   }
@@ -156,4 +158,27 @@ td.checkmark > i.fa.fa-check   {
 th.heading-alternate.VotesColumn.choice {
     border-top: 0px;
     border-left: 0px;
+}
+
+@media screen and (max-width: 480px) {
+    td.candidate-name.nameActual {
+        padding-top: 10px;
+    }
+    
+    td.checkmark>i.fa.fa-check {
+        margin-top: 0px;
+    }    
+    
+    input.search-input {
+    margin-left: 3%;
+}
+
+input.search-input {
+    margin-top: 6px;
+    width: 93% !important;
+    padding: 12px 45px 12px 12px !important;
+}
+    span.hide-search.icon-close {
+    margin-top: 4px;
+}
 }

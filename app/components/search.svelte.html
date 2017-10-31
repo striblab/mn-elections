@@ -1,170 +1,174 @@
 <div class="search">
   {{#if (!searchData)}}
-    <div class="loading">
-      Loading search data...
-    </div>
+  <div class="loading">
+    Loading search data...
+  </div>
   {{else}}
 
-    <form class="search-form" on:submit="submitSearch(event)">
-      <label for="contest-search" class="sr-only">Search races</label>
+  <form class="search-form" on:submit="submitSearch(event)">
+    <label for="contest-search" class="sr-only">Search races</label>
 
-      <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
+    <input id="contest-search" type="search" placeholder="Search all contests" disabled="{{ !searchLoaded }}" bind:value="searchQuery" />
 
-      <button type="submit" disabled="{{ !searchLoaded }}" on:click="submitSearch(event)">
+    <button type="submit" disabled="{{ !searchLoaded }}" on:click="submitSearch(event)">
         <i class="fa fa-search"></i><span class="sr-only">Submit search</span>
       </button>
-    </form>
+  </form>
 
-    {{#if showResults}}
-      {{#if suggestions && suggestions.length }}
-        <div class="results">
-          {{#each suggestions as s @id }}
-            <div class="result">
-              <a href="#!contest/{{ s.id }}">{{ s.full }}</a>
-            </div>
-          {{/each}}
-        </div>
-      {{else}}
-        <div class="no-results">
-          <p>No results.</p>
-        </div>
-      {{/if}}
-    {{/if}}
-  {{/if}}
+  {{#if showResults}} {{#if suggestions && suggestions.length }}
+  <div class="results">
+    {{#each suggestions as s @id }}
+    <div class="result">
+      <a href="#!contest/{{ s.id }}">{{ s.full }}</a>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="no-results">
+    <p>No results.</p>
+  </div>
+  {{/if}} {{/if}} {{/if}}
 </div>
 
 <script>
-/* global _ */
-import Fuse from 'fuse.js';
+  /* global _ */
+  import Fuse from 'fuse.js';
 
-// Default fuse search options
-let defaultSearchOptions = {
-  tokenize: true,
-  shouldSort: true,
-  includeScore: true,
-  threshold: 0.5,
-  location: 0,
-  distance: 128,
-  maxPatternLength: 128,
-  minMatchCharLength: 3,
-  keys: ['full']
-};
+  // Default fuse search options
+  let defaultSearchOptions = {
+    tokenize: true,
+    shouldSort: true,
+    includeScore: true,
+    threshold: 0.5,
+    location: 0,
+    distance: 128,
+    maxPatternLength: 128,
+    minMatchCharLength: 3,
+    keys: ['full']
+  };
 
-export default {
-  oncreate: function() {
-    // Proxy if used within another component
-    this.observe('data', d => {
-      if (_.isPlainObject(d)) {
-        this.set(d);
-      }
-    });
+  export default {
+    oncreate: function() {
+      // Proxy if used within another component
+      this.observe('data', d => {
+        if (_.isPlainObject(d)) {
+          this.set(d);
+        }
+      });
 
-    // When search data comes in
-    this.observe('searchData', d => {
-      this.createSearch();
+      // When search data comes in
+      this.observe('searchData', d => {
+        this.createSearch();
 
-      // Set as loaded
-      this.set({ searchLoaded: !!d });
-    });
+        // Set as loaded
+        this.set({
+          searchLoaded: !!d
+        });
+      });
 
-    // Watch for input updates
-    this.observe('searchQuery', d => {
-      if (
-        this.get('showResults') &&
-        d &&
-        d.length &&
-        d.length >= defaultSearchOptions.minMatchCharLength
-      ) {
-        let r = this.search(d);
-        this.set({ suggestions: r });
-      }
+      // Watch for input updates
+      this.observe('searchQuery', d => {
+        if (
+          this.get('showResults') &&
+          d &&
+          d.length &&
+          d.length >= defaultSearchOptions.minMatchCharLength
+        ) {
+          let r = this.search(d);
+          this.set({
+            suggestions: r
+          });
+        }
 
-      // svelt outputs undefined as undefined string
-      if (!d) {
-        this.set({ searchQuery: '' });
-      }
-    });
-  },
+        // svelt outputs undefined as undefined string
+        if (!d) {
+          this.set({
+            searchQuery: ''
+          });
+        }
+      });
+    },
 
-  methods: {
-    // Create query
-    createSearch: function() {
-      let q = this.query;
-      let d = this.get('searchData');
+    methods: {
+      // Create query
+      createSearch: function() {
+        let q = this.query;
+        let d = this.get('searchData');
 
-      if (!q && _.isArray(d) && d.length) {
-        this.query = new Fuse(
-          _.map(d, i => {
-            i.full =
-              _.filter([i.area, i.subArea]).join(' ') +
-              ': ' +
-              _.filter([i.name, i.seatName]).join(' ');
-            return i;
-          }),
-          defaultSearchOptions
-        );
+        if (!q && _.isArray(d) && d.length) {
+          this.query = new Fuse(
+            _.map(d, i => {
+              i.full =
+                _.filter([i.area, i.subArea]).join(' ') +
+                ': ' +
+                _.filter([i.name, i.seatName]).join(' ');
+              return i;
+            }),
+            defaultSearchOptions
+          );
 
-        if (this.get('searchQuery')) {
-          this.set({ suggestions: this.search(this.get('searchQuery')) });
+          if (this.get('searchQuery')) {
+            this.set({
+              suggestions: this.search(this.get('searchQuery'))
+            });
+          }
+        }
+      },
+
+      // Run search
+      search: function(i) {
+        this.throttledSearch =
+          this.throttledSearch ||
+          _.throttle(input => {
+            if (!input || !this.query) {
+              return [];
+            }
+
+            // Update url
+            let r = this.get('router');
+            r.pause();
+            r.navigate('search/' + encodeURIComponent(input));
+            r.resume();
+
+            // Do Fuse search
+            let results = this.query.search(input);
+
+            // Sort and
+            return _.take(
+              _.sortBy(
+                _.map(results, r => {
+                  r.item.score = r.score;
+                  return r.item;
+                }), ['score', 'area', 'name']
+              ),
+              15
+            );
+          }, 500);
+
+        return this.throttledSearch(i);
+      },
+
+      // Submit search if no results
+      submitSearch(event) {
+        if (event && _.isObject(event)) {
+          event.preventDefault();
+        }
+
+        // Only do for not showing results
+        if (!this.get('showResults') && this.get('searchQuery')) {
+          this.get('router').navigate(
+            'search/' + encodeURIComponent(this.get('searchQuery'))
+          );
         }
       }
     },
 
-    // Run search
-    search: function(i) {
-      this.throttledSearch =
-        this.throttledSearch ||
-        _.throttle(input => {
-          if (!input || !this.query) {
-            return [];
-          }
-
-          // Update url
-          let r = this.get('router');
-          r.pause();
-          r.navigate('search/' + encodeURIComponent(input));
-          r.resume();
-
-          // Do Fuse search
-          let results = this.query.search(input);
-
-          // Sort and
-          return _.take(
-            _.sortBy(
-              _.map(results, r => {
-                r.item.score = r.score;
-                return r.item;
-              }),
-              ['score', 'area', 'name']
-            ),
-            15
-          );
-        }, 500);
-
-      return this.throttledSearch(i);
-    },
-
-    // Submit search if no results
-    submitSearch(event) {
-      if (event && _.isObject(event)) {
-        event.preventDefault();
-      }
-
-      // Only do for not showing results
-      if (!this.get('showResults') && this.get('searchQuery')) {
-        this.get('router').navigate(
-          'search/' + encodeURIComponent(this.get('searchQuery'))
-        );
-      }
+    data: () => {
+      return {
+        searchLoaded: true,
+        searchQuery: '',
+        suggestions: []
+      };
     }
-  },
-
-  data: () => {
-    return {
-      searchLoaded: true,
-      searchQuery: '',
-      suggestions: []
-    };
-  }
-};
+  };
 </script>

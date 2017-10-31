@@ -8,6 +8,7 @@
 import Navigo from 'navigo';
 import utilsFn from './utils.js';
 import api from './api.js';
+import access from './accessibility.js';
 import Page from './components/page.svelte.html';
 
 // Setup utils function, handles pym and the what not
@@ -56,6 +57,13 @@ router.on(/set\/(.*)/, params => {
 // Search
 router.on(/search\/(.*)/, params => {
   page.set({ page: 'search', searchQuery: params });
+});
+
+// General hooks
+router.hooks({
+  after: () => {
+    access().announce('Election result page has been changed.');
+  }
 });
 
 // Load reouter

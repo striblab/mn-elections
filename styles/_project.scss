@@ -2,10 +2,26 @@
  * Project specific styling.
  */
 
-.fa-check:before {
+// Outside app
+.fa-check::before {
   color: $color-checkmark;
 }
 
+.site-header a#header-logo {
+  height: 32px;
+}
+
+aside.article-share {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+ul.article-tools.nav.story-share.body-sharing-top {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+// Inside app
 .election-app {
   a {
     color: #444;
@@ -56,22 +72,4 @@
     padding-left: 0.25em;
     vertical-align: top;
   }
-}
-
-.search-form    {
-    background-color: transparent;
-}
-
-.site-header a#header-logo  {
-    height: 32px;
-}
-
-aside.article-share {
-    margin-top: 10px;
-    margin-bottom: 40px;
-}
-
-ul.article-tools.nav.story-share.body-sharing-top {
-    margin-top: 0px;
-    margin-bottom: 20px;
 }

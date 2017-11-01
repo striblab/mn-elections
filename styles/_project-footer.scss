@@ -2,10 +2,23 @@
  * Election results footer.
  */
 
-
 section[role="contentinfo"] {
+  max-width: $bp-large;
+  margin: 0 auto 1rem;
+  width: 100%;
   font-size: 0.75em;
-  padding: 3rem 1rem 0;
-  margin-bottom: 1rem;
+  padding: 2rem 1rem 0;
   text-align: center;
+
+  .page-mobile & {
+    max-width: $bp-mobile-max;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+
+    @media only screen and (max-width: $bp-mobile-max) {
+      width: 90%;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
 }

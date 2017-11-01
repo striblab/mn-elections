@@ -2,17 +2,18 @@
  * Search form
  */
 
-hr.ele  {
-    display: none;
-}
-
 .search {
   padding: 0.75em 0;
   margin-bottom: 2em;
 
   .search-form {
+    background-color: transparent;
     display: block;
     width: 100%;
+  }
+
+  hr.ele {
+    display: none;
   }
 
   input[type='search'] {
@@ -54,22 +55,26 @@ hr.ele  {
   }
 }
 
-@media only screen and (max-width: 480px) {
-    .search input[type='search'] {
-        width: 96%;   
-        padding: 10px;
-        border-color: rgb(166, 166, 166);
-        display: inline-block;
-        border-radius: 5px;
-    }
-    
-    hr.ele  {
-        margin-top: 20px;
-        margin-bottom: 0px;
-        width: 96%;
-        display: block;
-    }
-        
+@media only screen and (max-width: $bp-small) {
+  .search input[type='search'] {
+    width: 96%;
+    padding: 10px;
+    border-color: rgb(166, 166, 166);
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  hr.ele {
+    margin-top: 20px;
+    margin-bottom: 0;
+    width: 96%;
+    display: block;
+  }
+
+  .search .results .result a {
+    padding: 0.5em;
+  }
+
   .search button {
     border: none;
     background-color: transparent;
@@ -78,6 +83,4 @@ hr.ele  {
     height: 2.5em;
     width: 2.5em;
   }
-    
-    
 }

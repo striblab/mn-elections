@@ -4,7 +4,7 @@
   "projectIdentifier": "mn-elections",
   "cms": {
     "id": "449289603",
-    "overrideLocalAssetPath": "projects/mn-elections/build"
+    "lcd": ["449759823"]
   },
   "social": {
     "image": "assets/images/strib/strib-logo-name-social-card.png"

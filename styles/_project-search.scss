@@ -2,15 +2,17 @@
  * Search form
  */
 
+hr.ele  {
+    display: none;
+}
+
 .search {
   padding: 0.75em 0;
   margin-bottom: 2em;
 
   .search-form {
     display: block;
-//    margin: 0 auto 1em;
     width: 100%;
-//    text-align: center;
   }
 
   input[type='search'] {
@@ -54,7 +56,28 @@
 
 @media only screen and (max-width: 480px) {
     .search input[type='search'] {
-        width: 79%;   
+        width: 96%;   
+        padding: 10px;
+        border-color: rgb(166, 166, 166);
+        display: inline-block;
+        border-radius: 5px;
     }
+    
+    hr.ele  {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        width: 96%;
+        display: block;
+    }
+        
+  .search button {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 25px;
+    height: 2.5em;
+    width: 2.5em;
+  }
+    
     
 }

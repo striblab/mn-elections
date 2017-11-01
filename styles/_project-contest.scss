@@ -4,7 +4,7 @@
 
 .contest {
   margin-bottom: 2em;
-    width: 95%;
+  width: 95%;
 
   h3 {
     line-height: 1.25em;
@@ -14,7 +14,7 @@
     .muted {
       font-weight: normal;
       font-size: 0.8em;
-        margin-top: 15px;
+      margin-top: 15px;
     }
   }
 
@@ -133,6 +133,18 @@
       }
     }
   }
+
+  // Responsive talbes for small ranked choice
+  @media only screen and (max-width: $bp-small) {
+    &.ranked .responsive-table {
+      max-width: 100%;
+      overflow-x: auto;
+
+      & > table {
+        width: 100%;
+      }
+    }
+  }
 }
 
 th.heading-alternate.choice {
@@ -160,15 +172,15 @@ th.heading-alternate.VotesColumn.choice {
     border-left: 0px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $bp-small) {
     td.candidate-name.nameActual {
         padding-top: 10px;
     }
-    
+
     td.checkmark>i.fa.fa-check {
         margin-top: 0px;
-    }    
-    
+    }
+
     input.search-input {
     margin-left: 3%;
 }

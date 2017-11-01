@@ -55,6 +55,9 @@ router.on(/set\/(.*)/, params => {
 });
 
 // Search
+router.on('search', () => {
+  page.set({ page: 'search', searchQuery: '' });
+});
 router.on(/search\/(.*)/, params => {
   page.set({ page: 'search', searchQuery: params });
 });

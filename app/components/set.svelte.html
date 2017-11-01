@@ -1,7 +1,12 @@
 
 <div class="set">
   {{#if (contests && contests.length)}}
-    <h2>{{ title }}</h2>
+    <h2>
+      {{ title }}
+      {{#if updating}}
+        <span class="updating"><i class="fa fa-refresh fa-spin fa-fw"></i></span>
+      {{/if}}
+    </h2>
 
     <div class="updated">
       {{#if updatedMoment}}Last updated {{ updatedMoment.fromNow() }}.{{/if}}
@@ -63,9 +68,10 @@ export default {
       setID = setID || this.get('setID');
 
       if (!setID) {
-        console.error('No setID provided for set.');
+        return console.error('No setID provided for set.');
       }
 
+      this.set({ updating: true });
       api('results', setID)
         .then(set => {
           if (set && set.contests) {
@@ -73,8 +79,10 @@ export default {
           }
 
           this.set(set);
+          this.set({ updating: false });
         })
         .catch(e => {
+          this.set({ updating: false });
           console.error(e);
         });
     }

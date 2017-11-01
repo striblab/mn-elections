@@ -212,7 +212,7 @@ export default {
       id = id || this.get('id');
 
       if (!id) {
-        console.error('No ID provided for contest.');
+        return console.error('No ID provided for contest.');
       }
 
       this.set({ updating: true });

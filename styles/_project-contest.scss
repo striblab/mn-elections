@@ -4,7 +4,6 @@
 
 .contest {
   margin-bottom: 4em;
-    width: 95%;
 
   h3 {
     line-height: 1.25em;
@@ -48,11 +47,8 @@
     font-weight: 100;
     font-style: italic;
     font-size: 0.75em;
-
-    @media only screen and (max-width: $bp-large) {
-      display: block;
-      line-height: 1em;
-    }
+    line-height: 1.15em;
+    display: block;
   }
 
   @keyframes votechange {

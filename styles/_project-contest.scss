@@ -81,6 +81,7 @@
     border-collapse: collapse;
     margin: 0 auto;
     vertical-align: middle;
+    width: 100%;
 
     // Specificity to override default
     tbody tr:nth-child(even),
@@ -100,6 +101,7 @@
       padding: 0.5em;
       border-bottom: 2px solid #999;
       font-size: 0.75em;
+      vertical-align: top;
 
       &.heading-alternate {
         border-top: 1px solid #ccc;
@@ -110,6 +112,7 @@
 
     td {
       padding: 0.75em;
+      vertical-align: top;
     }
 
     thead th.column-small {
@@ -118,7 +121,7 @@
 
     // Winner column
     thead th:nth-child(1) {
-      width: 1.25em;
+      width: 5%;
     }
 
     // Candidate column
@@ -145,24 +148,8 @@
   }
 }
 
-th.heading-alternate.choice {
-    width: 10%;
-}
-
-td.checkmark {
-    width: 5%;
-}
-
 th.election-table-header-title.choice {
     width: 10%;
-}
-
-td.candidate-name.nameActual   {
-    padding-top: 23px;
-}
-
-td.checkmark > i.fa.fa-check   {
-    margin-top: 11px;
 }
 
 th.heading-alternate.VotesColumn.choice {
@@ -171,13 +158,6 @@ th.heading-alternate.VotesColumn.choice {
 }
 
 @media screen and (max-width: $bp-small) {
-    td.candidate-name.nameActual {
-        padding-top: 10px;
-    }
-
-    td.checkmark>i.fa.fa-check {
-        margin-top: 0px;
-    }
 
     input.search-input {
     margin-left: 3%;

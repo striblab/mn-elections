@@ -84,9 +84,7 @@
                 <tr>
                   <td class="checkmark">{{#if candidate.winner }}<i class="fa fa-check"></i>{{/if}}</td>
                   <td class="candidate-name nameActual">
-                    {{ candidateName(candidate) }}
-                    {{#if candidate.incumbent}}
-                      <span class="election-legend-symbol is-incumbent">(i)</span>
+                    {{ candidateName(candidate) }}{{#if candidate.incumbent}}&nbsp;<span class="election-legend-symbol is-incumbent">(i)</span>
                       <span class="sr-only">(is incumbent)</span>
                     {{/if}}
                   </td>

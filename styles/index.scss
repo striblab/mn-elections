@@ -6,11 +6,10 @@
 
 @import 'fonts';
 @import 'variables';
-@import 'reset';
-@import 'helpers';
-@import 'base';
-@import 'tables';
-@import 'site-view';
+
+.election-app {
+  @import 'reset';
+}
 
 // The project style is the main one to edit
 @import 'project';

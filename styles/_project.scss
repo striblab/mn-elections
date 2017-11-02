@@ -23,6 +23,19 @@ ul.article-tools.nav.story-share.body-sharing-top {
 
 // Inside app
 .election-app {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: sans-serif;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   a {
     color: #444;
 
@@ -71,5 +84,58 @@ ul.article-tools.nav.story-share.body-sharing-top {
     color: #787878;
     padding-left: 0.25em;
     vertical-align: top;
+  }
+}
+
+// General helpers
+// Clearfix
+.cf::before,
+.cf::after {
+  content: " ";
+  display: table;
+}
+
+.cf::after {
+  clear: both;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Site view (demo, dev, etc)
+.site-view {
+  position: fixed;
+  z-index: 10000;
+  bottom: 0;
+  right: 0;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+.site-view-develop {
+  padding: 0.5em 1em;
+  background-color: #7B4200;
+
+  &::after {
+    content: 'Develop';
+  }
+}
+
+.site-view-staging {
+  padding: 0.5em 1em;
+  background-color: #6B0029;
+
+  &::after {
+    content: 'Demo version';
   }
 }

@@ -2,6 +2,11 @@
  * Search form
  */
 
+  hr.ele {
+    display: none;
+  }
+
+
 .search {
   padding: 0.75em 0;
   margin-bottom: 2em;
@@ -12,9 +17,6 @@
     width: 100%;
   }
 
-  hr.ele {
-    display: none;
-  }
 
   input[type='search'] {
     padding: 0.39em;
@@ -63,6 +65,10 @@
     display: inline-block;
     border-radius: 5px;
   }
+    
+    .search {   
+        margin-bottom: -10px;
+    }
 
   hr.ele {
     margin-top: 20px;
@@ -79,7 +85,7 @@
     border: none;
     background-color: transparent;
     position: absolute;
-    right: 25px;
+    right: 15%;
     height: 2.5em;
     width: 2.5em;
   }

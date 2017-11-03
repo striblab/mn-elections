@@ -131,9 +131,13 @@
       }
     }
   }
+    
+    th.heading-alternate.VotesColumn.choice {
+    width: 12%;
+}
 
 th.heading-alternate.choice {
-    width: 15%;
+    width: 10%;
 }
   // Responsive talbes for small ranked choice
   @media only screen and (max-width: $bp-xsmall) {
@@ -145,7 +149,11 @@ th.heading-alternate.choice {
         width: 100%;
       }
     }
-  }
+      
+    span.ranked-percent    {
+        font-size: 0.9em;
+    }  
+  }    
 }
 
 th.election-table-header-title.choice {

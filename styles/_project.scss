@@ -7,8 +7,8 @@
   color: $color-checkmark;
 }
 
-.site-header a#header-logo {
-  height: 32px;
+p   {
+    font-family: 'Benton Sans', sans-serif;
 }
 
 aside.article-share {
@@ -75,7 +75,7 @@ ul.article-tools.nav.story-share.body-sharing-top {
   }
 
   .text-right {
-    text-align: right;
+    text-align: center;
   }
 
   .footnote {
@@ -139,3 +139,9 @@ ul.article-tools.nav.story-share.body-sharing-top {
     content: 'Demo version';
   }
 }
+
+  @media only screen and (max-width: $bp-xsmall) {
+      .election-app h2  {
+          display: none;
+      }
+  }    

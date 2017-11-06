@@ -1,6 +1,11 @@
 
 <div class="election-app cf">
   <div aria-live="polite" id="election-app-anouncer" class="sr-only"></div>
+
+  {{#if (election && election.test) }}
+    <div class="test-notice">Currently serving test results, live results will show up starting around 8:00pm on election night.</div>
+  {{/if}}
+
   <GroupNav router="{{ router }}" />
 
   <div class="election-app-main" aria-relevant="all">

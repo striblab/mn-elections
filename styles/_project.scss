@@ -52,6 +52,14 @@ ul.article-tools.nav.story-share.body-sharing-top {
     margin-bottom: 0.15em;
   }
 
+  .test-notice {
+    font-size: 0.85em;
+    padding: 1em;
+    margin-bottom: 2em;
+    text-align: center;
+    background-color: yellow;
+  }
+
   .loading {
     font-size: 0.85em;
     padding: 2em;
@@ -144,7 +152,7 @@ ul.article-tools.nav.story-share.body-sharing-top {
       .election-app h2  {
           display: none;
       }
-  }    
+  }
 
 .sticky {
     position: fixed;

@@ -1,37 +1,42 @@
+<div class="nav-container" ref:container>
+  {{#if (stickyNav && navMinimumHeight)}}
+    <div style="height: {{ navMinimumHeight }}px;"></div>
+  {{/if}}
 
-<nav class="group-nav {{ bottom ? 'bottom-nav' : 'default-nav' }}">
-  <h3 class="list-nav list-nav-heading sr-only">More results</h3>
-  <ul class="list-nav">
-    <li class="sub-title-nav bottom"><a href="#!/">Top races</a></li>
-    <li class="sub-title-nav">Metro-Area Races</li>
-    <li><a href="#!contest/20171107-local-43000-2001">Minneapolis mayor</a></li>
-    <li><a href="#!contest/20171107-local-58000-2001">St. Paul mayor</a></li>
-    <li><a href="#!set/areas/minneapolis">Minneapolis city races</a></li>
-    <li class="bottom"><a href="#!set/sets/metro-local">Metro city races</a></li>
-    <li class="sub-title-nav">Schools</li>
-    <li><a href="#!set/sets/metro-school-board">Metro school board</a></li>
-    <li><a href="#!set/sets/metro-school-questions">Metro school questions</a></li>
-    <li><a href="#!set/sets/outstate-school-board">Other MN school board</a></li>
-    <li class="bottom"><a href="#!set/sets/outstate-school-questions">Other MN school questions</a></li>
-    <li class="sub-title-nav bottom"><a href="#!set/sets/outstate-local">Other Races</a></li>
-    <li class="sub-title-nav"><a href="#!/search">Search</a></li>
-  </ul>
+  <nav class="group-nav default-nav {{ stickyNav ? 'sticky' : '' }}">
+    <h3 class="list-nav list-nav-heading sr-only">More results</h3>
+    <ul class="list-nav">
+      <li class="sub-title-nav bottom"><a href="#!/">Top races</a></li>
+      <li class="sub-title-nav">Metro-Area Races</li>
+      <li><a href="#!contest/20171107-local-43000-2001">Minneapolis mayor</a></li>
+      <li><a href="#!contest/20171107-local-58000-2001">St. Paul mayor</a></li>
+      <li><a href="#!set/areas/minneapolis">Minneapolis city races</a></li>
+      <li class="bottom"><a href="#!set/sets/metro-local">Metro city races</a></li>
+      <li class="sub-title-nav">Schools</li>
+      <li><a href="#!set/sets/metro-school-board">Metro school board</a></li>
+      <li><a href="#!set/sets/metro-school-questions">Metro school questions</a></li>
+      <li><a href="#!set/sets/outstate-school-board">Other MN school board</a></li>
+      <li class="bottom"><a href="#!set/sets/outstate-school-questions">Other MN school questions</a></li>
+      <li class="sub-title-nav bottom"><a href="#!set/sets/outstate-local">Other Races</a></li>
+      <li class="sub-title-nav"><a href="#!/search">Search</a></li>
+    </ul>
 
-  <h3 class="dropdown-nav dropdown-nav-heading">More results</h3>
-  <label for="dropdown-navigation" class="dropdown-nav sr-only">Use the drop down to navigate.</label>
-  <select id="dropdown-navigation" class="dropdown-nav" bind:value="navSelect">
-    <option value="/">Top races</option>
-    <option value="set/areas/minneapolis">Minneapolis</option>
-    <option value="set/areas/st-paul">St. Paul</option>
-    <option value="set/sets/metro-local">Metro races</option>
-    <option value="set/sets/metro-school-board">Metro school board</option>
-    <option value="set/sets/metro-school-questions">Metro school questions</option>
-    <option value="set/sets/outstate-local">Other MN local</option>
-    <option value="set/sets/outstate-school-board">Other MN school board</option>
-    <option value="set/sets/outstate-school-questions">Other MN school questions</option>
-    <option value="/search">Search</option>
-  </select>
-</nav>
+    <h3 class="dropdown-nav dropdown-nav-heading">More results</h3>
+    <label for="dropdown-navigation" class="dropdown-nav sr-only">Use the drop down to navigate.</label>
+    <select id="dropdown-navigation" class="dropdown-nav" bind:value="navSelect">
+      <option value="/">Top races</option>
+      <option value="set/areas/minneapolis">Minneapolis</option>
+      <option value="set/areas/st-paul">St. Paul</option>
+      <option value="set/sets/metro-local">Metro races</option>
+      <option value="set/sets/metro-school-board">Metro school board</option>
+      <option value="set/sets/metro-school-questions">Metro school questions</option>
+      <option value="set/sets/outstate-local">Other MN local</option>
+      <option value="set/sets/outstate-school-board">Other MN school board</option>
+      <option value="set/sets/outstate-school-questions">Other MN school questions</option>
+      <option value="/search">Search</option>
+    </select>
+  </nav>
+</div>
 
 <script>
 export default {
@@ -44,6 +49,7 @@ export default {
       }
     });
 
+    // Listen to drop down
     this.observe(
       'navSelect',
       n => {
@@ -53,6 +59,44 @@ export default {
       },
       { init: false }
     );
+
+    // Listen to scoll
+    this.set({
+      navMinimumHeight:
+        this.refs && this.refs.container
+          ? this.refs.container.scrollHeight
+          : undefined
+    });
+    this.stickyNavThrottled = _.throttle(_.bind(this.stickyNav, this), 100);
+    window.addEventListener('scroll', this.stickyNavThrottled);
+  },
+
+  ondestroy: function() {
+    window.removeEventListener('scroll', this.stickyNavThrottled);
+  },
+
+  methods: {
+    stickyNav: function() {
+      if (!this.refs || !this.refs.container) {
+        this.set({ stickyNav: false });
+        return;
+      }
+
+      let containerTop = this.refs.container.offsetTop;
+      let headerOffset = 42;
+      if (containerTop - window.pageYOffset < headerOffset) {
+        this.set({ stickyNav: true });
+      }
+      else {
+        this.set({ stickyNav: false });
+      }
+    }
+  },
+
+  data: () => {
+    return {
+      stickyNav: false
+    };
   }
 };
 </script>

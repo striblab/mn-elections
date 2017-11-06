@@ -2,6 +2,10 @@
  * Specific to the election results nav.
  */
 
+.nav-container {
+  min-height: 4em;
+}
+
 .group-nav {
   margin-bottom: 1em;
 
@@ -40,7 +44,7 @@
 
         &:first-of-type {
           border-top: none;
-          padding-top: 0px;
+          padding-top: 0;
         }
       }
     }
@@ -54,6 +58,17 @@
     .dropdown-nav {
       display: block;
     }
+
+    &.sticky {
+      position: fixed;
+      background-color: white;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+      width: 110%;
+      top: 10px;
+      left: 0;
+      padding-left: 10px;
+    }
   }
 
   select {
@@ -62,11 +77,13 @@
       linear-gradient(135deg, gray 50%, transparent 50%),
       linear-gradient(to right, #ccc, #ccc);
     background-position:
-calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px),calc(100% - 2.5em) 0.25em;
-      background-size: 7px 7px, 7px 7px, 1px 2em;
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.25em;
+    background-size: 7px 7px, 7px 7px, 1px 2em;
     background-repeat: no-repeat;
-        padding: 10px !important;
+    padding: 10px !important;
     background-color: #fff !important;
-      width: 88%;
+    width: 88%;
   }
 }

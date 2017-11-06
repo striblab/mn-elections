@@ -65,6 +65,12 @@ router.on(/search\/(.*)/, params => {
 // General hooks
 router.hooks({
   after: () => {
+    page.set({
+      lastRoute: router._lastRouteResolved
+        ? router._lastRouteResolved.url
+        : undefined
+    });
+
     access().announce('Election result page has been changed.');
   }
 });

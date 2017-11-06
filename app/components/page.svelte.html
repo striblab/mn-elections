@@ -6,7 +6,7 @@
     <div class="test-notice">Currently serving test results, live results will show up starting around 8:00pm on election night.</div>
   {{/if}}
 
-  <GroupNav router="{{ router }}" />
+  <GroupNav router="{{ router }}" lastRoute="{{ lastRoute }}" />
 
   <div class="election-app-main" aria-relevant="all">
     {{#if page === 'contest'}}

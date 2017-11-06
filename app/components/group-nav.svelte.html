@@ -33,7 +33,7 @@
       <option value="set/sets/outstate-local">Other MN local</option>
       <option value="set/sets/outstate-school-board">Other MN school board</option>
       <option value="set/sets/outstate-school-questions">Other MN school questions</option>
-      <option value="/search">Search</option>
+      <option value="search">Search</option>
     </select>
   </nav>
 </div>
@@ -56,6 +56,15 @@ export default {
         if (n && this.get('router')) {
           this.get('router').navigate(n);
         }
+      },
+      { init: false }
+    );
+
+    // Initial place
+    this.observe(
+      'lastRoute',
+      n => {
+        this.set({ navSelect: n });
       },
       { init: false }
     );

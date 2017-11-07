@@ -25,13 +25,6 @@ const page = new Page({
   }
 });
 
-// Get election mn-elections-api data
-api('election', 'election')
-  .then(election => {
-    page.set({ election: election });
-  })
-  .catch(handleError);
-
 // Get search data.  TODO, move to search component
 api('results', 'all-search')
   .then(search => {

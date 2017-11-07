@@ -6,6 +6,10 @@
     <div class="test-notice">Currently serving test results, live results will show up starting around 8:00pm on election night.</div>
   {{/if}}
 
+  {{#if (election && election.notes) }}
+    <div class="election-notice">{{{ election.notes }}}</div>
+  {{/if}}
+
   <GroupNav router="{{ router }}" lastRoute="{{ lastRoute }}" />
 
   <div class="election-app-main" aria-relevant="all">
@@ -24,6 +28,7 @@
 
 
 <script>
+import api from '../api.js';
 import Dashboard from './dashboard.svelte.html';
 import Search from './search.svelte.html';
 import Contest from './contest.svelte.html';
@@ -46,6 +51,38 @@ export default {
         this.set(d);
       }
     });
+
+    // Load data
+    this.loadData();
+
+    // Poll data
+    this.dataInterval = setInterval(_.bind(this.loadData, this), 60000);
+  },
+
+  ondestroy: function() {
+    // Note that using a this.set(interval) does not seem to work, maybe
+    // the value is destroyed before this is called.
+    if (this.dataInterval) {
+      clearInterval(this.dataInterval);
+    }
+  },
+
+  methods: {
+    loadData: function() {
+      this.set({ updating: true });
+
+      api('election', 'election')
+        .then(election => {
+          if (election) {
+            this.set({ election: election });
+          }
+          this.set({ updating: false });
+        })
+        .catch(e => {
+          this.set({ updating: false });
+          console.error(e);
+        });
+    }
   }
 };
 </script>

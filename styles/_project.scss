@@ -52,12 +52,17 @@ ul.article-tools.nav.story-share.body-sharing-top {
     margin-bottom: 0.15em;
   }
 
-  .test-notice {
+  .test-notice,
+  .election-notice {
     font-size: 0.85em;
     padding: 1em;
     margin-bottom: 2em;
     text-align: center;
-    background-color: yellow;
+    background-color: #E9FA00;
+  }
+
+  .election-notice {
+    background-color: #FFA42E;
   }
 
   .loading {

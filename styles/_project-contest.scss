@@ -9,12 +9,15 @@
     line-height: 1.25em;
     padding-bottom: 0.25em;
     margin-bottom: 0;
+  }
 
-    .muted {
-      font-weight: normal;
-      font-size: 0.8em;
-      margin-top: 15px;
-    }
+  .muted {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 1.25em;
+    margin-top: 0.15em;
+    margin-bottom: 0.85em;
   }
 
   .reporting {
@@ -131,7 +134,7 @@
       }
     }
   }
-    
+
     th.heading-alternate.VotesColumn.choice {
     width: 12%;
 }
@@ -149,11 +152,11 @@ th.heading-alternate.choice {
         width: 100%;
       }
     }
-      
+
     span.ranked-percent    {
         font-size: 0.9em;
-    }  
-  }    
+    }
+  }
 }
 
 th.election-table-header-title.choice {

@@ -94,24 +94,24 @@
                   {{/if}}
 
                   {{#if !ranked}}
-                    <td class="candidate-name text-right">{{ formatVotes(candidate.votes) }}</td>
-                    <td class="candidate-name text-right">{{ formatPercent(candidate.percent) }}</td>
+                    <td class="candidate-name text-center">{{ formatVotes(candidate.votes) }}</td>
+                    <td class="candidate-name text-center">{{ formatPercent(candidate.percent) }}</td>
                   {{else}}
-                    <td class="candidate-name text-right">
+                    <td class="candidate-name text-center">
                       {{#if (candidate.votes && candidate.percent)}}
                         <span class="ranked-total">{{ formatVotes(candidate.votes) }}</span><br>
                         <span class="ranked-percent">{{ formatPercent(candidate.percent) }}</span>
                       {{/if}}
                     </td>
-                    <td class="candidate-name text-right">
+                    <td class="candidate-name text-center">
                       <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[0].rankedChoice)) ? '-' : formatVotes(candidate.ranks[0].votes) }}</span><br>
                       <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[0].rankedChoice)) ? '-' : formatPercent(candidate.ranks[0].percent) }}</span>
                     </td>
-                    <td class="candidate-name text-right">
+                    <td class="candidate-name text-center">
                       <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[1].rankedChoice)) ? '-' : formatVotes(candidate.ranks[1].votes) }}</span><br>
                       <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[1].rankedChoice)) ? '-' : formatPercent(candidate.ranks[1].percent) }}</span>
                     </td>
-                    <td class="candidate-name text-right">
+                    <td class="candidate-name text-center">
                       <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[2].rankedChoice)) ? '-' : formatVotes(candidate.ranks[2].votes) }}</span><br>
                       <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[2].rankedChoice)) ? '-' : formatPercent(candidate.ranks[2].percent) }}</span>
                     </td>

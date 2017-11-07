@@ -104,16 +104,16 @@
                       {{/if}}
                     </td>
                     <td class="candidate-name text-right">
-                      <span class="ranked-total">{{ formatVotes(candidate.ranks[0].votes) }}</span><br>
-                      <span class="ranked-percent">{{ formatPercent(candidate.ranks[0].percent) }}</span>
+                      <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[0].rankedChoice)) ? '-' : formatVotes(candidate.ranks[0].votes) }}</span><br>
+                      <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[0].rankedChoice)) ? '-' : formatPercent(candidate.ranks[0].percent) }}</span>
                     </td>
                     <td class="candidate-name text-right">
-                      <span class="ranked-total">{{ formatVotes(candidate.ranks[1].votes) }}</span><br>
-                      <span class="ranked-percent">{{ formatPercent(candidate.ranks[1].percent) }}</span>
+                      <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[1].rankedChoice)) ? '-' : formatVotes(candidate.ranks[1].votes) }}</span><br>
+                      <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[1].rankedChoice)) ? '-' : formatPercent(candidate.ranks[1].percent) }}</span>
                     </td>
                     <td class="candidate-name text-right">
-                      <span class="ranked-total">{{ formatVotes(candidate.ranks[2].votes) }}</span><br>
-                      <span class="ranked-percent">{{ formatPercent(candidate.ranks[2].percent) }}</span>
+                      <span class="ranked-total">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[2].rankedChoice)) ? '-' : formatVotes(candidate.ranks[2].votes) }}</span><br>
+                      <span class="ranked-percent">{{ (emptyRanks && ~emptyRanks.indexOf(candidate.ranks[2].rankedChoice)) ? '-' : formatPercent(candidate.ranks[2].percent) }}</span>
                     </td>
                   {{/if}}
                 </tr>
@@ -156,6 +156,22 @@ export default {
     this.observe(
       'candidates',
       (n, o) => {
+        // A bit of a hack.  Ranked choice might not have ranks reporting
+        // even though votes are being cast.  So, if we have some precincts
+        // reporting, but there are not votes for a specific rank
+        if (n && n.length && this.get('ranked') && this.get('precincts')) {
+          let empty = _.filter(
+            _.map(n[0].ranks, r => {
+              let votes = _.sumBy(n, c => {
+                return _.find(c.ranks, { rankedChoice: r.rankedChoice }).votes;
+              });
+              return votes ? null : r.rankedChoice;
+            })
+          );
+
+          this.set({ emptyRanks: empty });
+        }
+
         // If not candides on either side, either inital or something wrong
         if (!n || !o) {
           return;

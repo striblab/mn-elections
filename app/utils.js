@@ -31,7 +31,7 @@ class Util {
       this.options.useView === undefined ? true : this.options.useView;
     this.options.views = this.options.views || {
       develop: /localhost.*|127\.0\.0\.1.*/i,
-      staging: /staging/i
+      staging: /^.*staging.*\/.*/i
     };
 
     // Read in query params
@@ -56,8 +56,8 @@ class Util {
     if (this.options.useView) {
       let view;
       _.find(this.options.views, (match, v) => {
-        view = v;
-        return window.location.href.match(match) ? v : undefined;
+        view = window.location.href.match(match) ? v : undefined;
+        return view;
       });
 
       if (view) {

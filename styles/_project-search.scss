@@ -2,92 +2,93 @@
  * Search form
  */
 
+.election-app {
   hr.ele {
     display: none;
   }
 
-
-.search {
-  padding: 0.75em 0;
-  margin-bottom: 2em;
-
-  .search-form {
-    background-color: transparent;
-    display: block;
-    width: 100%;
-  }
-
-
-  input[type='search'] {
-    padding: 0.39em;
-    border: 1px solid #ccc;
-    display: inline-block;
-    width: 93%;
-  }
-
-  button {
-    background-color: white;
-    border: 1px solid #ccc;
-    color: #444;
-    height: 2em;
-    width: 2em;
-    display: inline-block;
-  }
-
-  .no-results {
-    margin-bottom: 2em;
-    font-size: 0.85em;
-    text-align: center;
-    color: #444;
-    margin-top: 20px;
-  }
-
-  .results {
+  .search {
+    padding: 0.75em 0;
     margin-bottom: 2em;
 
-    .result a {
+    .search-form {
+      background-color: transparent;
       display: block;
-      font-size: 0.85em;
-      padding: 0.15em 0.5em;
-      cursor: pointer;
+      width: 100%;
+    }
 
-      &:hover {
-        background-color: #f1f1f1;
+    input[type='search'] {
+      padding: 0.39em;
+      border: 1px solid #ccc;
+      display: inline-block;
+      width: 93%;
+    }
+
+    button {
+      background-color: white;
+      border: 1px solid #ccc;
+      color: #444;
+      height: 2em;
+      width: 2em;
+      display: inline-block;
+    }
+
+    .no-results {
+      margin-bottom: 2em;
+      font-size: 0.85em;
+      text-align: center;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    .results {
+      margin-top: 1.5em;
+      margin-bottom: 2em;
+
+      .result a {
+        display: block;
+        font-size: 0.85em;
+        padding: 0.35em 0.5em;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
       }
     }
   }
-}
 
-@media only screen and (max-width: $bp-small) {
-  .search input[type='search'] {
-    width: 96%;
-    padding: 10px;
-    border-color: rgb(166, 166, 166);
-    display: inline-block;
-    border-radius: 5px;
-  }
-    
-    .search {   
-        margin-bottom: -10px;
+  @media only screen and (max-width: $bp-small) {
+    .search input[type='search'] {
+      width: 96%;
+      padding: 10px;
+      border-color: rgb(166, 166, 166);
+      display: inline-block;
+      border-radius: 5px;
     }
 
-  hr.ele {
-    margin-top: 20px;
-    margin-bottom: 0;
-    width: 96%;
-    display: block;
-  }
+    .search {
+      margin-bottom: -10px;
+    }
 
-  .search .results .result a {
-    padding: 0.5em;
-  }
+    hr.ele {
+      margin-top: 20px;
+      margin-bottom: 0;
+      width: 96%;
+      display: block;
+    }
 
-  .search button {
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    right: 15%;
-    height: 2.5em;
-    width: 2.5em;
+    .search .results .result a {
+      padding: 0.5em;
+    }
+
+    .search button {
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 15%;
+      height: 2.5em;
+      width: 2.5em;
+    }
   }
 }

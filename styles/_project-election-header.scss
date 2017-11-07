@@ -18,7 +18,7 @@
   margin-right: auto;
 
   .election-results-header-title {
-    font: 700 2.2em/1.25 Popular, Helvetica, Arial, sans-serif;
+    font: 700 2.2em/1.25 $font-popular;
     text-transform: uppercase;
   }
 
@@ -43,7 +43,7 @@
 
     .election-legend-key {
       padding-left: 0.25em;
-        font-family: 'Benton Sans';
+      font-family: $font-benton-sans;
     }
   }
 }

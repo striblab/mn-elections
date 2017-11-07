@@ -119,6 +119,16 @@
       width: 15%;
     }
 
+    thead th.final-count {
+      width: 12%;
+      border-top: 0;
+      border-left: 0;
+    }
+
+    thead th.heading-alternate {
+      width: 10%;
+    }
+
     // Winner column
     thead th:nth-child(1) {
       width: 5%;
@@ -135,13 +145,6 @@
     }
   }
 
-    th.heading-alternate.VotesColumn.choice {
-    width: 12%;
-}
-
-th.heading-alternate.choice {
-    width: 10%;
-}
   // Responsive talbes for small ranked choice
   @media only screen and (max-width: $bp-xsmall) {
     &.ranked .responsive-table {
@@ -153,33 +156,8 @@ th.heading-alternate.choice {
       }
     }
 
-    span.ranked-percent    {
-        font-size: 0.9em;
+    span.ranked-percent {
+      font-size: 0.9em;
     }
   }
-}
-
-th.election-table-header-title.choice {
-    width: 10%;
-}
-
-th.heading-alternate.VotesColumn.choice {
-    border-top: 0px;
-    border-left: 0px;
-}
-
-@media screen and (max-width: $bp-small) {
-
-    input.search-input {
-    margin-left: 3%;
-}
-
-input.search-input {
-    margin-top: 6px;
-    width: 93% !important;
-    padding: 12px 45px 12px 12px !important;
-}
-    span.hide-search.icon-close {
-    margin-top: 4px;
-}
 }

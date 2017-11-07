@@ -17,6 +17,22 @@ ul.article-tools.nav.story-share.body-sharing-top {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: $bp-small) {
+  input.search-input {
+    margin-left: 3%;
+  }
+
+  input.search-input {
+    margin-top: 6px;
+    width: 93% !important;
+    padding: 12px 45px 12px 12px !important;
+  }
+
+  span.hide-search.icon-close {
+    margin-top: 4px;
+  }
+}
+
 // Inside app
 .election-app {
   -webkit-font-smoothing: antialiased;

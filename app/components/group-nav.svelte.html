@@ -54,17 +54,27 @@ export default {
       'navSelect',
       n => {
         if (n && this.get('router')) {
-          this.get('router').navigate(n);
+          // Some weird hack around some unusual infinite redirect problem
+          if (n.match(/\/\//g)) {
+            this.set('navSelect', n.replace(/\/\//g, '/'));
+          }
+          else {
+            this.get('router').navigate(n);
+          }
         }
       },
       { init: false }
     );
 
-    // Initial place
+    // Initial place. Only do once or we get infinte redirects
+    this.initiateLastRoute = false;
     this.observe(
       'lastRoute',
       n => {
-        this.set({ navSelect: n });
+        if (!this.initiateLastRoute) {
+          this.set({ navSelect: n });
+          this.initiateLastRoute = true;
+        }
       },
       { init: false }
     );
